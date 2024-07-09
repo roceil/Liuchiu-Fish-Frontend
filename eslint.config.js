@@ -8,15 +8,15 @@ export default antfu(
       overrides: {
         'vue/no-unused-vars': 'warn',
         'vue/max-attributes-per-line': 'error',
-        'vue/html-self-closing': ['error', {
-          html: {
-            void: 'never',
-            normal: 'never',
-            component: 'always',
-          },
-          svg: 'always',
-          math: 'always',
-        }],
+        // 'vue/html-self-closing': ['error', {
+        //   html: {
+        //     void: 'never',
+        //     normal: 'never',
+        //     component: 'always',
+        //   },
+        //   svg: 'always',
+        //   math: 'always',
+        // }],
       },
     },
     javascript: {
@@ -64,6 +64,7 @@ export default antfu(
       'src-tauri',
       'auto-imports.d.ts',
       'components.d.ts',
+      'tailwind.config.js',
     ],
   },
   /* From the second arguments they are ESLint Flat Configs */
