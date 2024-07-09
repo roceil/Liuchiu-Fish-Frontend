@@ -67,5 +67,3 @@ definePageMeta({
     </NuxtLink>
   </div>
 </template>
-
-<style scope></style>

@@ -14,6 +14,10 @@ export const useCounterStore = defineStore('counter', () => {
     increment,
     decrement,
   }
+}, {
+  persist: {
+    storage: persistedState.localStorage,
+  },
 })
 
 if (import.meta.hot)
