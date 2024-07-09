@@ -51,4 +51,18 @@
       </AlertDialogFooter>
     </AlertDialogContent>
   </AlertDialog>
+
+  <router-link
+    to="/ssr"
+    class="mt-2"
+  >
+    <Button>SSR Page</Button>
+  </router-link>
+
+  <router-link
+    to="/env"
+    class="mt-2"
+  >
+    <Button>env</Button>
+  </router-link>
 </template>
