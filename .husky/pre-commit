@@ -9,10 +9,10 @@ if [ "$branch_name" = "main" ]; then
   exit 1
 fi
 
-# 執行 ESLint 檢查並修復
+# 執行 ESLint 檢查
 echo "正在執行 ESLint 檢查..."
 echo ""
-npx eslint src/**/*.ts app.ts --fix
+pnpm run lint
 
 if [ $? -ne 0 ]; then
   echo "ESLint 檢查失敗，請修正錯誤後再提交！"
@@ -26,7 +26,7 @@ echo ""
 # 執行 TypeScript 類型檢查
 echo "正在進行 TypeScript 類型檢查..."
 echo ""
-npx tsc --noEmit
+pnpm run typecheck
 
 if [ $? -ne 0 ]; then
   echo "TypeScript 類型檢查失敗，請修正錯誤後再提交！"
@@ -36,3 +36,19 @@ fi
 
 echo "TypeScript 類型檢查通過。"
 echo ""
+
+# 可選：運行測試（如果您有設置測試腳本）
+# echo "正在運行測試..."
+# echo ""
+# pnpm run test
+
+# if [ $? -ne 0 ]; then
+#   echo "測試失敗，請修正錯誤後再提交！"
+#   echo ""
+#   exit 1
+# fi
+
+# echo "所有測試通過。"
+# echo ""
+
+echo "所有檢查都已通過。正在提交..."
