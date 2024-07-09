@@ -42,6 +42,12 @@ export default defineNuxtConfig({
     },
   },
 
+  vite: {
+    define: {
+      'process.env': process.env,
+    },
+  },
+
   typescript: {
     tsConfig: {
       compilerOptions: {
