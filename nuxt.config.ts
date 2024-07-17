@@ -1,6 +1,15 @@
 import { appDescription } from './constants/index'
 
 export default defineNuxtConfig({
+  app: {
+    baseURL: '/',
+    head: {
+      meta: [
+        { name: 'description', content: appDescription },
+      ],
+    },
+  },
+
   devtools: { enabled: true },
 
   modules: [
@@ -39,14 +48,6 @@ export default defineNuxtConfig({
 
   build: {
     transpile: ['@headlessui/vue'],
-  },
-
-  app: {
-    head: {
-      meta: [
-        { name: 'description', content: appDescription },
-      ],
-    },
   },
 
   vite: {
