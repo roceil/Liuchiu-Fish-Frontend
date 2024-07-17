@@ -1,2 +1,2 @@
-export const appName = 'Nuxt 3 Starter'
+export const appName = '琉球漁會'
 export const appDescription = 'Nuxt 3 Starter'
