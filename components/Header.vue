@@ -13,7 +13,7 @@ const navLinks = [
     <!-- Logo -->
     <div class="flex items-center justify-center">
       <NuxtImg
-        src="/logo.svg"
+        src="/public/logo.svg"
         class="h-[38px] w-[171px]"
       />
     </div>
