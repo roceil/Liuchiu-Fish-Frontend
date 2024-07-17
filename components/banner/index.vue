@@ -19,8 +19,8 @@
     </div>
   </div>
 
-  <NuxtImg
+  <img
     src="/banner/wave.png"
     class="w-full"
-  />
+  >
 </template>
