@@ -1,9 +1,25 @@
 import { appDescription } from './constants/index'
 
 export default defineNuxtConfig({
+  app: {
+    baseURL: '/',
+    head: {
+      meta: [
+        { name: 'description', content: appDescription },
+      ],
+    },
+  },
+
   devtools: { enabled: true },
 
-  modules: ['@pinia/nuxt', '@vueuse/nuxt', '@nuxtjs/tailwindcss', 'shadcn-nuxt', '@pinia-plugin-persistedstate/nuxt'],
+  modules: [
+    '@pinia/nuxt',
+    '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
+    'shadcn-nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
+    '@nuxt/image',
+  ],
 
   shadcn: {
     /**
@@ -34,14 +50,6 @@ export default defineNuxtConfig({
     transpile: ['@headlessui/vue'],
   },
 
-  app: {
-    head: {
-      meta: [
-        { name: 'description', content: appDescription },
-      ],
-    },
-  },
-
   vite: {
     define: {
       'process.env': process.env,
@@ -56,5 +64,4 @@ export default defineNuxtConfig({
       },
     },
   },
-
 })

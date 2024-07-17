@@ -16,6 +16,40 @@ module.exports = {
     },
     extend: {
       colors: {
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        // New color palette
         neutral: {
           900: '#111111',
           800: '#222222',
@@ -30,30 +64,35 @@ module.exports = {
           0: '#FFFFFF',
         },
         primary: {
-          950: '#242A47',
-          900: '#344174',
-          800: '#344174',
-          700: '#485EB8',
-          600: '#4F6CC1',
-          500: '#6285CE',
-          400: '#80A3DA',
-          300: '#A9C2E7',
-          200: '#CCDAF1',
-          100: '#E0EFFF',
-          50: '#EFF8FF',
+          900: '#03045E',
+          800: '#023E8A',
+          700: '#0077B6',
+          600: '#0096C7',
+          500: '#00B4D8',
+          400: '#48CAE4',
+          300: '#90E0EF',
+          200: '#ADE8F4',
+          100: '#CAF0F8',
+          50: '#E5FAFF',
         },
-        danger: {
-          200: '#D74F4F',
-          100: '#FCE8DB',
+        secondary: {
+          900: '#FF5400',
+          100: '#FFF3E5',
         },
         success: {
-          200: '#36A375',
-          100: '#D9FADE',
+          900: '#00A86B',
+          100: '#E5FFF6',
         },
         warning: {
-          200: '#F38B12',
-          100: '#FEF1CF',
+          900: '#FFC300',
+          100: '#FFF9E5',
         },
+      },
+      borderRadius: {
+        xl: 'calc(var(--radius) + 4px)',
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
         'accordion-down': {

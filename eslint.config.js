@@ -85,14 +85,6 @@ export default antfu(
       'tw/enforces-shorthand': 'error',
       'tw/migration-from-tailwind-2': 'error',
       'tw/no-arbitrary-value': 'off',
-      'tw/no-custom-classname': [
-        'error',
-        {
-          whitelist: [
-            'my\\-(.*)', // You can rewrite this regex
-          ],
-        },
-      ],
       'tw/no-contradicting-classname': 'error',
     },
   },
