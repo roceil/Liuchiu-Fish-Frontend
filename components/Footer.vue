@@ -41,10 +41,10 @@ const footerLinks = [
   <div class="border-t border-neutral-100">
     <div class="container flex items-start justify-between py-[60px]">
       <div class="flex flex-col">
-        <NuxtImg
+        <img
           src="/logo.svg"
           class="mr-6 h-12 w-[210px]"
-        />
+        >
         <div class="mt-[53px] flex flex-col text-xs text-neutral-500">
           <span>Copyright © 琉球區漁會 2024</span>
           <span>All Rights Reserved.</span>
