@@ -12,10 +12,10 @@ const navLinks = [
   <div class="container flex w-full items-center justify-between py-4">
     <!-- Logo -->
     <div class="flex items-center justify-center">
-      <NuxtImg
-        src="/public/logo.svg"
+      <img
+        src="/logo.svg"
         class="h-[38px] w-[171px]"
-      />
+      >
     </div>
 
     <!-- Nav Links -->
