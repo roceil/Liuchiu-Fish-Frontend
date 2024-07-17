@@ -9,39 +9,47 @@ const navLinks = [
 </script>
 
 <template>
-  <div class="container flex w-full items-center justify-between py-4">
-    <!-- Logo -->
-    <div class="flex items-center justify-center">
-      <img
-        src="/logo.svg"
-        class="h-[38px] w-[171px]"
-      >
-    </div>
-
-    <!-- Nav Links -->
-    <nav class="flex items-center justify-center">
-      <ul class="flex items-center">
-        <li
-          v-for="(link, index) in navLinks"
-          :key="link.name"
-          class="relative flex items-center"
+  <div class="shadow-bottom py-4 md:shadow-none">
+    <div class="container flex w-full items-center justify-between">
+      <!-- Logo -->
+      <div class="flex h-[34px] w-[154px] items-center justify-center md:h-[38px] md:w-[171px]">
+        <img
+          src="/logo.svg"
+          class="size-full"
         >
-          <a
-            class="px-4 py-2"
-            :href="link.href"
-          >{{ link.name }}</a>
-          <span
-            v-if="index < navLinks.length - 1"
-            class="absolute right-0 h-5 w-[1px] bg-neutral-200"
-          />
-        </li>
+      </div>
 
-        <li>
-          <Button class="rounded-lg px-6 py-3 text-primary-800">
-            選購商品
-          </Button>
-        </li>
-      </ul>
-    </nav>
+      <!-- Nav Links -->
+      <nav class="hidden items-center justify-center md:flex">
+        <ul class="flex items-center">
+          <li
+            v-for="(link, index) in navLinks"
+            :key="link.name"
+            class="relative flex items-center"
+          >
+            <a
+              class="px-4 py-2"
+              :href="link.href"
+            >{{ link.name }}</a>
+            <span
+              v-if="index < navLinks.length - 1"
+              class="absolute right-0 h-5 w-[1px] bg-neutral-200"
+            />
+          </li>
+
+          <li>
+            <Button class="rounded-lg px-6 py-3 text-primary-800">
+              選購商品
+            </Button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger Icon -->
+      <div class="flex space-x-[6px] md:hidden">
+        <div class="size-10 rounded-full border border-neutral-200" />
+        <div class="size-10 rounded-full border border-neutral-200" />
+      </div>
+    </div>
   </div>
 </template>
