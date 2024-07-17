@@ -1,68 +1,87 @@
+<script lang="ts" setup>
+const footerLinks = [
+  {
+    title: '琉漁小舖',
+    links: [
+      { text: '所有商品', url: '#' },
+      { text: '禮盒專區', url: '#' },
+      { text: '人氣特產', url: '#' },
+    ],
+  },
+  {
+    title: '關於琉漁',
+    links: [
+      { text: '沿革發展', url: '#' },
+      { text: '組織架構', url: '#' },
+      { text: '歷年進度', url: '#' },
+    ],
+  },
+  {
+    title: '業務部門',
+    links: [
+      { text: '輔導股', url: '#' },
+      { text: '會務股', url: '#' },
+      { text: '推廣股', url: '#' },
+      { text: '信用部', url: '#' },
+    ],
+  },
+  {
+    title: '便民服務',
+    links: [
+      { text: '(08)861-3491', url: 'tel:+88688613491', icon: 'phone' },
+      { text: '(08)861-3492', url: 'tel:+88688613492', icon: 'fax' },
+      { text: '929 屏東縣東港鎮新生路祥平山宮 231 號', url: 'https://maps.google.com/?q=929屏東縣東港鎮新生路祥平山宮231號', icon: 'location' },
+      { text: 'FB 粉絲專頁', url: '#', icon: 'facebook' },
+    ],
+  },
+]
+</script>
+
 <template>
-  <ul class="mt-6 flex justify-center gap-x-2 text-gray-600 dark:text-gray-400">
-    <li class="flex rounded transition-all hover:bg-gray-300/50 dark:hover:bg-gray-700/50">
-      <NuxtLink
-        class="p-1"
-        to="/"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-        ><path
-          fill="currentColor"
-          d="M4 21V9l8-6l8 6v12h-6v-7h-4v7H4Z"
-        /></svg>
-      </NuxtLink>
-    </li>
-  </ul>
+  <div class="border-t border-neutral-100">
+    <div class="container flex items-start justify-between py-[60px]">
+      <div class="flex flex-col">
+        <NuxtImg
+          src="/logo.svg"
+          class="mr-6 h-12 w-[210px]"
+        />
+        <div class="mt-[53px] flex flex-col text-xs text-neutral-500">
+          <span>Copyright © 琉球區漁會 2024</span>
+          <span>All Rights Reserved.</span>
+        </div>
+      </div>
 
-  <p class="mt-3 text-sm text-gray-700 dark:text-gray-300">
-    <em>
-      This Vue 3 template is inspired by
-      <NuxtLink
-        href="https://github.com/antfu/vitesse-nuxt3"
-        target="_blank"
-        class="text-sky-600 hover:text-sky-500 dark:text-sky-500 dark:hover:text-sky-400"
-      >
-        antfu/vitesse-nuxt3
-      </NuxtLink>
-    </em>
-  </p>
-
-  <AlertDialog>
-    <AlertDialogTrigger as-child>
-      <Button variant="outline">
-        Show Dialog
-      </Button>
-    </AlertDialogTrigger>
-    <AlertDialogContent>
-      <AlertDialogHeader>
-        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-        <AlertDialogDescription>
-          This action cannot be undone. This will permanently delete your
-          account and remove your data from our servers.
-        </AlertDialogDescription>
-      </AlertDialogHeader>
-      <AlertDialogFooter>
-        <AlertDialogCancel>Cancel</AlertDialogCancel>
-        <AlertDialogAction>Continue</AlertDialogAction>
-      </AlertDialogFooter>
-    </AlertDialogContent>
-  </AlertDialog>
-
-  <router-link
-    to="/ssr"
-    class="mt-2"
-  >
-    <Button>SSR Page</Button>
-  </router-link>
-
-  <router-link
-    to="/env"
-    class="mt-2"
-  >
-    <Button>env</Button>
-  </router-link>
+      <ul class="flex space-x-10">
+        <li
+          v-for="section in footerLinks"
+          :key="section.title"
+          class="flex min-w-[85px] flex-col"
+        >
+          <h3 class="mb-4 text-sm font-bold text-primary-700">
+            {{ section.title }}
+          </h3>
+          <ul class="space-y-2">
+            <li
+              v-for="link in section.links"
+              :key="link.text"
+              class="text-sm"
+            >
+              <a
+                :href="link.url"
+                class="flex items-center hover:text-primary-800"
+              >
+                <!-- <span
+                  v-if="link.icon"
+                  class="mr-2"
+                >
+                  {{ link.icon === 'phone' ? '📞' : link.icon === 'fax' ? '📠' : link.icon === 'location' ? '📍' : '📘' }}
+                </span> -->
+                {{ link.text }}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>

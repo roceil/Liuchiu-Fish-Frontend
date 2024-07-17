@@ -3,7 +3,14 @@ import { appDescription } from './constants/index'
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: ['@pinia/nuxt', '@vueuse/nuxt', '@nuxtjs/tailwindcss', 'shadcn-nuxt', '@pinia-plugin-persistedstate/nuxt'],
+  modules: [
+    '@pinia/nuxt',
+    '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
+    'shadcn-nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
+    '@nuxt/image',
+  ],
 
   shadcn: {
     /**
@@ -56,5 +63,4 @@ export default defineNuxtConfig({
       },
     },
   },
-
 })
