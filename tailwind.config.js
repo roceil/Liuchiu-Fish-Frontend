@@ -105,6 +105,12 @@ module.exports = {
         'regular': '400',
         'bold': '700',
       },
+      backgroundImage: {
+        'wave-top-sm': "url('/banner/wave-top-sm.svg')",
+        'wave-top': "url('/banner/wave-top.svg')",
+        'wave-bottom-sm': "url('/banner/wave-bottom-sm.svg')",
+        "net-bg": "url('/about/net-bg.png')",
+      },
     },
   },
   plugins: [animate],
