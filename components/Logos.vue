@@ -5,10 +5,10 @@
       to="https://nuxt.com/"
       target="_blank"
     >
-      <img
+      <NuxtImg
         src="/icon-nuxt.svg"
         class="inline-block size-16"
-      >
+      />
       <span class="text-green-500">Nuxt 3</span>
     </NuxtLink>
     <NuxtLink

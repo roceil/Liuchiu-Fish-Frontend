@@ -36,11 +36,11 @@ const headerClasses = computed(() => [
     <div class="container flex w-full items-center justify-between">
       <!-- Logo -->
       <div class="flex h-[34px] w-[154px] items-center justify-center md:h-[38px] md:w-[171px]">
-        <img
+        <NuxtImg
           src="/logo.svg"
           class="size-full"
           alt="Logo"
-        >
+        />
       </div>
 
       <!-- Nav Links -->
