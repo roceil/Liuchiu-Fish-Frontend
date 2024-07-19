@@ -21,14 +21,14 @@ const props = defineProps({
     <div class="absolute bottom-0 right-[3.43px] size-6 border-r border-black" />
 
     <h2
-      :class="cn('text-3xl md:hidden', props.class)"
+      :class="cn('text-3xl md:hidden font-bold', props.class)"
     >
       {{ props.text }}
     </h2>
 
     <h2
       class="title"
-      :class="cn('text-[40px] hidden md:block tracking-[1rem]', props.class)"
+      :class="cn('text-[40px] hidden md:block tracking-[1rem] font-bold', props.class)"
     >
       {{ props.text }}
     </h2>
