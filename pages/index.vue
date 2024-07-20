@@ -3,8 +3,9 @@
 </script>
 
 <template>
-  <div class="">
-    <Banner />
-    <Space />
-  </div>
+  <Banner />
+  <Intro />
+  <Products />
+  <News />
+  <About />
 </template>

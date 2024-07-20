@@ -9,25 +9,36 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-      },
+      padding: '16px',
+    },
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '991px',
+      // => @media (min-width: 1024px) { ... }
+
+      'lg': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      'xl': '1440px',
+      // => @media (min-width: 1440px) { ... }
     },
     extend: {
       colors: {
         neutral: {
-          900: '#111111',
-          800: '#222222',
-          700: '#333333',
-          600: '#444444',
-          500: '#555555',
-          400: '#666666',
-          300: '#777777',
-          200: '#888888',
-          100: '#999999',
-          50: '#EEEEEE',
-          0: '#FFFFFF',
+          950: '#202529',
+          900: '#2F353C',
+          800: '#353E46',
+          700: '#3C4954',
+          600: '#4A5C6A',
+          500: '#5E7383',
+          400: '#7D909E',
+          300: '#A9B6C0',
+          200: '#D0D7DD',
+          100: '#E9EDF0',
+          50: '#F8F9FA',
+          white: '#FFFFFF',
         },
         primary: {
           950: '#242A47',
@@ -79,21 +90,27 @@ module.exports = {
         'collapsible-down': 'collapsible-down 0.2s ease-in-out',
         'collapsible-up': 'collapsible-up 0.2s ease-in-out',
       },
-      // Typography settings
       fontSize: {
-        'h1': ['48px', { lineHeight: '48px', letterSpacing: '8px' }],
-        'h2': ['30px', { lineHeight: '36px', letterSpacing: '8px' }],
-        'h3': ['24px', { lineHeight: '32px', letterSpacing: '8px' }],
-        'h4': ['20px', { lineHeight: '28px', letterSpacing: '8px' }],
-        'h5': ['18px', { lineHeight: '28px', letterSpacing: '8px' }],
-        'h6': ['16px', { lineHeight: '24px', letterSpacing: '8px' }],
-        'text-1': ['16px', { lineHeight: '24px', letterSpacing: '5px' }],
-        'text-2': ['14px', { lineHeight: '24px', letterSpacing: '5px' }],
-        'text-3': ['12px', { lineHeight: '20px', letterSpacing: '5px' }],
+        'h1': ['48px', { lineHeight: '120%', letterSpacing: '8em' }],
+        'h2': ['30px', { lineHeight: '120%', letterSpacing: '8em' }],
+        'h3': ['24px', { lineHeight: '120%', letterSpacing: '8em' }],
+        'h4': ['20px', { lineHeight: '120%', letterSpacing: '8em' }],
+        'h5': ['18px', { lineHeight: '120%', letterSpacing: '8em' }],
+        'h6': ['16px', { lineHeight: '120%', letterSpacing: '8em' }],
+        'text-1': ['16px', { lineHeight: '150%', letterSpacing: '5em' }],
+        'text-2': ['14px', { lineHeight: '150%', letterSpacing: '5em' }],
+        'text-3': ['12px', { lineHeight: '150%', letterSpacing: '5em' }],
       },
       fontWeight: {
         'regular': '400',
         'bold': '700',
+      },
+      backgroundImage: {
+        'wave-top-sm': "url('/banner/wave-top-sm.svg')",
+        'wave-top': "url('/banner/wave-top.svg')",
+        'wave-bottom-sm': "url('/banner/wave-bottom-sm.svg')",
+        'wave-bottom': "url('/intro/wave-bottom.svg')",
+        "net-bg": "url('/about/net-bg.png')",
       },
     },
   },
