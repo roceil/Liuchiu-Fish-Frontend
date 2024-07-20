@@ -48,7 +48,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :class="cn('flex h-52 items-start font-sans', props.class)">
+  <div :class="cn('flex h-52 items-start', props.class)">
     <div
       ref="line"
       class="relative mr-1 h-full w-[1px] bg-primary-700"
