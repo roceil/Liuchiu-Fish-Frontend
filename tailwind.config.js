@@ -109,6 +109,7 @@ module.exports = {
         'wave-top-sm': "url('/banner/wave-top-sm.svg')",
         'wave-top': "url('/banner/wave-top.svg')",
         'wave-bottom-sm': "url('/banner/wave-bottom-sm.svg')",
+        'wave-bottom': "url('/intro/wave-bottom.svg')",
         "net-bg": "url('/about/net-bg.png')",
       },
     },

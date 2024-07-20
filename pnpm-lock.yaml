@@ -8,6 +8,9 @@ dependencies:
   '@headlessui/vue':
     specifier: ^1.7.19
     version: 1.7.19(vue@3.4.21)
+  '@vueuse/core':
+    specifier: ^10.11.0
+    version: 10.11.0(vue@3.4.21)
   animejs:
     specifier: ^3.2.2
     version: 3.2.2
@@ -17,6 +20,9 @@ dependencies:
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
+  embla-carousel-vue:
+    specifier: ^8.1.7
+    version: 8.1.7(vue@3.4.21)
   lucide-vue-next:
     specifier: ^0.403.0
     version: 0.403.0(vue@3.4.21)
@@ -40,6 +46,9 @@ devDependencies:
   '@nuxt/image':
     specifier: ^1.7.0
     version: 1.7.0
+  '@nuxtjs/google-fonts':
+    specifier: ^3.2.0
+    version: 3.2.0
   '@nuxtjs/tailwindcss':
     specifier: ^6.12.0
     version: 6.12.0
@@ -907,7 +916,7 @@ packages:
     dependencies:
       '@floating-ui/dom': 1.6.7
       '@floating-ui/utils': 0.2.4
-      vue-demi: 0.14.7(vue@3.4.21)
+      vue-demi: 0.14.8(vue@3.4.21)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -1394,6 +1403,18 @@ packages:
       - vls
       - vti
       - vue-tsc
+    dev: true
+
+  /@nuxtjs/google-fonts@3.2.0:
+    resolution: {integrity: sha512-cGAjDJoeQ2jm6VJCo4AtSmKO6KjsbO9RSLj8q261fD0lMVNMZCxkCxBkg8L0/2Vfgp+5QBHWVXL71p1tiybJFw==}
+    dependencies:
+      '@nuxt/kit': 3.12.3(magicast@0.3.4)
+      google-fonts-helper: 3.6.0
+      pathe: 1.1.2
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
     dev: true
 
   /@nuxtjs/tailwindcss@6.12.0:
@@ -2586,7 +2607,7 @@ packages:
   /@vueuse/shared@10.9.0(vue@3.4.21):
     resolution: {integrity: sha512-Uud2IWncmAfJvRaFYzv5OHDli+FbOzxiVEQdLCKQKLyhz94PIyFC3CHcH7EDMwIn8NPtD06+PNbC/PiO0LGLtw==}
     dependencies:
-      vue-demi: 0.14.7(vue@3.4.21)
+      vue-demi: 0.14.8(vue@3.4.21)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -3766,6 +3787,28 @@ packages:
     resolution: {integrity: sha512-vDarADhwntXiULEdmWd77g2dV6FrNGa8ecAC29MZ4TwPut2fvosD0/5sJd1qWNNe8HcJFAC+F5Lf9jW1NPtWmw==}
     dev: true
 
+  /embla-carousel-reactive-utils@8.1.7(embla-carousel@8.1.7):
+    resolution: {integrity: sha512-FDPcWjNtW04KSuvSfGbVeoB8yl5no3E0++HikO/uW12cNkMnWt68C4OBOakZQZlpUdRQSA9KCYoBuQzfpVGvZQ==}
+    peerDependencies:
+      embla-carousel: 8.1.7
+    dependencies:
+      embla-carousel: 8.1.7
+    dev: false
+
+  /embla-carousel-vue@8.1.7(vue@3.4.21):
+    resolution: {integrity: sha512-cYTIGghkKOeMPI154mz1L60yCW6QMnsgKssEaHHfQ7aYo8KHKlvaY47ZWr5zVpBfSoKfSbB1mgPGvZxrj6Mvpg==}
+    peerDependencies:
+      vue: ^3.2.37
+    dependencies:
+      embla-carousel: 8.1.7
+      embla-carousel-reactive-utils: 8.1.7(embla-carousel@8.1.7)
+      vue: 3.4.21(typescript@5.4.3)
+    dev: false
+
+  /embla-carousel@8.1.7:
+    resolution: {integrity: sha512-b3kBr2H+S1gx4neki0P+aqN6cA5Ibjqy4CR3Ufi3X+Q3JpoNXJgOmJMSPkoP9DKcDREwADN6UWZzRwF2oo0y9Q==}
+    dev: false
+
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
 
@@ -4756,6 +4799,15 @@ packages:
       path-type: 5.0.0
       slash: 5.1.0
       unicorn-magic: 0.1.0
+    dev: true
+
+  /google-fonts-helper@3.6.0:
+    resolution: {integrity: sha512-ReantWd/l8dedKqTYjvqaQ55rAl/rbRqWL5VXHNXtGwIhMX4N8VNA7V19drr7xiv5G3pzlYID0K4FauvGqnWEg==}
+    dependencies:
+      deepmerge: 4.3.1
+      hookable: 5.5.3
+      ofetch: 1.3.4
+      ufo: 1.5.3
     dev: true
 
   /graceful-fs@4.2.11:
@@ -6230,6 +6282,14 @@ packages:
     dependencies:
       destr: 2.0.3
       node-fetch-native: 1.6.2
+      ufo: 1.5.3
+    dev: true
+
+  /ofetch@1.3.4:
+    resolution: {integrity: sha512-KLIET85ik3vhEfS+3fDlc/BAZiAp+43QEC/yCo5zkNoY2YaKvNkOaFr/6wCFgFH1kuYQM5pMNi0Tg8koiIemtw==}
+    dependencies:
+      destr: 2.0.3
+      node-fetch-native: 1.6.4
       ufo: 1.5.3
     dev: true
 
@@ -8538,6 +8598,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.4.21(typescript@5.4.3)
+    dev: true
 
   /vue-demi@0.14.8(vue@3.4.21):
     resolution: {integrity: sha512-Uuqnk9YE9SsWeReYqK2alDI5YzciATE0r2SkA6iMAtuXvNTMNACJLJEXNXaEy94ECuBe4Sk6RzRU80kjdbIo1Q==}
@@ -8552,7 +8613,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.4.21(typescript@5.4.3)
-    dev: false
 
   /vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}

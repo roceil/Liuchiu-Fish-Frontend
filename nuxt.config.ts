@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxt/image',
+    '@nuxtjs/google-fonts',
   ],
 
   shadcn: {
@@ -31,6 +32,16 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: './components/ui',
+  },
+
+  googleFonts: {
+    families: {
+      'Montserrat': [400, 700],
+      'Noto+Sans+TC': [400, 700],
+      'Noto+Serif+TC': [400, 700],
+    },
+    display: 'swap', // 自定義字體加載完成之前先使用一個後備字體
+    download: false, // 不要下載字體文件到本地使用 CDN
   },
 
   postcss: {
