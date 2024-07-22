@@ -19,7 +19,6 @@ const props = withDefaults(defineProps<Props>(), {
   <Primitive
     :as="as"
     :as-child="asChild"
-    class="my-border"
     :class="cn(
       buttonVariants({ variant, size }),
       props.class,
@@ -28,10 +27,3 @@ const props = withDefaults(defineProps<Props>(), {
     <slot />
   </Primitive>
 </template>
-
-<style scoped>
-.my-border {
-  border-radius: 8px;
-  border: 1.5px solid var(--Primary-800, #3C4B91);
-}
-</style>

@@ -56,7 +56,7 @@ const contentList = [
 
             <!-- 裝飾用圖片 -->
             <div
-              class="absolute left-1/2 top-4 size-[120px] -translate-x-1/2 -translate-y-full md:top-1/2 md:h-[266px] md:w-[250px] md:-translate-y-1/2"
+              class="absolute left-1/2 top-4 size-[120px] -translate-x-1/2 -translate-y-full md:top-1/2 md:size-[250px] md:-translate-y-1/2"
               :class="[
                 index % 2 === 0
                   ? 'md:left-[-80px] md:-translate-x-1/2'
@@ -66,7 +66,7 @@ const contentList = [
               <NuxtImg
                 :src="content.images"
                 :alt="content.title"
-                class="rounded-full border-2 border-primary-700 bg-white"
+                class="rounded-full border-2 border-primary-700 bg-white size-full object-cover"
               />
 
               <!-- 裝飾用 Tag -->

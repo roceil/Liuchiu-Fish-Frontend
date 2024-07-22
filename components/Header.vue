@@ -60,9 +60,8 @@ const headerClasses = computed(() => [
               class="absolute right-0 h-5 w-[1px] bg-neutral-200"
             />
           </li>
-
           <li>
-            <Button class="rounded-lg px-6 py-3 text-primary-800 transition-colors duration-200 hover:bg-primary-50">
+            <Button>
               選購商品
             </Button>
           </li>

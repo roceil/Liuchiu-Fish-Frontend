@@ -22,8 +22,35 @@
     box-shadow: 0px 12px 20px -4px rgba(36, 42, 71, 0.04), 0px 4px 20px -4px rgba(36, 42, 71, 0.11);
   }
   .cs-border-1_5 {
-    box-shadow: 0 0 0 1.5px theme('colors.primary.700');
+    box-shadow: 0 0 0 1.5px theme('colors.primary.800');
   }
+  .cs-border-1_5:hover {
+    box-shadow: 0 0 0 1.5px theme('colors.primary.600');
+  }
+  .cs-border-1_5:focus {
+    outline: none;
+    color: theme('colors.primary.600');
+    box-shadow: 0 0 0 1.5px theme('colors.primary.600'), 0 0 0 4px #CCDAF1;
+  }
+.cs-border-1_5:disabled {
+  outline: none;
+  box-shadow: 0 0 0 1.5px theme('colors.neutral.300');
+}
+.cs-border-1_5_icon {
+  color: theme('colors.neutral.500');
+  box-shadow: 0 0 0 1.5px theme('colors.neutral.500');
+}
+.cs-border-1_5_icon:hover {
+  color: theme('colors.neutral.950');
+  box-shadow: 0 0 0 1.5px theme('colors.neutral.950');
+}
+.cs-border-1_5_icon:disabled {
+  outline: none;
+  box-shadow: 0 0 0 1.5px theme('colors.neutral.300');
+}
+.cs-border-1_5_tag {
+  box-shadow: 0 0 0 1.5px theme('colors.primary.700');
+}
   .serif {
     font-family: 'Noto Serif TC', 'Noto Sans TC', Georgia, Cambria, 'Times New Roman', Times, serif;
   }

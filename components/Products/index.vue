@@ -76,15 +76,13 @@ import Title from '~/components/Title.vue'
               </CarouselItem>
             </CarouselContent>
 
-            <CarouselPrevious class="absolute right-4 top-0 -translate-x-full !rounded-full" />
-            <CarouselNext class="absolute right-0 top-0 !rounded-full" />
+            <CarouselPrevious class="cs-border-1_5_icon absolute right-4 top-0 -translate-x-full !rounded-full focus:bg-primary-50" />
+            <CarouselNext class="cs-border-1_5_icon absolute right-0 top-0 !rounded-full focus:bg-primary-50" />
           </Carousel>
         </div>
 
         <div class="flex w-full justify-center">
-          <Button
-            class="mt-10 text-primary-700"
-          >
+          <Button>
             查看所有商品
           </Button>
         </div>
