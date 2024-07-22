@@ -66,7 +66,7 @@ const contentList = [
               <NuxtImg
                 :src="content.images"
                 :alt="content.title"
-                class="rounded-full border-2 border-primary-700 bg-white size-full object-cover"
+                class="size-full rounded-full border-2 border-primary-700 bg-white object-cover"
               />
 
               <!-- 裝飾用 Tag -->
