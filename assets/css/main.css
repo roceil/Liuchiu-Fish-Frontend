@@ -21,6 +21,9 @@
   .cs-shadow-lg {
     box-shadow: 0px 12px 20px -4px rgba(36, 42, 71, 0.04), 0px 4px 20px -4px rgba(36, 42, 71, 0.11);
   }
+  .cs-border-1_5_p_600 {
+    box-shadow: 0 0 0 1.5px theme('colors.primary.600');
+  }
   .cs-border-1_5 {
     box-shadow: 0 0 0 1.5px theme('colors.primary.800');
   }

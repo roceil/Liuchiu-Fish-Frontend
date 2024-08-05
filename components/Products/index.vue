@@ -13,29 +13,8 @@ import Title from '~/components/Title.vue'
           <li
             v-for="(item, index) in 3"
             :key="index"
-            class="relative"
           >
-            <div class="absolute -top-3 left-4 border-x-2 border-danger-200 bg-white/90 px-3 py-1">
-              <p class="text-sm font-bold text-danger-200">
-                熱銷 No. 1
-              </p>
-            </div>
-
-            <div class="h-[162px] w-full rounded-xl ring-1" />
-
-            <div class="pb-4 pt-2">
-              <h3 class="font-bold">
-                特及鮮魚肝
-              </h3>
-
-              <div class="mt-1 flex justify-between">
-                <p>NT 300</p>
-                <div class="flex items-center justify-center space-x-1">
-                  <button>查看更多</button>
-                  <div class="size-6 rounded-full bg-primary-700" />
-                </div>
-              </div>
-            </div>
+            <ProductsCard />
           </li>
         </ul>
 
@@ -54,25 +33,10 @@ import Title from '~/components/Title.vue'
                 :key="index"
                 class="basis-1/2 lg:basis-1/3"
               >
-                <div class="flex h-[162px] w-[290px] items-center justify-center rounded-xl bg-slate-300">
-                  {{ index }}
-                </div>
-
-                <div class="py-2">
-                  <h3 class="font-bold">
-                    特及鮮魚肝
-                  </h3>
-
-                  <div class="mt-1 flex justify-between">
-                    <p>NT 300</p>
-                    <div
-                      class="items -center flex justify-center space-x-1"
-                    >
-                      <button>查看更多</button>
-                      <div class="size-6 rounded-full bg-primary-700" />
-                    </div>
-                  </div>
-                </div>
+                <ProductsCard
+                  class="mt-[13px]"
+                  :index="index"
+                />
               </CarouselItem>
             </CarouselContent>
 

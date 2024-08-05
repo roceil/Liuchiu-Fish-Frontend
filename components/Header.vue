@@ -2,8 +2,8 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 const navLinks = [
-  { name: '琉漁小舖', href: '#' },
-  { name: '關於琉漁', href: '#' },
+  { name: '琉漁小舖', href: '/shopping-mall' },
+  { name: '關於琉漁', href: '/about-us' },
   { name: '業務部門', href: '#' },
   { name: '訊息公告', href: '#' },
   { name: '便民服務', href: '#' },
@@ -35,13 +35,16 @@ const headerClasses = computed(() => [
   <div :class="headerClasses">
     <div class="container flex w-full items-center justify-between">
       <!-- Logo -->
-      <div class="flex h-[34px] w-[154px] items-center justify-center md:h-[38px] md:w-[171px]">
+      <router-link
+        to="/"
+        class="flex h-[34px] w-[154px] items-center justify-center md:h-[38px] md:w-[171px]"
+      >
         <NuxtImg
           src="/logo.svg"
           class="size-full"
           alt="Logo"
         />
-      </div>
+      </router-link>
 
       <!-- Nav Links -->
       <nav class="hidden items-center justify-center md:flex">
