@@ -18,13 +18,13 @@ const contentList = [
   {
     title: '生態導覽',
     description: '小琉球位於南台灣屏東縣東港西南方，自東港搭船只需半小時即可到達，是台灣唯一的珊瑚礁島。島上觀光資源豐富，隨處可見的奇岩怪石、生態豐富的潮間帶、炫麗動人的琉球曉霞、夜晚的燦爛星空及螢火蟲。',
-    images: '/about/01.svg',
+    images: '/about/04.svg',
   },
 ]
 </script>
 
 <template>
-  <div class="w-full bg-[#FDFCF6] bg-net-bg">
+  <div class="bg-net-bg-sm md:bg-net-bg-sm w-full bg-[#FDFCF6]">
     <div class="container relative flex justify-center py-[60px] md:max-w-[1280px] md:py-[100px]">
       <h2 class="serif absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 text-3xl font-bold md:hidden">
         關於小琉球

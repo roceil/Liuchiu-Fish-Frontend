@@ -8,4 +8,5 @@
   <Products />
   <News />
   <About />
+  <IntroPort />
 </template>
