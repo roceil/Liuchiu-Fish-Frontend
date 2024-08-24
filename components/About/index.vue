@@ -18,13 +18,13 @@ const contentList = [
   {
     title: '生態導覽',
     description: '小琉球位於南台灣屏東縣東港西南方，自東港搭船只需半小時即可到達，是台灣唯一的珊瑚礁島。島上觀光資源豐富，隨處可見的奇岩怪石、生態豐富的潮間帶、炫麗動人的琉球曉霞、夜晚的燦爛星空及螢火蟲。',
-    images: '/about/01.svg',
+    images: '/about/04.svg',
   },
 ]
 </script>
 
 <template>
-  <div class="w-full bg-[#FDFCF6] bg-net-bg">
+  <div class="w-full bg-[#FDFCF6] bg-net-bg-sm md:bg-net-bg-sm">
     <div class="container relative flex justify-center py-[60px] md:max-w-[1280px] md:py-[100px]">
       <h2 class="serif absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 text-3xl font-bold md:hidden">
         關於小琉球
@@ -56,7 +56,7 @@ const contentList = [
 
             <!-- 裝飾用圖片 -->
             <div
-              class="absolute left-1/2 top-4 size-[120px] -translate-x-1/2 -translate-y-full md:top-1/2 md:h-[266px] md:w-[250px] md:-translate-y-1/2"
+              class="absolute left-1/2 top-4 size-[120px] -translate-x-1/2 -translate-y-full md:top-1/2 md:size-[250px] md:-translate-y-1/2"
               :class="[
                 index % 2 === 0
                   ? 'md:left-[-80px] md:-translate-x-1/2'
@@ -66,7 +66,7 @@ const contentList = [
               <NuxtImg
                 :src="content.images"
                 :alt="content.title"
-                class="rounded-full border-2 border-primary-700 bg-white"
+                class="size-full rounded-full border-2 border-primary-700 bg-white object-cover"
               />
 
               <!-- 裝飾用 Tag -->
