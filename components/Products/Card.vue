@@ -16,7 +16,7 @@ const props = defineProps<{
     </div>
 
     <div :class="cn('', props.class)">
-      <div class="h-[162px] w-[290px] rounded-xl bg-primary-500 flex justify-center items-center">
+      <div class="flex h-[162px] w-[290px] items-center justify-center rounded-xl bg-primary-500">
         {{ props.index }}
       </div>
 

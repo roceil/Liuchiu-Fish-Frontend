@@ -24,7 +24,7 @@ const contentList = [
 </script>
 
 <template>
-  <div class="bg-net-bg-sm md:bg-net-bg-sm w-full bg-[#FDFCF6]">
+  <div class="w-full bg-[#FDFCF6] bg-net-bg-sm md:bg-net-bg-sm">
     <div class="container relative flex justify-center py-[60px] md:max-w-[1280px] md:py-[100px]">
       <h2 class="serif absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 text-3xl font-bold md:hidden">
         關於小琉球

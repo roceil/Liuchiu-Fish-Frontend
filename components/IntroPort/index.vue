@@ -52,7 +52,7 @@ const portList = [
         >
           <div class="relative min-h-[403px] w-full rounded-[20px] bg-neutral-50 px-6 py-10 md:min-h-[463px]">
             <!-- 漁港名稱 -->
-            <div class="absolute left-1/2 top-0 h-[58px] w-[144px] -translate-x-1/2 -translate-y-10 rounded-[20px] bg-primary-100 md:opacity-0 duration-300 md:h-[83px] md:w-[192px] md:group-hover:translate-y-[-60px] md:group-hover:opacity-100  md:translate-y-0">
+            <div class="absolute left-1/2 top-0 h-[58px] w-[144px] -translate-x-1/2 -translate-y-10 rounded-[20px] bg-primary-100 duration-300 md:h-[83px] md:w-[192px] md:translate-y-0 md:opacity-0 md:group-hover:translate-y-[-60px]  md:group-hover:opacity-100">
               <div class="relative flex size-full items-center justify-center">
                 <NuxtImg
                   src="/introPort/polygon.svg"

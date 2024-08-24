@@ -49,7 +49,7 @@ const footerLinks = [
           src="/logo-sm.svg"
           class="h-[38px] w-[171px] md:hidden"
         />
-        <div class="mt-[53px] hidden flex-col text-xs text-neutral-500 md:flex space-y-1">
+        <div class="mt-[53px] hidden flex-col space-y-1 text-xs text-neutral-500 md:flex">
           <span>Copyright © 琉球區漁會 2024｜All Rights Reserved.</span>
           <span>Illustration made by Design.AI</span>
         </div>
