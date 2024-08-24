@@ -75,7 +75,7 @@ function showImg(linkType: string) {
           </ul>
 
           <div class="mt-9 flex items-center justify-center md:mt-[60px]">
-            <Button class="font-bold text-primary-700">
+            <Button>
               逛逛特產
             </Button>
           </div>

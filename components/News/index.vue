@@ -53,7 +53,7 @@
             </div>
 
             <!-- 裝飾用 Tag -->
-            <span class="cs-border-1_5 absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded bg-white px-3 py-2 text-xs font-bold text-primary-700 md:px-5 md:py-3 md:text-sm">News</span>
+            <span class="cs-border-1_5_tag absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded bg-white px-3 py-2 text-xs font-bold text-primary-700 md:px-5 md:py-3 md:text-sm">News</span>
           </div>
         </div>
       </div>
