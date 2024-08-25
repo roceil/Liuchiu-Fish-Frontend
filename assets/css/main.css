@@ -7,6 +7,7 @@
     scroll-behavior: smooth;
   }
   body {
+    @apply tracking-wider;
     font-family: 'Montserrat', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
 }
@@ -23,6 +24,9 @@
   }
   .cs-border-1_5_p_600 {
     box-shadow: 0 0 0 1.5px theme('colors.primary.600');
+  }
+  .cs-border-1_5_n_950 {
+    box-shadow: 0 0 0 1.5px theme('colors.neutral.950');
   }
   .cs-border-1_5 {
     box-shadow: 0 0 0 1.5px theme('colors.primary.800');

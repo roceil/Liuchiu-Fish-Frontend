@@ -28,8 +28,8 @@
                 class="py-3 md:py-4"
               >
                 <div class="flex space-x-3 md:space-x-6">
-                  <div>
-                    <div class="w-[76px] border-x-2 border-primary-700 bg-primary-50 px-3 py-1 text-xs font-bold text-primary-700">
+                  <div class="shrink-0">
+                    <div class="border-x-2 border-primary-700 bg-primary-50 px-3 py-1 text-xs font-bold text-primary-700">
                       琉漁小鋪
                     </div>
                   </div>
