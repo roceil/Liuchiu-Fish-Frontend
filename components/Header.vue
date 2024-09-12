@@ -32,7 +32,10 @@ const headerClasses = computed(() => [
 </script>
 
 <template>
-  <div :class="headerClasses">
+  <header
+    id="header"
+    :class="headerClasses"
+  >
     <div class="container flex w-full items-center justify-between">
       <!-- Logo -->
       <router-link
@@ -77,5 +80,5 @@ const headerClasses = computed(() => [
         <div class="size-10 rounded-full border border-neutral-200" />
       </div>
     </div>
-  </div>
+  </header>
 </template>
