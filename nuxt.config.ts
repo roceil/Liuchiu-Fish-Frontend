@@ -36,7 +36,7 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      'Montserrat': [400, 700],
+      'Montserrat': [400, 700, 900],
       'Noto+Sans+TC': [400, 700],
       'Noto+Serif+TC': [400, 700],
     },
