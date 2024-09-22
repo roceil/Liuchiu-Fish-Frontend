@@ -4,7 +4,7 @@ export const appName = '琉球漁會'
 export const appDescription = 'Nuxt 3 Starter'
 
 // 商品列表，用於渲染 ProductCard
-export const productsList = ref<Product[]>([
+export const productsList: Product[] = [
   {
     id: 1,
     hotSale: true,
@@ -26,7 +26,7 @@ export const productsList = ref<Product[]>([
     name: '好吃脂肪肝',
     price: 10000,
   },
-])
+]
 
 // 最新消息列表，用於渲染 HomeNewsListItem
 export const newsList: News[] = [
