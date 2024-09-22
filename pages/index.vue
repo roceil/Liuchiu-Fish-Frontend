@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <Banner />
-  <Intro />
-  <Products />
-  <News />
-  <About />
-  <IntroPort />
+  <HomeBanner />
+  <HomeIntro />
+  <HomeProducts />
+  <HomeNews />
+  <HomeAbout />
+  <HomeIntroPort />
 </template>

@@ -4,7 +4,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 const navLinks = [
   { name: '琉漁小舖', href: '/shopping-mall' },
   { name: '關於琉漁', href: '/about-us' },
-  { name: '業務部門', href: '#' },
+  { name: '業務部門', href: '/departments' },
   { name: '訊息公告', href: '/news' },
   { name: '便民服務', href: '/contact-us' },
 ]

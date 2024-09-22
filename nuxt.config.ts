@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxt/image',
     '@nuxtjs/google-fonts',
+    '@nuxt/icon',
   ],
 
   shadcn: {
