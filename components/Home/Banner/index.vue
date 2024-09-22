@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-
+import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
 </script>
 
 <template>
@@ -18,7 +18,6 @@
         />
       </div>
 
-      <!-- TODO:要討論字體問題 -->
       <div class="relative md:px-[46px]">
         <div class=" h-[131px] w-[295px] md:h-[501px] md:w-[198px]">
           <NuxtImg

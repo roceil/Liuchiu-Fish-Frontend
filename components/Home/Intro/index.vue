@@ -2,17 +2,17 @@
 const linksList = [
   {
     title: '琉漁小鋪',
-    link: '/about',
+    link: '/shopping-mall',
     icon: 'icon-shop',
   },
   {
     title: '關於琉漁',
-    link: '/products',
+    link: '/about-us',
     icon: 'icon-about',
   },
   {
     title: '業務部門',
-    link: '/events',
+    link: '/departments',
     icon: 'icon-department',
   },
   {
@@ -22,7 +22,7 @@ const linksList = [
   },
   {
     title: '便民服務',
-    link: '/contact',
+    link: '/contact-us',
     icon: 'icon-service',
   },
 ]
@@ -56,28 +56,32 @@ function showImg(linkType: string) {
 
           <ul class="mt-9 grid w-full grid-cols-3 md:flex md:max-w-[864px] md:justify-center">
             <li
-              v-for="(links, index) in linksList"
-              :key="index"
+              v-for="links in linksList"
+              :key="links.title"
               class="group flex cursor-pointer flex-col items-center justify-center p-3 md:px-5"
             >
-              <div class="cs-shadow-sm md:group-hover:cs-shadow-lg size-[90px] overflow-hidden rounded-full bg-white p-[21px] transition-all duration-300 md:size-[120px] md:p-7 md:group-hover:scale-110">
-                <NuxtImg
-                  :src="showImg(links.title)"
-                  :alt="links.title"
-                  class="size-full object-cover"
-                />
-              </div>
+              <NuxtLink :to="links.link">
+                <div class="cs-shadow-sm md:group-hover:cs-shadow-lg size-[90px] overflow-hidden rounded-full bg-white p-[21px] transition-all duration-300 md:size-[120px] md:p-7 md:group-hover:scale-110">
+                  <NuxtImg
+                    :src="showImg(links.title)"
+                    :alt="links.title"
+                    class="size-full object-cover"
+                  />
+                </div>
 
-              <p class="mt-2 text-center text-sm font-bold md:mt-4 md:text-base">
-                {{ links.title }}
-              </p>
+                <p class="mt-2 text-center text-sm font-bold md:mt-4 md:text-base">
+                  {{ links.title }}
+                </p>
+              </NuxtLink>
             </li>
           </ul>
 
           <div class="mt-9 flex items-center justify-center md:mt-[60px]">
-            <Button>
-              逛逛特產
-            </Button>
+            <NuxtLink to="/shopping-mall">
+              <Button>
+                逛逛特產
+              </Button>
+            </NuxtLink>
           </div>
         </div>
       </div>
