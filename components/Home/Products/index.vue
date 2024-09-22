@@ -1,5 +1,7 @@
 <script lang="ts" setup>
+import ProductsCard from './Card.vue'
 import Title from '~/components/Title.vue'
+import { productsList } from '~/constants'
 </script>
 
 <template>
@@ -11,10 +13,10 @@ import Title from '~/components/Title.vue'
         <!-- 手機版商品介紹 -->
         <ul class="w-[295px] space-y-12 md:hidden">
           <li
-            v-for="(item, index) in 3"
-            :key="index"
+            v-for="(product) in productsList"
+            :key="product.id"
           >
-            <ProductsCard />
+            <ProductsCard :product="product" />
           </li>
         </ul>
 
@@ -29,13 +31,13 @@ import Title from '~/components/Title.vue'
           >
             <CarouselContent>
               <CarouselItem
-                v-for="(item, index) in 9"
-                :key="index"
+                v-for="(product) in productsList"
+                :key="product.id"
                 class="basis-1/2 lg:basis-1/3"
               >
                 <ProductsCard
                   class="mt-[13px]"
-                  :index="index"
+                  :product="product"
                 />
               </CarouselItem>
             </CarouselContent>
@@ -45,7 +47,7 @@ import Title from '~/components/Title.vue'
           </Carousel>
         </div>
 
-        <div class="flex w-full justify-center">
+        <div class="mt-10 flex w-full justify-center">
           <Button>
             查看所有商品
           </Button>

@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import ProductsCard from '~/components/Home/Products/Card.vue'
+import { productsList } from '~/constants'
 </script>
 
 <template>
@@ -43,13 +45,11 @@
         <div class="container mx-auto px-4 py-[60px] md:py-20">
           <ul class="mx-auto grid max-w-[1312px] grid-cols-1 justify-items-center gap-x-10 gap-y-[60px] sm:grid-cols-2 sm:justify-items-center lg:grid-cols-3 xl:grid-cols-4">
             <li
-              v-for="(item, index) in 5"
-              :key="index"
+              v-for="(product) in productsList"
+              :key="product.id"
               class="w-full max-w-[290px]"
             >
-              <router-link :to="`/shopping-mall/${index}`">
-                <ProductsCard :index="index" />
-              </router-link>
+              <ProductsCard :product="product" />
             </li>
           </ul>
         </div>

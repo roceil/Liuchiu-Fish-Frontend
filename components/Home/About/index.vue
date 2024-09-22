@@ -1,26 +1,5 @@
 <script lang="ts" setup>
-const contentList = [
-  {
-    title: '認識小琉球',
-    description: '琉球嶼位於高屏溪口之西南，高雄市南南西方約十八浬之海上，孤懸海中狀似一隻飄浮於台灣海峽之鞋子，為台灣本島附近十四屬島中唯一珊瑚礁島嶼。',
-    images: '/about/01.svg',
-  },
-  {
-    title: '前進小琉球',
-    description: '小琉球位於台灣本島屏東縣西南方大海上，是台灣唯一的一座珊瑚礁島嶼。前往島上方式為自東港港口搭乘交通船，船行時間約 25 至 30 分鐘即可抵達。',
-    images: '/about/02.svg',
-  },
-  {
-    title: '觀光導覽',
-    description: '小琉球位於南台灣屏東縣東港西南方，自東港搭船只需半小時即可到達，是台灣唯一的珊瑚礁島。島上觀光資源豐富，隨處可見的奇岩怪石、生態豐富的潮間帶、炫麗動人的琉球曉霞、夜晚的燦爛星空及螢火蟲。',
-    images: '/about/03.svg',
-  },
-  {
-    title: '生態導覽',
-    description: '小琉球位於南台灣屏東縣東港西南方，自東港搭船只需半小時即可到達，是台灣唯一的珊瑚礁島。島上觀光資源豐富，隨處可見的奇岩怪石、生態豐富的潮間帶、炫麗動人的琉球曉霞、夜晚的燦爛星空及螢火蟲。',
-    images: '/about/04.svg',
-  },
-]
+import { contentList } from '~/constants'
 </script>
 
 <template>
@@ -36,7 +15,7 @@ const contentList = [
       <ul class="w-full space-y-12 md:max-w-[650px] md:space-y-[116px] lg:max-w-[769px]">
         <li
           v-for="(content, index) in contentList"
-          :key="index"
+          :key="content.title"
           class="w-full pt-[112px] md:w-[450px] md:py-10 lg:w-[569px]"
           :class="[
             index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto',
@@ -50,7 +29,7 @@ const contentList = [
               {{ content.title }}
             </p>
 
-            <p class="text-sm leading-[25px]">
+            <p class="text-sm leading-[25px] md:text-base">
               {{ content.description }}
             </p>
 

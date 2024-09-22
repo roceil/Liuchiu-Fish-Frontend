@@ -4,7 +4,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 const navLinks = [
   { name: '琉漁小舖', href: '/shopping-mall' },
   { name: '關於琉漁', href: '/about-us' },
-  { name: '業務部門', href: '#' },
+  { name: '業務部門', href: '/departments' },
   { name: '訊息公告', href: '/news' },
   { name: '便民服務', href: '/contact-us' },
 ]
@@ -32,7 +32,10 @@ const headerClasses = computed(() => [
 </script>
 
 <template>
-  <div :class="headerClasses">
+  <header
+    id="header"
+    :class="headerClasses"
+  >
     <div class="container flex w-full items-center justify-between">
       <!-- Logo -->
       <router-link
@@ -77,5 +80,5 @@ const headerClasses = computed(() => [
         <div class="size-10 rounded-full border border-neutral-200" />
       </div>
     </div>
-  </div>
+  </header>
 </template>
