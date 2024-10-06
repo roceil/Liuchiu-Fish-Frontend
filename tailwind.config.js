@@ -113,6 +113,7 @@ module.exports = {
         "net-bg": "url('/about/net-bg.png')",
         "net-bg-sm": "url('/about/net-bg-sm.svg')",
         "net-bg-sm-gray": "url('/about-us/net-bg-sm.svg')",
+        "net-blue": "url('/shopping-mall/bg-net-blue.svg')",
       },
     },
   },

@@ -35,7 +35,6 @@ const navLinks = [
           <NuxtLink
             :to="link.href"
             class="w-full border-b border-neutral-100 py-5 text-center text-sm"
-            :href="link.href"
           >
             {{ link.name }}
           </NuxtLink>
