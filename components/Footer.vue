@@ -39,7 +39,7 @@ const footerLinks = [
 
 <template>
   <div class="border-t border-neutral-100">
-    <div class="container items-start justify-between px-5 py-12 md:flex md:px-0 md:py-[60px]">
+    <div class="container items-start justify-between px-5 py-12 md:flex md:px-[120px] md:py-[60px] lg:max-w-none">
       <div class="flex flex-col">
         <NuxtImg
           src="/logo.svg"

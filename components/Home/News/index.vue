@@ -10,7 +10,7 @@ import { newsList } from '~/constants'
           最新消息
         </h2>
 
-        <div class="cs-shadow-sm relative mt-10 w-full rounded-[20px] bg-white md:mt-20 md:flex md:max-w-[1060px] md:justify-center md:space-x-6 md:px-12 md:pb-[90px] md:pt-[60px]">
+        <div class="cs-shadow-sm relative mt-10 w-full rounded-[20px] bg-white md:mt-20 md:flex md:max-w-[1060px] md:justify-between md:px-10 md:pb-[90px] md:pt-[60px] lg:px-12">
           <!-- 裝飾用照片 -->
           <div class="flex justify-center pb-6 pt-10 md:pt-0">
             <div class=" space-y-2 ">
@@ -34,7 +34,7 @@ import { newsList } from '~/constants'
           </div>
 
           <!-- 最新消息列表 -->
-          <div class="md:w-full">
+          <div class="w-full md:w-[70%]">
             <ul class="w-full border-y border-neutral-100 px-4 pb-[14px] pt-2 md:min-h-[248px] md:w-full md:rounded-lg md:border md:px-3">
               <HomeNewsListItem
                 :news-list="newsList"
