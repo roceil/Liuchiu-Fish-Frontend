@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+const hamburgerStore = useHamburgerStore()
 
 const navLinks = [
   { name: '琉漁小舖', href: '/shopping-mall' },
@@ -26,7 +26,7 @@ function handleScroll() {
 }
 
 const headerClasses = computed(() => [
-  'shadow-bottom sticky top-0 z-50 py-4 transition-all duration-300 ease-in-out',
+  'shadow-bottom sticky top-0 z-30 py-4 transition-all duration-300 ease-in-out',
   isScrolled.value ? 'bg-white/50 backdrop-blur' : 'bg-white',
 ])
 </script>
@@ -66,18 +66,33 @@ const headerClasses = computed(() => [
               class="absolute right-0 h-5 w-[1px] bg-neutral-200"
             />
           </li>
-          <li>
-            <Button>
-              選購商品
-            </Button>
+          <li class="ml-4">
+            <NuxtLink to="/shopping-mall">
+              <Button>
+                選購商品
+              </Button>
+            </NuxtLink>
           </li>
         </ul>
       </nav>
 
       <!-- Hamburger Icon -->
       <div class="flex space-x-[6px] md:hidden">
-        <div class="size-10 rounded-full border border-neutral-200" />
-        <div class="size-10 rounded-full border border-neutral-200" />
+        <div class="flex size-10 items-center justify-center rounded-full border border-neutral-200">
+          <NuxtImg
+            src="/header/shoppingBag.svg"
+            class="size-4"
+          />
+        </div>
+        <button
+          class="flex size-10 items-center justify-center rounded-full border border-neutral-200"
+          @click="hamburgerStore.openHamburgerMenu"
+        >
+          <NuxtImg
+            src="/header/alignRight.svg"
+            class="size-4"
+          />
+        </button>
       </div>
     </div>
   </header>

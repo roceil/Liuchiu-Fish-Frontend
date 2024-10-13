@@ -22,7 +22,7 @@ defineProps<{
         </div>
 
         <div class="w-full items-center justify-between space-y-1 md:flex md:space-y-0">
-          <p class="text-sm transition-all duration-300 md:text-base md:group-hover:text-primary-800">
+          <p class="min-w-full max-w-[230px] truncate text-sm transition-all duration-300 sm:max-w-none md:min-w-0 md:text-base md:group-hover:text-primary-800">
             {{ item.title }}
           </p>
           <span class="text-xs text-neutral-400 md:text-sm">
