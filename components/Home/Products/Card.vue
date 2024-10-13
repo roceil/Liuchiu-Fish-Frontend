@@ -22,7 +22,7 @@ const props = defineProps<{
     <div :class="cn('group', props.class)">
       <NuxtLink :to="`/shopping-mall/${props.product.id}`">
         <div class="relative w-full">
-          <div class="shadow-custom flex h-[162px] w-full items-center justify-center rounded-xl bg-primary-500 transition-all duration-300 group-hover:opacity-80 overflow-hidden">
+          <div class="shadow-custom flex h-[162px] w-full items-center justify-center overflow-hidden rounded-xl bg-primary-500 transition-all duration-300 group-hover:opacity-80">
             <NuxtImg
               :src="props.product.cover"
               alt="productCover"

@@ -278,7 +278,7 @@ const friendLink = [
             >
               <NuxtLink
                 :to="link.link"
-                class="flex min-h-[115px] w-full items-center justify-center rounded-xl bg-neutral-50 px-14 py-6 text-sm md:hover:opacity-80 duration-300"
+                class="flex min-h-[115px] w-full items-center justify-center rounded-xl bg-neutral-50 px-14 py-6 text-sm duration-300 md:hover:opacity-80"
               >
                 <NuxtImg
                   :src="link.image"

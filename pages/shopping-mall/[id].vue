@@ -114,7 +114,7 @@ const randomProducts = computed(() => productsList.sort(() => Math.random() - 0.
               class="h-auto: w-full"
             />
           </div>
-          <div class="h-[192px] w-full shrink-0 rounded-lg md:h-[297px] md:w-[450px] overflow-hidden">
+          <div class="h-[192px] w-full shrink-0 overflow-hidden rounded-lg md:h-[297px] md:w-[450px]">
             <NuxtImg
               v-for="subImage in intro.subImage"
               :key="subImage"
@@ -172,7 +172,7 @@ const randomProducts = computed(() => productsList.sort(() => Math.random() - 0.
                 :to="`/shopping-mall/${randomProduct.id}`"
                 class="block h-[227px] w-[290px] pt-[1px]"
               >
-                <div class="h-[162px] w-[290px] rounded-xl md:h-[162px] md:w-[290px] overflow-hidden">
+                <div class="h-[162px] w-[290px] overflow-hidden rounded-xl md:h-[162px] md:w-[290px]">
                   <NuxtImg
                     :src="randomProduct.cover"
                     alt="randomProductCover"

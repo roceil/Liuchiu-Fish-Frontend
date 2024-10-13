@@ -7,7 +7,7 @@ import { productsList } from '~/constants'
 <template>
   <section class="index">
     <div class="container max-w-[1312px] pb-[52px] pt-[108px] md:pb-[100px] md:pt-[160px]">
-      <div class="relative flex flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-[#EEF1F2] to-[#FDFBFB] pb-10 pt-20 md:items-end md:px-[62px] lg:px-[113px] md:py-20">
+      <div class="relative flex flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-[#EEF1F2] to-[#FDFBFB] pb-10 pt-20 md:items-end md:px-[62px] md:py-20 lg:px-[113px]">
         <Title text="人氣特產" />
 
         <!-- 手機版商品介紹 -->
