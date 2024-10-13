@@ -3,30 +3,57 @@ const contactData = [
   {
     title: '會務股',
     contactPhone: [
-      '(08)861-3491',
-      '(08)861-3491',
+      {
+        phone: '(08)861-3491',
+        icon: 'mdi-light:phone',
+      },
+      {
+        phone: '(08)861-3491',
+        icon: 'teenyicons:print-outline',
+      },
     ],
   },
   {
     title: '輔導股',
     contactPhone: [
-      '(08)861-1709',
-      '(08)861-2394',
+      {
+        phone: '(08)861-1709',
+        icon: 'mdi-light:phone',
+      },
+      {
+        phone: '(08)861-2394',
+        icon: 'teenyicons:print-outline',
+      },
     ],
   },
   {
     title: '推廣部',
     contactPhone: [
-      '(08)861-4470',
-      '(08)861-4469',
+      {
+        phone: '(08)861-4470',
+        icon: 'mdi-light:phone',
+      },
+      {
+        phone: '(08)861-4469',
+        icon: 'teenyicons:print-outline',
+      },
     ],
   },
   {
     title: '信用部',
     contactPhone: [
-      '(08)861-2512',
-      '(08)861-1180',
-      '(08)861-1473',
+      {
+        phone: '(08)861-2512',
+        icon: 'mdi-light:phone',
+      },
+      {
+        phone: '(08)861-1180',
+        icon: 'mdi-light:phone',
+      },
+      {
+        phone: '(08)861-1473',
+        icon: 'teenyicons:print-outline',
+      },
     ],
   },
 ]
@@ -113,15 +140,21 @@ const friendLink = [
               <div class="flex flex-col items-center justify-center space-y-2 py-4 text-center">
                 <div
                   v-for="(phoneNumber) in data.contactPhone"
-                  :key="phoneNumber"
+                  :key="phoneNumber.phone"
                   class="flex items-center space-x-2"
                 >
-                  <div class="size-4 ring-1">
-                    Ic
+                  <div class="size-4">
+                    <Icon
+                      :name="phoneNumber.icon"
+                      class="size-full"
+                    />
                   </div>
-                  <p>
-                    {{ phoneNumber }}
-                  </p>
+                  <a
+                    :href="`tel:${phoneNumber.phone}`"
+                    class="hover:underline"
+                  >
+                    {{ phoneNumber.phone }}
+                  </a>
                 </div>
               </div>
             </li>
@@ -133,8 +166,16 @@ const friendLink = [
             </p>
           </div>
           <!-- 地圖 -->
-          <div class="mt-3 flex h-[216px] w-full items-center justify-center rounded-lg ring-1 md:h-[293px]">
-            Map
+          <div class="mt-3 flex h-[216px] w-full items-center justify-center overflow-hidden rounded-lg md:h-[293px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.0105302778725!2d120.38001367707696!3d22.353231240971397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3471e570bda2d179%3A0xcd1b08298e32ce95!2z55CJ55CD5Y2A5ryB5pyD!5e0!3m2!1szh-TW!2stw!4v1728829146005!5m2!1szh-TW!2stw"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen="true"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
 
@@ -160,12 +201,18 @@ const friendLink = [
                 <div
                   class="flex items-center space-x-2"
                 >
-                  <div class="size-4 ring-1">
-                    Ic
+                  <div class="size-4">
+                    <Icon
+                      name="mdi-light:phone"
+                      class="size-full"
+                    />
                   </div>
-                  <p>
+                  <a
+                    href="tel:(08)861-3491"
+                    class="hover:underline"
+                  >
                     (08)861-3491
-                  </p>
+                  </a>
                 </div>
 
                 <p>週一到週日8:00~~17:00</p>
@@ -229,13 +276,16 @@ const friendLink = [
               :key="link.title"
               class="space-y-1 md:w-1/4"
             >
-              <div class="flex min-h-[100px] w-full items-center justify-center rounded-xl bg-neutral-50 px-14 py-6 text-sm">
+              <NuxtLink
+                :to="link.link"
+                class="flex min-h-[115px] w-full items-center justify-center rounded-xl bg-neutral-50 px-14 py-6 text-sm md:hover:opacity-80 duration-300"
+              >
                 <NuxtImg
                   :src="link.image"
                   :alt="link.title"
                   class="size-full"
                 />
-              </div>
+              </NuxtLink>
 
               <p class="text-sm font-bold">
                 {{ link.title }}

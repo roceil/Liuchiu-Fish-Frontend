@@ -7,13 +7,13 @@ import { productsList } from '~/constants'
 <template>
   <section class="index">
     <div class="container max-w-[1312px] pb-[52px] pt-[108px] md:pb-[100px] md:pt-[160px]">
-      <div class="relative flex flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-[#EEF1F2] to-[#FDFBFB] pb-10 pt-20 md:items-end md:px-[62px] lg:px-[113px]">
+      <div class="relative flex flex-col items-center justify-center rounded-[20px] bg-gradient-to-r from-[#EEF1F2] to-[#FDFBFB] pb-10 pt-20 md:items-end md:px-[62px] lg:px-[113px] md:py-20">
         <Title text="人氣特產" />
 
         <!-- 手機版商品介紹 -->
         <ul class="w-[295px] space-y-12 md:hidden">
           <li
-            v-for="(product) in productsList"
+            v-for="product in productsList.slice(0, 3)"
             :key="product.id"
           >
             <ProductsCard :product="product" />
@@ -48,9 +48,11 @@ import { productsList } from '~/constants'
         </div>
 
         <div class="mt-10 flex w-full justify-center">
-          <Button>
-            查看所有商品
-          </Button>
+          <NuxtLink to="/shopping-mall">
+            <Button>
+              查看所有商品
+            </Button>
+          </NuxtLink>
         </div>
       </div>
     </div>

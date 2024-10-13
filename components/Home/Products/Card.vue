@@ -9,7 +9,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative w-[290px]">
     <div
       v-if="props.product.hotSale"
       class="absolute -top-3 left-4 z-30 border-x-2 border-danger-200 bg-white/90 px-3 py-1"
@@ -21,9 +21,13 @@ const props = defineProps<{
 
     <div :class="cn('group', props.class)">
       <NuxtLink :to="`/shopping-mall/${props.product.id}`">
-        <div class="relative">
-          <div class="shadow-custom flex h-[162px] w-[290px] items-center justify-center rounded-xl bg-primary-500 transition-all duration-300 group-hover:opacity-80">
-            {{ props.product.id }}
+        <div class="relative w-full">
+          <div class="shadow-custom flex h-[162px] w-full items-center justify-center rounded-xl bg-primary-500 transition-all duration-300 group-hover:opacity-80 overflow-hidden">
+            <NuxtImg
+              :src="props.product.cover"
+              alt="productCover"
+              class="size-full object-cover ring-1"
+            />
           </div>
         </div>
 
@@ -33,7 +37,7 @@ const props = defineProps<{
           </h3>
 
           <div class="mt-1 flex justify-between">
-            <p>NT {{ props.product.price }}</p>
+            <p>NT {{ props.product.price }} / {{ props.product.unit }}</p>
             <div class="flex items-center justify-center space-x-1">
               <button class="text-sm font-bold text-primary-700">
                 查看更多

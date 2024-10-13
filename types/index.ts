@@ -3,8 +3,15 @@ export interface Product {
   id: number
   hotSale: boolean
   hotSaleNumber: number
+  cover: string
   name: string
   price: number
+  unit: string
+  intro: {
+    subImage: string[]
+    subTitle: string
+    description: string
+  }[]
 }
 
 // 最新消息

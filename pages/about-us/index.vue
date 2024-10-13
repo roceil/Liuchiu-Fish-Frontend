@@ -142,6 +142,162 @@ function scrollToSection(sectionId: string) {
     })
   }
 }
+
+const awardsHistoryList = [
+  [{
+    title: '112 年第十七屆農金獎',
+    description: [
+      '漁會金融服務獎-特優獎',
+      '營運卓越獎戊組-優等獎',
+    ],
+  }, {
+    title: '112 年海宴水產精品入圍',
+    description: [
+      '小琉球純魚鬆禮盒組(鬼頭刀、旗魚、鮪魚純魚鬆)',
+    ],
+  }, {
+    title: '112 年度漁村青少年技藝傳承推廣教育計畫(南區)',
+    description: [
+      '食農教育作業組影片競賽-第三名',
+    ],
+  }, {
+    title: '111 年第十六屆農金獎',
+    description: [
+      '漁會金融服務獎-優等獎',
+      '營運卓越獎戊組-優等獎',
+    ],
+  }, {
+    title: '111 年度獲頒農業部漁業署',
+    description: [
+      '優等漁會',
+    ],
+  }],
+  [{
+    title: '110 年第十五屆農金獎',
+    description: [
+      '營運卓越獎戊組-優等獎',
+    ],
+  }, {
+    title: '109 年度漁村技藝培育推廣教育計畫(南區)',
+    description: [
+      '漁村在地食材料理競賽-第二名',
+    ],
+  }, {
+    title: '109 年度漁村青少年技藝傳承推廣教育計畫(南區)',
+    description: [
+      '食農教育及漁業技藝競賽-優等',
+    ],
+  }, {
+    title: '109 年第十四屆農金獎',
+    description: [
+      '漁會金融服務獎-甲等獎',
+    ],
+  }, {
+    title: '108年第十三屆農金獎',
+    description: [
+      '漁會金融服務獎-優等獎',
+    ],
+  }],
+  [{
+    title: '107年第十二屆農金獎',
+    description: [
+      '漁會金融服務獎-優等獎',
+    ],
+  }, {
+    title: '106年第十一屆農金獎',
+    description: [
+      '漁會金融服務獎-特優獎',
+      '營運卓越獎戊組-優等獎',
+    ],
+  }, {
+    title: '105年第十屆農金獎',
+    description: [
+      '漁會金融服務獎-特優獎',
+      '營運卓越獎戊組-優等獎',
+    ],
+  }, {
+    title: '104年第九屆農金獎',
+    description: [
+      '漁會金融服務獎-特優獎',
+      '營運卓越獎戊組-優等獎',
+      '農業金融偏鄉服務獎入圍佳作',
+    ],
+  }, {
+    title: '103年榮獲海洋奧斯卡',
+    description: [
+      '漁業資源永續面向',
+      '兼顧漁業資源永續及經濟利用合理進行漁業管理'
+    ],
+  }],
+  [{
+    title: '103年第八屆農金獎',
+    description: [
+      '營運卓越獎戊組入圍',
+    ],
+  }, {
+    title: '102年第七屆農金獎',
+    description: [
+      '漁會金融服務獎-優等獎',
+      '農業信用保證業務績效獎-優等獎',
+    ],
+  }, {
+    title: '101年第六屆農金獎',
+    description: [
+      '漁會金融服務獎-優等獎',
+    ],
+  }, {
+    title: '100年第五屆農金獎',
+    description: [
+      '漁會金融服務獎-特優獎',
+      '營運卓越獎丙組-優等獎',
+      '農業信用保證業務績效獎-優等獎',
+    ],
+  }, {
+    title: '100年海宴水產精品',
+    description: [
+      '小琉球魚鬆禮盒（鬼頭刀、旗魚、鮪魚魚鬆）',
+    ],
+  }],
+  [{
+    title: '100年第三屆十大魅力漁港',
+    description: [
+      '奔向大海-小琉球漁港',
+    ],
+  }, {
+    title: '99 年第二屆十大魅力漁港',
+    description: [
+      '樂活休閒-小琉球漁港',
+    ],
+  }, {
+    title: '99 年度漁事推廣成果評鑑',
+    description: [
+      '第二名',
+    ],
+  }, {
+    title: '98 年第三屆農金獎',
+    description: [
+      '營運卓越獎丙組-特優獎',
+    ],
+  }, {
+    title: '95 年農金獎農漁會信用部經營績效競賽',
+    description: [
+      '信用業務營運卓越獎',
+    ],
+  }],
+  [{
+    title: '94 年農金獎農漁會信用部經營績效競賽',
+    description: [
+      '信用業務營運績效優良獎',
+      '資產品質管理績效獎',
+    ],
+  }, {
+    title: '93 年度農漁會信用部農貸服務績效暨降低逾放比競賽',
+    description: [
+      '農貸服務績效獎',
+      '營運績效傑出獎',
+    ],
+  }],
+]
 </script>
 
 <template>
@@ -351,7 +507,24 @@ function scrollToSection(sectionId: string) {
           sub-title="Awards"
         />
 
-        <div class="mt-10 w-full md:mx-auto md:max-w-[1120px]">
+        <div class="relative mt-10 w-full md:mx-auto md:max-w-[1120px]">
+          <!-- 裝飾星星 -->
+          <div class="absolute bottom-0 left-1 z-10 hidden size-12 -translate-x-1/2 -translate-y-1/2 md:block">
+            <NuxtImg
+              src="/about-us/star-single.svg"
+              alt="star"
+              class="h-auto w-full"
+            />
+          </div>
+          <div class="absolute right-2 top-1 z-10 hidden size-12 -translate-y-1/2 translate-x-1/2 md:block">
+            <NuxtImg
+              src="/about-us/star-double.svg"
+              alt="star"
+              class="h-auto w-full"
+            />
+          </div>
+
+          <!-- 輪播 -->
           <Carousel
             class="relative w-full "
             :opts="{
@@ -362,20 +535,50 @@ function scrollToSection(sectionId: string) {
           >
             <CarouselContent>
               <CarouselItem
-                v-for="(_, index) in 5"
+                v-for="(historyAward, index) in awardsHistoryList"
                 :key="index"
                 class="basis-1/1 lg:basis-1/2"
               >
-                <div class="h-[536px] w-[343px] rounded-xl border border-neutral-100 bg-neutral-50 md:h-[704px] md:w-[556px]">
-                  <span class="text-4xl font-semibold">{{ index + 1 }}</span>
-                </div>
+                <ul class="h-full w-[343px] rounded-xl border border-neutral-100 bg-neutral-50 p-4 md:w-[556px] md:p-10">
+                  <li
+                    v-for="(award) in historyAward"
+                    :key="award.title"
+                    class="px-3 py-4 md:p-6"
+                  >
+                    <div class="flex items-center space-x-2">
+                      <!-- 裝飾點點 -->
+                      <div class="relative size-3 rounded-full bg-primary-700">
+                        <div class="absolute left-1/2 top-1/2 size-1 -translate-x-1/2  -translate-y-1/2 rounded-full bg-neutral-50" />
+                      </div>
+
+                      <!-- 獎項標題  -->
+                      <h5 class="font-bold text-primary-700">
+                        {{ award.title }}
+                      </h5>
+                    </div>
+
+                    <ul class="mt-2 space-y-2 md:mt-4">
+                      <li
+                        v-for="(description) in award.description"
+                        :key="description"
+                        class="flex items-center space-x-2"
+                      >
+                        <div class="h-5 w-[3px] rounded-full bg-neutral-200" />
+                        <p class="text-sm text-neutral-950 md:text-base">
+                          {{ description }}
+                        </p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </CarouselItem>
             </CarouselContent>
 
-            <CarouselPrevious class="absolute left-0 top-1/2 hidden -translate-y-1/2 translate-x-[-140%] rounded-full focus:bg-primary-50 md:flex" />
-            <CarouselNext class="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[140%] rounded-full focus:bg-primary-50 md:flex" />
+            <CarouselPrevious class="absolute left-0 top-1/2 hidden -translate-y-1/2 translate-x-[-140%] rounded-full focus:bg-primary-50 lg:flex" />
+            <CarouselNext class="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[140%] rounded-full focus:bg-primary-50 lg:flex" />
           </Carousel>
 
+          <!-- 分頁條 -->
           <ul class="mt-10 flex items-center justify-center space-x-2">
             <li
               v-for="(_, index) in totalCount"

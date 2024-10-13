@@ -66,10 +66,12 @@ const headerClasses = computed(() => [
               class="absolute right-0 h-5 w-[1px] bg-neutral-200"
             />
           </li>
-          <li>
-            <Button>
-              選購商品
-            </Button>
+          <li class="ml-4">
+            <NuxtLink to="/shopping-mall">
+              <Button>
+                選購商品
+              </Button>
+            </NuxtLink>
           </li>
         </ul>
       </nav>
