@@ -7,6 +7,17 @@ import {
   PaginationNext,
   PaginationPrev,
 } from '@/components/ui/pagination'
+import { type NewsData, useNews } from '~/services/supabase/useNews'
+
+const renderNewsList = ref<NewsData[] | []>([])
+const { getNews } = useNews()
+const { data, error } = await getNews()
+
+if (error.value)
+  console.error('error', error.value)
+
+if (data.value)
+  renderNewsList.value = data.value?.data || []
 
 const newsTypes = [
   {
@@ -101,26 +112,29 @@ function handlePageChange(page: number) {
         <div class="cs-shadow-sm mt-8 rounded-lg bg-white pr-4 md:mt-10 md:pr-0">
           <ul class="py-4 md:py-6">
             <li
-              v-for="(item, index) in 15"
-              :key="index"
+              v-for="(news) in renderNewsList"
+              :key="news.id"
               class=""
             >
               <routerLink
-                :to="`/news/${index + 1}`"
+                :to="`/news/${news.id}`"
                 class="flex cursor-pointer space-x-3 px-4 py-3 md:items-center md:space-x-6 md:px-6 md:py-4 md:hover:bg-neutral-50"
               >
                 <div class="shrink-0">
-                  <div class=" border-x-2 border-primary-700 bg-primary-50 px-3 py-1 text-xs font-bold text-primary-700">
-                    琉漁小鋪
+                  <div
+                    class=" border-x-2 px-3 py-1 text-xs font-bold"
+                    :style="news.unit?.style"
+                  >
+                    {{ news.unit?.name }}
                   </div>
                 </div>
 
                 <div class="h-[43px] w-[70%] space-y-1 sm:w-[80%] md:flex md:w-full md:items-center md:justify-between">
                   <p class="truncate text-sm md:text-balance ">
-                    部分金融服務停機公告部分金融服務停機公告部分金融服務停機公告
+                    {{ news.title }}
                   </p>
                   <p class="text-sm text-neutral-400">
-                    111 / 6 / 17
+                    {{ news.date }}
                   </p>
                 </div>
               </routerLink>
