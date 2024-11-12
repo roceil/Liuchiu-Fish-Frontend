@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+import CardContainer from '~~/components/ui/card-3d/CardContainer.vue'
+import CardBody from '~~/components/ui/card-3d/CardBody.vue'
+import CardItem from '~~/components/ui/card-3d/CardItem.vue'
+
 const portList = [
   {
     title: '小琉球漁港',
@@ -47,35 +51,37 @@ const portList = [
         <li
           v-for="(port) in portList"
           :key="port.title"
-
           class="group md:col-span-4"
         >
-          <div class="relative min-h-[403px] w-full rounded-[20px] bg-neutral-50 px-6 py-10 md:min-h-[463px]">
-            <!-- 漁港名稱 -->
-            <div class="absolute left-1/2 top-0 h-[58px] w-[144px] -translate-x-1/2 -translate-y-10 rounded-[20px] bg-primary-100 duration-300 md:h-[83px] md:w-[192px] md:translate-y-0 md:opacity-0 md:group-hover:translate-y-[-60px]  md:group-hover:opacity-100">
-              <div class="relative flex size-full items-center justify-center">
-                <NuxtImg
-                  src="/introPort/polygon.svg"
-                  alt="number"
-                  class="absolute bottom-0 left-1/2 h-[16px] w-[23px] -translate-x-1/2 translate-y-3"
-                />
+          <ClientOnly>
+            <CardContainer>
+              <CardBody class="min-h-[403px] w-full rounded-[20px] bg-neutral-50 px-6 py-10 md:min-h-[463px]">
+                <CardItem :translate-z="70">
+                  <NuxtImg
+                    :src="port.images"
+                    :alt="port.title"
+                    class="h-[196px] w-full"
+                  />
+                </CardItem>
 
-                <p class="text-sm font-bold tracking-wider text-primary-800 md:text-base">
-                  {{ port.title }}
-                </p>
-              </div>
-            </div>
+                <CardItem
+                  :translate-z="60"
+                  class="mt-4"
+                >
+                  <p class="text-base font-bold tracking-wider text-primary-800 md:text-base">
+                    {{ port.title }}
+                  </p>
+                </CardItem>
 
-            <NuxtImg
-              :src="port.images"
-              :alt="port.title"
-              class="w-full"
-            />
-
-            <p class="mt-4 text-sm leading-[1.8] text-neutral-700">
-              {{ port.description }}
-            </p>
-          </div>
+                <CardItem
+                  :translate-z="50"
+                  class="mt-4 text-sm leading-[1.8] text-neutral-700"
+                >
+                  {{ port.description }}
+                </CardItem>
+              </CardBody>
+            </CardContainer>
+          </ClientOnly>
         </li>
       </ul>
     </div>

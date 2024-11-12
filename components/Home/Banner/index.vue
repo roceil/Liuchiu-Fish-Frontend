@@ -10,11 +10,19 @@ import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
         <NuxtImg
           src="/banner/map-sm.svg"
           class="size-full md:hidden"
+          alt="banner-map"
+          format="webp"
+          :placeholder="[32, 32, 80, 5]"
+          draggable="false"
         />
 
         <NuxtImg
           src="/banner/map.svg"
           class="hidden size-full md:block"
+          alt="banner-map"
+          format="webp"
+          :placeholder="[32, 32, 80, 5]"
+          draggable="false"
         />
       </div>
 
@@ -23,11 +31,13 @@ import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
           <NuxtImg
             src="/banner/banner-text-sm.svg"
             class="size-full md:hidden"
+            alt="banner-text"
           />
 
           <NuxtImg
             src="/banner/banner-text.svg"
             class="hidden size-full md:block"
+            alt="banner-text"
           />
         </div>
 
