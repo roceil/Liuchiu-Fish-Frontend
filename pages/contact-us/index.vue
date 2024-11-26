@@ -4,11 +4,11 @@ const contactData = [
     title: '會務股',
     contactPhone: [
       {
-        phone: '(08)861-3491',
+        phone: '(08)861-1245',
         icon: 'mdi-light:phone',
       },
       {
-        phone: '(08)861-3491',
+        phone: '(08)861-1245',
         icon: 'teenyicons:print-outline',
       },
     ],
@@ -121,7 +121,7 @@ const friendLink = [
         <div class="border-b border-neutral-100 py-10 md:py-[60px]">
           <!-- 區塊標題 -->
           <div class="flex items-center space-x-3">
-            <div class="h-[30px] w-[6px] rounded-full bg-primary-300" />
+            <div class="bg-primary-300 h-[30px] w-[6px] rounded-full" />
             <h2 class="text-2xl font-bold tracking-wide">
               琉球區漁會
             </h2>
@@ -131,9 +131,9 @@ const friendLink = [
             <li
               v-for="(data) in contactData"
               :key="data.title"
-              class="rounded-xl bg-primary-50 text-sm md:w-1/4 md:text-base"
+              class="bg-primary-50 rounded-xl text-sm md:w-1/4 md:text-base"
             >
-              <p class="border-b border-primary-100 py-2 text-center text-primary-600">
+              <p class="border-primary-100 text-primary-600 border-b py-2 text-center">
                 {{ data.title }}
               </p>
 
@@ -183,7 +183,7 @@ const friendLink = [
         <div class="border-b border-neutral-100 py-10">
           <!-- 區塊標題 -->
           <div class="flex items-center space-x-3">
-            <div class="h-[30px] w-[6px] rounded-full bg-primary-300" />
+            <div class="bg-primary-300 h-[30px] w-[6px] rounded-full" />
             <h2 class="text-2xl font-bold tracking-wide">
               琉漁小舖
             </h2>
@@ -215,8 +215,25 @@ const friendLink = [
                   </a>
                 </div>
 
-                <p>週一到週日8:00~~17:00</p>
+                <div
+                  class="flex items-center space-x-2"
+                >
+                  <div class="size-4">
+                    <Icon
+                      name="teenyicons:print-outline"
+                      class="size-full"
+                    />
+                  </div>
+                  <a
+                    href="tel:(08)861-3492"
+                    class="hover:underline"
+                  >
+                    (08)861-3492
+                  </a>
+                </div>
               </div>
+
+              <p>週一到週日8:00~~17:00</p>
             </li>
 
             <li
@@ -229,7 +246,7 @@ const friendLink = [
               <div class="space-y-3 p-4 md:flex md:flex-col md:items-center md:py-6">
                 <NuxtLink
                   to="/"
-                  class="cs-border-1_5 flex items-center space-x-2 rounded-xl px-4 py-[13.5px] text-center text-sm font-bold tracking-wide text-primary-800 md:w-[279px]"
+                  class="cs-border-1_5 text-primary-800 flex items-center space-x-2 rounded-xl px-4 py-[13.5px] text-center text-sm font-bold tracking-wide md:w-[279px]"
                 >
                   <NuxtImg
                     src="/contact-us/fb.svg"
@@ -264,7 +281,7 @@ const friendLink = [
         <div class="py-10">
           <!-- 區塊標題 -->
           <div class="flex items-center space-x-3">
-            <div class="h-[30px] w-[6px] rounded-full bg-primary-300" />
+            <div class="bg-primary-300 h-[30px] w-[6px] rounded-full" />
             <h2 class="text-2xl font-bold">
               友站連結
             </h2>

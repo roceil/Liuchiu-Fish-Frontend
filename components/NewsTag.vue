@@ -27,7 +27,3 @@ const tagStyle = computed(() => {
     {{ tag }}
   </div>
 </template>
-
-<style lang="scss" scoped>
-
-</style>

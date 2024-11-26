@@ -1,5 +1,16 @@
 <script lang="ts" setup>
-import { newsList } from '~/constants'
+import { type NewsData, useNews } from '~/services/supabase/useNews'
+
+const renderNewsList = ref<NewsData[] | []>([])
+
+const { getNews } = useNews()
+const { data, error } = await getNews()
+
+if (error.value)
+  console.error('error', error.value)
+
+if (data.value)
+  renderNewsList.value = data.value?.data || []
 </script>
 
 <template>
@@ -37,26 +48,29 @@ import { newsList } from '~/constants'
           <div class="w-full md:w-[70%]">
             <ul class="w-full border-y border-neutral-100 px-4 pb-[14px] pt-2 md:min-h-[248px] md:w-full md:rounded-lg md:border md:px-3">
               <HomeNewsListItem
-                :news-list="newsList"
+                :news-list="renderNewsList"
               />
             </ul>
 
             <div class="flex items-center justify-center pb-5 pt-3 md:justify-end md:pt-3 ">
-              <button class="group flex items-center py-2 pl-3 font-bold text-primary-700 transition-all duration-300 md:hover:text-primary-800 md:hover:ring-primary-800">
+              <NuxtLink
+                to="/news"
+                class="text-primary-700 md:hover:text-primary-800 md:hover:ring-primary-800 group flex items-center py-2 pl-3 font-bold transition-all duration-300"
+              >
                 查看更多
 
-                <div class="ml-2 flex size-6 items-center justify-center rounded-full bg-primary-700 transition-all duration-300 md:group-hover:bg-primary-800">
+                <div class="bg-primary-700 md:group-hover:bg-primary-800 ml-2 flex size-6 items-center justify-center rounded-full transition-all duration-300">
                   <Icon
                     name="mingcute:right-line"
                     class="text-white"
                   />
                 </div>
-              </button>
+              </NuxtLink>
             </div>
           </div>
 
           <!-- 裝飾用 Tag -->
-          <span class="cs-border-1_5_tag absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded bg-white px-3 py-2 text-xs font-bold text-primary-700 md:px-5 md:py-3 md:text-sm">News</span>
+          <span class="cs-border-1_5_tag text-primary-700 absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded bg-white px-3 py-2 text-xs font-bold md:px-5 md:py-3 md:text-sm">News</span>
         </div>
       </div>
     </div>
