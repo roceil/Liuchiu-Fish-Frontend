@@ -2,7 +2,7 @@
 import { provide, ref } from 'vue'
 import { useMouseState } from './useMouseState'
 
-const props = defineProps({
+defineProps({
   class: String,
   containerClass: String,
 })
@@ -36,13 +36,13 @@ function handleMouseLeave() {
 
 <template>
   <div
-    class="flex items-center justify-center p-2"
+    class="flex h-full items-center justify-center p-2"
     :class="[containerClass]"
     style="perspective: 1000px"
   >
     <div
       ref="containerRef"
-      class="relative flex items-center justify-center transition-all duration-200 ease-linear"
+      class="relative flex h-full items-center justify-center transition-all duration-200 ease-linear"
       :class="[
         $props.class,
       ]"

@@ -55,12 +55,12 @@ const portList = [
         >
           <ClientOnly>
             <CardContainer>
-              <CardBody class="min-h-[403px] w-full rounded-[20px] bg-neutral-50 px-6 py-10 md:min-h-[463px]">
+              <CardBody class="size-full min-h-[403px] rounded-[20px] bg-neutral-50 px-6 py-10 md:min-h-[463px]">
                 <CardItem :translate-z="70">
                   <NuxtImg
                     :src="port.images"
                     :alt="port.title"
-                    class="h-[196px] w-full"
+                    class="h-[196px] w-full object-cover rounded-[10px]"
                   />
                 </CardItem>
 
@@ -68,7 +68,7 @@ const portList = [
                   :translate-z="60"
                   class="mt-4"
                 >
-                  <p class="text-base font-bold tracking-wider text-primary-800 md:text-base">
+                  <p class="text-primary-800 text-base font-bold tracking-wider md:text-base">
                     {{ port.title }}
                   </p>
                 </CardItem>

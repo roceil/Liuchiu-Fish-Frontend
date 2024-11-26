@@ -1,32 +1,37 @@
 <script lang="ts" setup>
-import type { News } from '~/types'
+import type { NewsData } from '~/services/supabase/useNews'
 
 defineProps<{
-  newsList: News[]
+  newsList: NewsData[]
 }>()
 </script>
 
 <template>
   <li
-    v-for="item in newsList"
-    :key="item.id"
+    v-for="news in newsList"
+    :key="news.id"
     class="group"
   >
     <NuxtLink
-      :to="`/news/${item.id}`"
+      :to="`/news/${news.id}`"
       class="block rounded py-3 transition-all duration-300 md:px-3 md:py-4 md:group-hover:bg-neutral-50"
     >
       <div class="flex space-x-3 md:space-x-6">
         <div class="shrink-0">
-          <NewsTag :tag="item.tag" />
+          <div
+            class=" border-x-2 px-3 py-1 text-xs font-bold"
+            :style="news.unit?.style"
+          >
+            {{ news.unit?.name }}
+          </div>
         </div>
 
         <div class="w-full items-center justify-between space-y-1 md:flex md:space-y-0">
-          <p class="min-w-full max-w-[230px] truncate text-sm transition-all duration-300 sm:max-w-none md:min-w-0 md:text-base md:group-hover:text-primary-800">
-            {{ item.title }}
+          <p class="md:group-hover:text-primary-800 min-w-full max-w-[230px] truncate text-sm transition-all duration-300 sm:max-w-none md:min-w-0 md:text-base">
+            {{ news.title }}
           </p>
           <span class="text-xs text-neutral-400 md:text-sm">
-            {{ item.date }}
+            {{ news.date }}
           </span>
         </div>
       </div>

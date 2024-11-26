@@ -23,9 +23,6 @@ importers:
       animejs:
         specifier: ^3.2.2
         version: 3.2.2
-      card-3d:
-        specifier: link:@/components/ui/card-3d
-        version: link:@/components/ui/card-3d
       embla-carousel-vue:
         specifier: ^8.1.7
         version: 8.1.7(vue@3.4.21(typescript@5.4.3))
