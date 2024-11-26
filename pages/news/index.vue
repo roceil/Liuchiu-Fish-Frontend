@@ -7,6 +7,20 @@ import {
   PaginationNext,
   PaginationPrev,
 } from '@/components/ui/pagination'
+import { type NewsData, useNews } from '~/services/supabase/useNews'
+
+const renderNewsList = ref<NewsData[] | []>([])
+const allNewsList = ref<NewsData[] | []>([])
+const { getNews } = useNews()
+const { data, error } = await getNews()
+
+if (error.value)
+  console.error('error', error.value)
+
+if (data.value) {
+  allNewsList.value = data.value?.data || []
+  renderNewsList.value = allNewsList.value
+}
 
 const newsTypes = [
   {
@@ -30,15 +44,24 @@ const newsTypes = [
     name: '推廣股',
   },
   {
-    id: 5,
+    id: 6,
     name: '信用部',
   },
 ]
 
-const currentPage = ref(1)
+const currentOrganization = ref(1)
 
-function handlePageChange(page: number) {
-  currentPage.value = page
+function handleOrganizationChange(organizationId: number) {
+  currentOrganization.value = organizationId
+
+  if (organizationId === 1) {
+    renderNewsList.value = allNewsList.value
+    return
+  }
+
+  renderNewsList.value = allNewsList.value.filter(news =>
+    news.unit?.key === organizationId,
+  )
 }
 </script>
 
@@ -86,10 +109,10 @@ function handlePageChange(page: number) {
               class="shrink-0"
             >
               <button
-                class="cs-border-1_5 hover:cs-border-1_5:hover rounded-lg px-5 py-3 font-bold tracking-widest text-primary-800 duration-300 ease-in-out focus:text-white md:hover:bg-primary-600 md:hover:text-white"
-                :class="type.id === currentPage ? 'bg-primary-800 text-white' : ''
+                class="cs-border-1_5 hover:cs-border-1_5:hover text-primary-800 md:hover:bg-primary-600 rounded-lg px-5 py-3 font-bold tracking-widest duration-300 ease-in-out focus:text-white md:hover:text-white"
+                :class="type.id === currentOrganization ? 'bg-primary-800 text-white' : ''
                 "
-                @click="handlePageChange(type.id)"
+                @click="handleOrganizationChange(type.id)"
               >
                 {{ type.name }}
               </button>
@@ -101,26 +124,29 @@ function handlePageChange(page: number) {
         <div class="cs-shadow-sm mt-8 rounded-lg bg-white pr-4 md:mt-10 md:pr-0">
           <ul class="py-4 md:py-6">
             <li
-              v-for="(item, index) in 15"
-              :key="index"
+              v-for="(news) in renderNewsList"
+              :key="news.id"
               class=""
             >
               <routerLink
-                :to="`/news/${index + 1}`"
+                :to="`/news/${news.id}`"
                 class="flex cursor-pointer space-x-3 px-4 py-3 md:items-center md:space-x-6 md:px-6 md:py-4 md:hover:bg-neutral-50"
               >
                 <div class="shrink-0">
-                  <div class=" border-x-2 border-primary-700 bg-primary-50 px-3 py-1 text-xs font-bold text-primary-700">
-                    琉漁小鋪
+                  <div
+                    class=" border-x-2 px-3 py-1 text-xs font-bold"
+                    :style="news.unit?.style"
+                  >
+                    {{ news.unit?.name }}
                   </div>
                 </div>
 
                 <div class="h-[43px] w-[70%] space-y-1 sm:w-[80%] md:flex md:w-full md:items-center md:justify-between">
                   <p class="truncate text-sm md:text-balance ">
-                    部分金融服務停機公告部分金融服務停機公告部分金融服務停機公告
+                    {{ news.title }}
                   </p>
                   <p class="text-sm text-neutral-400">
-                    111 / 6 / 17
+                    {{ news.date }}
                   </p>
                 </div>
               </routerLink>
@@ -135,7 +161,7 @@ function handlePageChange(page: number) {
         :sibling-count="1"
         show-edges
         :default-page="1"
-        class="mt-8 pb-10 md:container"
+        class="mt-8 pb-10 md:container hidden"
       >
         <PaginationList
           v-slot="{ items }"
@@ -151,7 +177,7 @@ function handlePageChange(page: number) {
               as-child
             >
               <button
-                class="size-10 rounded-full border-none p-0 text-primary-950"
+                class="text-primary-950 size-10 rounded-full border-none p-0"
                 :class="item.value === page ? 'bg-primary-100' : 'bg-white'"
               >
                 {{ item.value }}

@@ -314,3 +314,67 @@ export const contentList = [
     images: '/about/04.svg',
   },
 ]
+
+// 部門 Mapping
+export const unitMapping = [
+  {
+    name: '所有訊息',
+    value: 'all',
+    key: 1,
+    style: {
+      backgroundColor: '#F8F9FA',
+      borderColor: '#242A47',
+      color: '#242A47',
+    },
+  },
+  {
+    name: '琉漁小舖',
+    value: '1',
+    key: 2,
+    style: {
+      backgroundColor: '#EFF8FF',
+      borderColor: '#485EB8',
+      color: '#485EB8',
+    },
+  },
+  {
+    name: '輔導股',
+    value: '2',
+    key: 3,
+    style: {
+      backgroundColor: '#FFF6EC',
+      borderColor: '#F38B12',
+      color: '#F38B12',
+    },
+  },
+  {
+    name: '會務股',
+    value: '3',
+    key: 4,
+    style: {
+      backgroundColor: '#EDFCF6',
+      borderColor: '#36A375',
+      color: '#36A375',
+    },
+  },
+  {
+    name: '推廣股',
+    value: '4',
+    key: 5,
+    style: {
+      backgroundColor: '#FEF2F2',
+      borderColor: '#E16A6A',
+      color: '#E16A6A',
+    },
+  },
+  {
+    name: '信用部',
+    value: '5',
+    key: 6,
+    style: {
+      backgroundColor: '#F5F1FF',
+      borderColor: '#876ECF',
+      color: '#876ECF',
+    },
+  },
+]
