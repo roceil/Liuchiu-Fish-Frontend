@@ -1,5 +1,5 @@
 import { appDescription, appName } from '@/constants'
-import { useRuntimeConfig } from '#app'
+
 
 interface SiteMetadata {
   description?: string
@@ -9,12 +9,13 @@ interface SiteMetadata {
 }
 
 export function useSiteMetadata(options: SiteMetadata = {}) {
-  const config = useRuntimeConfig()
+  const { NITRO_PUBLIC_SITE_URL } = process.env
 
   const defaultDescription = appDescription
   const defaultTitle = appName
-  const defaultImage = `${config.public.siteUrl}/og-image.png`
-  const defaultUrl = config.public.siteUrl
+  const defaultImage = `${NITRO_PUBLIC_SITE_URL}/og-image.png`
+  const defaultUrl = NITRO_PUBLIC_SITE_URL
+
 
   const description = options.description || defaultDescription
   const title = options.title || defaultTitle
@@ -23,6 +24,7 @@ export function useSiteMetadata(options: SiteMetadata = {}) {
 
   useSeoMeta({
     // 基本 SEO
+    title,
     description,
     ogUrl: url,
     ogType: 'website',
