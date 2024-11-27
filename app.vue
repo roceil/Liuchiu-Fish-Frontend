@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-import { appName } from '@/constants'
+import { useSiteMetadata } from '@/composables/useMetaData'
 
-useHead({
-  title: appName,
-})
+useSiteMetadata()
 </script>
 
 <template>

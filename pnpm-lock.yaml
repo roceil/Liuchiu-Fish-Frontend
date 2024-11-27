@@ -117,9 +117,6 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.15)
-      typescript:
-        specifier: ^5.3.0
-        version: 5.7.2
       vue:
         specifier: ^3.4.21
         version: 3.5.13(typescript@5.7.2)

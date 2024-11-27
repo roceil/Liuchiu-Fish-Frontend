@@ -46,6 +46,14 @@ export default defineNuxtConfig({
     download: false, // 不要下載字體文件到本地使用 CDN
   },
 
+  runtimeConfig: {
+    public: {
+      siteUrl: 'https://liuyu.org.tw',
+      siteName: '琉球區漁會｜官方網站',
+      siteLocale: 'zh-TW',
+    },
+  },
+
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -77,4 +85,6 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  compatibilityDate: '2024-11-27',
 })
