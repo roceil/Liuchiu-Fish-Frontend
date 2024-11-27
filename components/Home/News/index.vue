@@ -4,13 +4,13 @@ import { type NewsData, useNews } from '~/services/supabase/useNews'
 const renderNewsList = ref<NewsData[] | []>([])
 
 const { getNews } = useNews()
-const { data, error } = await getNews()
+const { data, error } = await useAsyncData('news', () => getNews())
 
 if (error.value)
   console.error('error', error.value)
 
 if (data.value)
-  renderNewsList.value = data.value?.data || []
+  renderNewsList.value = data.value || []
 </script>
 
 <template>
@@ -25,15 +25,10 @@ if (data.value)
           <!-- 裝飾用照片 -->
           <div class="flex justify-center pb-6 pt-10 md:pt-0">
             <div class=" space-y-2 ">
-              <div class=" h-[154px] w-[271px] rounded-xl md:size-[248px]">
+              <div class=" h-[154px] w-[271px] overflow-hidden rounded-xl md:size-[248px]">
                 <NuxtImg
-                  src="/home/news/decoration.png"
-                  class="hidden size-full md:block"
-                  alt="News"
-                />
-                <NuxtImg
-                  src="/home/news/decoration-sm.png"
-                  class="size-full md:hidden"
+                  src="/home/news/decoration.jpg"
+                  class="block size-full"
                   alt="News"
                 />
               </div>
@@ -55,11 +50,11 @@ if (data.value)
             <div class="flex items-center justify-center pb-5 pt-3 md:justify-end md:pt-3 ">
               <NuxtLink
                 to="/news"
-                class="text-primary-700 md:hover:text-primary-800 md:hover:ring-primary-800 group flex items-center py-2 pl-3 font-bold transition-all duration-300"
+                class="group flex items-center py-2 pl-3 font-bold text-primary-700 transition-all duration-300 md:hover:text-primary-800 md:hover:ring-primary-800"
               >
                 查看更多
 
-                <div class="bg-primary-700 md:group-hover:bg-primary-800 ml-2 flex size-6 items-center justify-center rounded-full transition-all duration-300">
+                <div class="ml-2 flex size-6 items-center justify-center rounded-full bg-primary-700 transition-all duration-300 md:group-hover:bg-primary-800">
                   <Icon
                     name="mingcute:right-line"
                     class="text-white"
@@ -70,7 +65,7 @@ if (data.value)
           </div>
 
           <!-- 裝飾用 Tag -->
-          <span class="cs-border-1_5_tag text-primary-700 absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded bg-white px-3 py-2 text-xs font-bold md:px-5 md:py-3 md:text-sm">News</span>
+          <span class="cs-border-1_5_tag absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded bg-white px-3 py-2 text-xs font-bold text-primary-700 md:px-5 md:py-3 md:text-sm">News</span>
         </div>
       </div>
     </div>

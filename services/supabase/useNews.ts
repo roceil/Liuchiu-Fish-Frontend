@@ -22,48 +22,44 @@ export interface NewsData {
 }
 
 export function useNews() {
-  const getNews = async (page = 0, limit = 8) => {
-    return await useAsyncData(
-      `news-${page}`,
-      async () => {
-        const { data, error } = await supabase
-          .from('news')
-          .select('*')
-          .range(page * limit, (page + 1) * limit - 1)
+  const getNews = async (_page = 0, _limit = 8) => {
+    const { data: newsData, error } = await supabase
+      .from('news')
+      .select('*')
+    // .range(page * limit, (page + 1) * limit - 1)
 
-        const mappedData = data?.map(item => ({
-          ...item,
-          unit: useMappingUnit(item.unit),
-        }))
+    if (error) {
+      throw createError({
+        statusCode: 500,
+        message: error.message,
+      })
+    }
 
-        return {
-          data: mappedData,
-          error,
-        }
-      },
-    )
+    const mappedData = newsData?.map(item => ({
+      ...item,
+      unit: useMappingUnit(item.unit),
+    }))
+
+    return mappedData
   }
 
   const getNewsById = async (id: number) => {
-    return await useAsyncData(
-      `news-${id}`,
-      async () => {
-        const { data, error } = await supabase
-          .from('news')
-          .select('*')
-          .eq('id', id)
+    const { data: newsIdData, error } = await supabase
+      .from('news')
+      .select('*')
+      .eq('id', id)
 
-        const mappedData = data?.map(item => ({
-          ...item,
-          unit: useMappingUnit(item.unit),
-        }))
+    if (error) {
+      throw createError({
+        statusCode: 500,
+        message: error.message,
+      })
+    }
 
-        return {
-          data: mappedData,
-          error,
-        }
-      },
-    )
+    return newsIdData?.map(item => ({
+      ...item,
+      unit: useMappingUnit(item.unit),
+    }))
   }
 
   return {

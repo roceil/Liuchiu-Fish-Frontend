@@ -1,85 +1,5 @@
 <script lang="ts" setup>
-const contactData = [
-  {
-    title: '會務股',
-    contactPhone: [
-      {
-        phone: '(08)861-1245',
-        icon: 'mdi-light:phone',
-      },
-      {
-        phone: '(08)861-1245',
-        icon: 'teenyicons:print-outline',
-      },
-    ],
-  },
-  {
-    title: '輔導股',
-    contactPhone: [
-      {
-        phone: '(08)861-1709',
-        icon: 'mdi-light:phone',
-      },
-      {
-        phone: '(08)861-2394',
-        icon: 'teenyicons:print-outline',
-      },
-    ],
-  },
-  {
-    title: '推廣部',
-    contactPhone: [
-      {
-        phone: '(08)861-4470',
-        icon: 'mdi-light:phone',
-      },
-      {
-        phone: '(08)861-4469',
-        icon: 'teenyicons:print-outline',
-      },
-    ],
-  },
-  {
-    title: '信用部',
-    contactPhone: [
-      {
-        phone: '(08)861-2512',
-        icon: 'mdi-light:phone',
-      },
-      {
-        phone: '(08)861-1180',
-        icon: 'mdi-light:phone',
-      },
-      {
-        phone: '(08)861-1473',
-        icon: 'teenyicons:print-outline',
-      },
-    ],
-  },
-]
-
-const friendLink = [
-  {
-    title: '漁業署',
-    link: 'https://www.fa.gov.tw/',
-    image: '/contact-us/friendLink1.png',
-  },
-  {
-    title: '全國漁會',
-    link: 'https://www.fa.gov.tw/',
-    image: '/contact-us/friendLink2.png',
-  },
-  {
-    title: '農業金庫',
-    link: 'https://www.fa.gov.tw/',
-    image: '/contact-us/friendLink3.png',
-  },
-  {
-    title: '南濃中心',
-    link: 'https://www.fa.gov.tw/',
-    image: '/contact-us/friendLink4.png',
-  },
-]
+import { contactData, facebookUrl, friendLink, lineUrl } from '@/constants'
 </script>
 
 <template>
@@ -90,7 +10,7 @@ const friendLink = [
           <h1 class="serif text-3xl font-bold tracking-widest text-neutral-950 md:text-5xl">
             便民服務
           </h1>
-          <p class="text-sm text-neutral-400 md:text-base">
+          <p class="text-md text-neutral-400 md:text-2xl">
             Contact Us
           </p>
         </div>
@@ -121,7 +41,7 @@ const friendLink = [
         <div class="border-b border-neutral-100 py-10 md:py-[60px]">
           <!-- 區塊標題 -->
           <div class="flex items-center space-x-3">
-            <div class="bg-primary-300 h-[30px] w-[6px] rounded-full" />
+            <div class="h-[30px] w-[6px] rounded-full bg-primary-300" />
             <h2 class="text-2xl font-bold tracking-wide">
               琉球區漁會
             </h2>
@@ -131,9 +51,9 @@ const friendLink = [
             <li
               v-for="(data) in contactData"
               :key="data.title"
-              class="bg-primary-50 rounded-xl text-sm md:w-1/4 md:text-base"
+              class="rounded-xl bg-primary-50 text-sm md:w-1/4 md:text-base"
             >
-              <p class="border-primary-100 text-primary-600 border-b py-2 text-center">
+              <p class="border-b border-primary-100 py-2 text-center text-primary-600">
                 {{ data.title }}
               </p>
 
@@ -183,7 +103,7 @@ const friendLink = [
         <div class="border-b border-neutral-100 py-10">
           <!-- 區塊標題 -->
           <div class="flex items-center space-x-3">
-            <div class="bg-primary-300 h-[30px] w-[6px] rounded-full" />
+            <div class="h-[30px] w-[6px] rounded-full bg-primary-300" />
             <h2 class="text-2xl font-bold tracking-wide">
               琉漁小舖
             </h2>
@@ -233,7 +153,9 @@ const friendLink = [
                 </div>
               </div>
 
-              <p>週一到週日8:00~~17:00</p>
+              <p class="text-center text-sm tracking-wider text-neutral-950 md:text-base">
+                週一到週日8:00~~17:00
+              </p>
             </li>
 
             <li
@@ -245,8 +167,9 @@ const friendLink = [
 
               <div class="space-y-3 p-4 md:flex md:flex-col md:items-center md:py-6">
                 <NuxtLink
-                  to="/"
-                  class="cs-border-1_5 text-primary-800 flex items-center space-x-2 rounded-xl px-4 py-[13.5px] text-center text-sm font-bold tracking-wide md:w-[279px]"
+                  :to="facebookUrl"
+                  target="_blank"
+                  class="cs-border-1_5 flex items-center space-x-2 rounded-xl px-4 py-[13.5px] text-center text-sm font-bold tracking-wide text-primary-800 md:w-[279px]"
                 >
                   <NuxtImg
                     src="/contact-us/fb.svg"
@@ -259,7 +182,8 @@ const friendLink = [
                   </p>
                 </NuxtLink>
                 <NuxtLink
-                  to="/"
+                  :to="lineUrl"
+                  target="_blank"
                   class="cs-border-1_5_n_950 flex items-center space-x-2 rounded-xl px-4 py-[13.5px] text-center text-sm font-bold tracking-wide text-neutral-950 md:w-[279px]"
                 >
                   <NuxtImg
@@ -281,34 +205,69 @@ const friendLink = [
         <div class="py-10">
           <!-- 區塊標題 -->
           <div class="flex items-center space-x-3">
-            <div class="bg-primary-300 h-[30px] w-[6px] rounded-full" />
+            <div class="h-[30px] w-[6px] rounded-full bg-primary-300" />
             <h2 class="text-2xl font-bold">
               友站連結
             </h2>
           </div>
+
           <!-- 各種連結 -->
-          <ul class="mt-6 space-y-6 md:flex md:gap-4 md:space-y-0">
-            <li
-              v-for="(link) in friendLink"
-              :key="link.title"
-              class="space-y-1 md:w-1/4"
+          <div class="">
+            <NuxtMarquee
+              :pause-on-hover="true"
+              :speed="70"
+              :gradient="true"
+              gradient-width="20px"
+              :auto-fill="true"
+              class="mt-6"
             >
               <NuxtLink
+                v-for="link in friendLink.slice(0, 8)"
+                :key="link.title"
                 :to="link.link"
-                class="flex min-h-[115px] w-full items-center justify-center rounded-xl bg-neutral-50 px-14 py-6 text-sm duration-300 md:hover:opacity-80"
+                class="mr-4"
               >
-                <NuxtImg
-                  :src="link.image"
-                  :alt="link.title"
-                  class="size-full"
-                />
+                <div class="flex h-[100px] w-[253px] items-center justify-center rounded-xl bg-neutral-50 px-4">
+                  <NuxtImg
+                    :src="link.image"
+                    :alt="link.title"
+                    class="h-auto w-full "
+                  />
+                </div>
+                <p class="mt-1 text-sm font-bold md:text-base">
+                  {{ link.title }}
+                </p>
               </NuxtLink>
+            </NuxtMarquee>
 
-              <p class="text-sm font-bold">
-                {{ link.title }}
-              </p>
-            </li>
-          </ul>
+            <NuxtMarquee
+              :pause-on-hover="true"
+              :speed="70"
+              direction="right"
+              :gradient="true"
+              gradient-width="20px"
+              :auto-fill="true"
+              class="mt-6"
+            >
+              <NuxtLink
+                v-for="link in friendLink.slice(8)"
+                :key="link.title"
+                :to="link.link"
+                class="mr-4"
+              >
+                <div class="flex h-[100px] w-[253px] items-center justify-center rounded-xl bg-neutral-50 px-4">
+                  <NuxtImg
+                    :src="link.image"
+                    :alt="link.title"
+                    class="h-auto w-full "
+                  />
+                </div>
+                <p class="mt-1 text-sm font-bold md:text-base">
+                  {{ link.title }}
+                </p>
+              </NuxtLink>
+            </NuxtMarquee>
+          </div>
         </div>
       </div>
     </section>

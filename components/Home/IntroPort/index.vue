@@ -60,22 +60,23 @@ const portList = [
                   <NuxtImg
                     :src="port.images"
                     :alt="port.title"
-                    class="h-[196px] w-full object-cover rounded-[10px]"
+                    class="h-[196px] w-full rounded-[10px] object-cover"
                   />
                 </CardItem>
 
                 <CardItem
                   :translate-z="60"
+                  :translate-x="20"
                   class="mt-4"
                 >
-                  <p class="text-primary-800 text-base font-bold tracking-wider md:text-base">
+                  <p class="text-base font-bold tracking-wider text-primary-800 md:text-base">
                     {{ port.title }}
                   </p>
                 </CardItem>
 
                 <CardItem
-                  :translate-z="50"
-                  class="mt-4 text-sm leading-[1.8] text-neutral-700"
+                  :translate-z="70"
+                  class="mt-4 text-sm leading-[1.8] text-neutral-700 md:text-base"
                 >
                   {{ port.description }}
                 </CardItem>

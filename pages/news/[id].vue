@@ -12,13 +12,13 @@ import { type NewsData, useNews } from '~/services/supabase/useNews'
 const route = useRoute()
 const { getNewsById } = useNews()
 const renderNews = ref<NewsData[] | []>([])
-const { data, error } = await getNewsById(Number(route.params.id))
+const { data, error } = await useAsyncData(`news-${Number(route.params.id)}`, () => getNewsById(Number(route.params.id)))
 
 if (error.value)
   console.error('error', error.value)
 
 if (data.value)
-  renderNews.value = data.value?.data || []
+  renderNews.value = data.value || []
 </script>
 
 <template>
@@ -60,7 +60,7 @@ if (data.value)
           {{ renderNews[0].title }}
         </h1>
 
-        <div class="mt-5 flex shrink-0 space-x-5">
+        <div class="mt-5 flex shrink-0 items-center space-x-5">
           <div
             class="border-x-2 border-primary-700 bg-primary-50 px-3 py-1 text-xs font-bold text-primary-700"
             :style="renderNews[0].unit?.style"
@@ -75,7 +75,7 @@ if (data.value)
       </div>
 
       <div class="mt-6 space-y-6 md:mt-10 md:space-y-10">
-        <div class="min-h-[237px] w-full overflow-hidden rounded-lg md:min-h-[546px]">
+        <div class=" w-full overflow-hidden rounded-lg">
           <NuxtImg
             :src="renderNews[0].image_url"
             alt="newsImage"
