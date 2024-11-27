@@ -2,16 +2,16 @@
 import {
   TabsContent,
 } from '@/components/ui/tabs'
-import type { Tab } from '@/pages/Departments.vue'
+import type { DepartmentJobs } from '@/pages/Departments.vue'
 
 defineProps<{
-  tabs: Tab[]
+  departmentJobs: DepartmentJobs[]
 }>()
 </script>
 
 <template>
   <TabsContent
-    :value="tabs[3].value"
+    :value="departmentJobs[3].value"
     class="mt-10 md:mt-[60px]"
   >
     <!-- 獎章 -->
@@ -31,7 +31,7 @@ defineProps<{
 
     <!-- 負責事項 -->
     <div
-      v-for="(section, index) in tabs[3].content"
+      v-for="(section, index) in departmentJobs[3].content"
       :key="index"
       class="my-6 md:my-[60px]"
     >
@@ -45,7 +45,7 @@ defineProps<{
         <li
           v-for="(item, itemIndex) in section.value"
           :key="itemIndex"
-          class="flex text-sm text-neutral-950"
+          class="flex text-sm text-neutral-950 md:text-base"
         >
           <span class="">・</span>
           <p>{{ item }}</p>

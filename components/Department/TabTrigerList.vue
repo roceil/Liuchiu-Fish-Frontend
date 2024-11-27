@@ -3,17 +3,17 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/ui/tabs'
-import type { Tab } from '@/pages/Departments.vue'
+import type { DepartmentJobs } from '@/pages/Departments.vue'
 
 defineProps<{
-  tabs: Tab[]
+  departmentJobs: DepartmentJobs[]
 }>()
 </script>
 
 <template>
   <TabsList class="flex w-full gap-x-2 md:justify-center md:gap-x-3">
     <TabsTrigger
-      v-for="(tab) in tabs"
+      v-for="(tab) in departmentJobs"
       :key="tab.name"
       :value="tab.value"
     >

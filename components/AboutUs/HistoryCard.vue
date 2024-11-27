@@ -30,10 +30,14 @@ const props = defineProps<{
         <NuxtImg
           :src="props.introPicture"
           class="hidden size-full object-cover md:block"
+          :alt="props.cardTitle"
+          format="webp"
         />
         <NuxtImg
           :src="props.introPictureSm"
           class="size-full object-cover md:hidden"
+          :alt="props.cardTitle"
+          format="webp"
         />
       </div>
       <p class="mt-2 text-xs text-neutral-500">

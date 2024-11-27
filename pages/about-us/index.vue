@@ -2,6 +2,7 @@
 import { watchOnce } from '@vueuse/core'
 import type { CarouselApi } from '@/components/ui/carousel'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import { awardsHistoryList } from '@/constants'
 
 const api = ref<CarouselApi>()
 const totalCount = ref(0)
@@ -70,30 +71,22 @@ const historyCardList = [
   {
     number: '02',
     title: '漁會現況',
-    picture: '/about-us/now.png',
-    pictureSm: '/about-us/now-sm.png',
-    description: '潮間帶景觀｜照片由李益利先生提供',
+    picture: '/about-us/now.jpg',
+    pictureSm: '/about-us/now.jpg',
+    description: '琉球漁會現址',
     content: [
       {
         title: '會員概況',
-        description: '現有甲類會員3742人、乙類會員76人、贊助會員121人，合計3,939人。漁船一至九噸69艘、十至十九噸78艘、廿至四十九噸239艘五十噸至99噸共計513艘，均為延繩釣漁船，分別在國內沿近海及國外基地關島、帛琉、密棟、雅加達、濱城、新加坡、普吉島、斯里蘭卡等基地作業。國內沿近海作業漁船所捕撈魚貨有鮪、旗、沙魚等種類。',
-      },
-      {
-        title: '漁會營運現況',
-        description: '本會因受環境地理影響無法設立魚市場，全部均駛往東港魚市場銷售，致本會無法收管理費，一切經濟來源均賴信用部營運收益以量入為出來維持會務。',
-      },
-      {
-        title: '開放外海箱網養殖',
-        description: '自民國83年開放琉球外海箱網養殖高經濟價值魚類如海鱺、紅魽、嘉臘、紅魚、石斑魚等，現海鱺己大量銷售日本作為生魚片：目前在琉球地區申請核准養殖戶計有四家。',
+        description: '現有3500餘人。漁筏、舢舨及延繩釣漁船共計640餘艘。延繩釣漁船分別在國內沿近海及國外基地關島、帛琉、密棟、雅加達、檳城、新加坡、普吉島、斯里蘭卡等基地作業。國內沿近海作業漁船所捕撈魚貨有鮪、旗、沙魚等種類。本會因受環境地理影響無法設立魚市場，大多均駛往高雄及東港魚市場銷售。雖然本會無魚市場管理費收入，仍辦理各項漁業業務及福利措施，設立多方部門替漁友及鄉親服務，實現漁會設立宗旨。',
       },
     ],
   },
   {
     number: '03',
     title: '漁會發展',
-    picture: '/about-us/scenery.png',
-    pictureSm: '/about-us/scenery-sm.png',
-    description: '琉球景觀｜照片由李益利先生提供',
+    picture: '/about-us/scenery.jpg',
+    pictureSm: '/about-us/scenery.jpg',
+    description: '琉球景觀',
     content: [
       {
         title: '小琉球觀光休閒漁業發展',
@@ -121,183 +114,6 @@ const leaderCardList = [
 const historyRef = ref<HTMLElement | null>(null)
 const structureRef = ref<HTMLElement | null>(null)
 const awardsRef = ref<HTMLElement | null>(null)
-
-function scrollToSection(sectionId: string) {
-  const refMap: { [key: string]: any } = {
-    history: historyRef,
-    structure: structureRef,
-    awards: awardsRef,
-  }
-
-  const targetRef = refMap[sectionId]
-  if (targetRef.value) {
-    const headerHeight = document.getElementById('header')?.clientHeight
-    const offset = headerHeight ?? 72
-    const elementPosition = targetRef.value.getBoundingClientRect().top
-    const offsetPosition = elementPosition + window.scrollY - offset
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    })
-  }
-}
-
-const awardsHistoryList = [
-  [{
-    title: '112 年第十七屆農金獎',
-    description: [
-      '漁會金融服務獎-特優獎',
-      '營運卓越獎戊組-優等獎',
-    ],
-  }, {
-    title: '112 年海宴水產精品入圍',
-    description: [
-      '小琉球純魚鬆禮盒組(鬼頭刀、旗魚、鮪魚純魚鬆)',
-    ],
-  }, {
-    title: '112 年度漁村青少年技藝傳承推廣教育計畫(南區)',
-    description: [
-      '食農教育作業組影片競賽-第三名',
-    ],
-  }, {
-    title: '111 年第十六屆農金獎',
-    description: [
-      '漁會金融服務獎-優等獎',
-      '營運卓越獎戊組-優等獎',
-    ],
-  }, {
-    title: '111 年度獲頒農業部漁業署',
-    description: [
-      '優等漁會',
-    ],
-  }],
-  [{
-    title: '110 年第十五屆農金獎',
-    description: [
-      '營運卓越獎戊組-優等獎',
-    ],
-  }, {
-    title: '109 年度漁村技藝培育推廣教育計畫(南區)',
-    description: [
-      '漁村在地食材料理競賽-第二名',
-    ],
-  }, {
-    title: '109 年度漁村青少年技藝傳承推廣教育計畫(南區)',
-    description: [
-      '食農教育及漁業技藝競賽-優等',
-    ],
-  }, {
-    title: '109 年第十四屆農金獎',
-    description: [
-      '漁會金融服務獎-甲等獎',
-    ],
-  }, {
-    title: '108年第十三屆農金獎',
-    description: [
-      '漁會金融服務獎-優等獎',
-    ],
-  }],
-  [{
-    title: '107年第十二屆農金獎',
-    description: [
-      '漁會金融服務獎-優等獎',
-    ],
-  }, {
-    title: '106年第十一屆農金獎',
-    description: [
-      '漁會金融服務獎-特優獎',
-      '營運卓越獎戊組-優等獎',
-    ],
-  }, {
-    title: '105年第十屆農金獎',
-    description: [
-      '漁會金融服務獎-特優獎',
-      '營運卓越獎戊組-優等獎',
-    ],
-  }, {
-    title: '104年第九屆農金獎',
-    description: [
-      '漁會金融服務獎-特優獎',
-      '營運卓越獎戊組-優等獎',
-      '農業金融偏鄉服務獎入圍佳作',
-    ],
-  }, {
-    title: '103年榮獲海洋奧斯卡',
-    description: [
-      '漁業資源永續面向',
-      '兼顧漁業資源永續及經濟利用合理進行漁業管理',
-    ],
-  }],
-  [{
-    title: '103年第八屆農金獎',
-    description: [
-      '營運卓越獎戊組入圍',
-    ],
-  }, {
-    title: '102年第七屆農金獎',
-    description: [
-      '漁會金融服務獎-優等獎',
-      '農業信用保證業務績效獎-優等獎',
-    ],
-  }, {
-    title: '101年第六屆農金獎',
-    description: [
-      '漁會金融服務獎-優等獎',
-    ],
-  }, {
-    title: '100年第五屆農金獎',
-    description: [
-      '漁會金融服務獎-特優獎',
-      '營運卓越獎丙組-優等獎',
-      '農業信用保證業務績效獎-優等獎',
-    ],
-  }, {
-    title: '100年海宴水產精品',
-    description: [
-      '小琉球魚鬆禮盒（鬼頭刀、旗魚、鮪魚魚鬆）',
-    ],
-  }],
-  [{
-    title: '100年第三屆十大魅力漁港',
-    description: [
-      '奔向大海-小琉球漁港',
-    ],
-  }, {
-    title: '99 年第二屆十大魅力漁港',
-    description: [
-      '樂活休閒-小琉球漁港',
-    ],
-  }, {
-    title: '99 年度漁事推廣成果評鑑',
-    description: [
-      '第二名',
-    ],
-  }, {
-    title: '98 年第三屆農金獎',
-    description: [
-      '營運卓越獎丙組-特優獎',
-    ],
-  }, {
-    title: '95 年農金獎農漁會信用部經營績效競賽',
-    description: [
-      '信用業務營運卓越獎',
-    ],
-  }],
-  [{
-    title: '94 年農金獎農漁會信用部經營績效競賽',
-    description: [
-      '信用業務營運績效優良獎',
-      '資產品質管理績效獎',
-    ],
-  }, {
-    title: '93 年度農漁會信用部農貸服務績效暨降低逾放比競賽',
-    description: [
-      '農貸服務績效獎',
-      '營運績效傑出獎',
-    ],
-  }],
-]
 </script>
 
 <template>
@@ -308,8 +124,8 @@ const awardsHistoryList = [
           <h1 class="serif text-3xl font-bold tracking-widest text-neutral-950 md:text-5xl">
             關於琉漁
           </h1>
-          <p class="text-sm text-neutral-400 md:text-base">
-            漁會以保障漁民權益，提高漁民知識、技能，增加漁民生產收益，改善漁民生活，促進漁業現代化，並謀其發展為宗旨
+          <p class="text-md text-neutral-400 md:text-2xl">
+            About Us
           </p>
         </div>
       </div>
@@ -342,16 +158,16 @@ const awardsHistoryList = [
           class="group flex items-center"
         >
           <div class="p-3 transition-all duration-300 md:group-hover:scale-110">
-            <div
-              class="size-[60px] cursor-pointer md:size-[90px]"
-              @click="scrollToSection(link.link)"
+            <a
+              :href="`#${link.link}`"
+              class="block size-[60px] md:size-[90px]"
             >
               <NuxtImg
                 :src="link.icon"
                 :alt="link.title"
                 class="cs-shadow-sm md:group-hover:cs-shadow-lg h-auto w-full rounded-full transition-all duration-300"
               />
-            </div>
+            </a>
             <p class="mt-1 text-center text-sm font-bold md:mt-2 md:text-base">
               {{ link.title }}
             </p>
@@ -365,6 +181,7 @@ const awardsHistoryList = [
 
       <!-- 沿革發展 -->
       <div
+        id="history"
         ref="historyRef"
         class="container w-full py-[60px] md:py-[100px]"
       >
@@ -395,11 +212,11 @@ const awardsHistoryList = [
                     >
                       <div class="flex items-start space-x-3">
                         <div class="mt-1 size-2 rounded-full bg-primary-700" />
-                        <h5 class="font-bold text-primary-700">
+                        <h5 class="font-bold text-primary-700 md:text-lg">
                           {{ content.title }}
                         </h5>
                       </div>
-                      <p class="ml-5 mt-1 text-sm text-neutral-950">
+                      <p class="ml-5 mt-1 text-sm text-neutral-950 md:text-base">
                         {{ content.description }}
                       </p>
                     </li>
@@ -421,10 +238,10 @@ const awardsHistoryList = [
                     v-for="(content) in card.content"
                     :key="content.title"
                   >
-                    <h5 class="font-bold text-primary-700">
+                    <h5 class="font-bold text-primary-700 md:text-lg">
                       {{ content.title }}
                     </h5>
-                    <p class="mt-1 text-sm text-neutral-950">
+                    <p class="mt-1 text-sm text-neutral-950 md:text-base">
                       {{ content.description }}
                     </p>
                   </li>
@@ -437,6 +254,7 @@ const awardsHistoryList = [
 
       <!-- 組織架構 -->
       <div
+        id="structure"
         ref="structureRef"
         class="w-full rounded-tr-[40px] bg-primary-100 py-[60px] md:py-[100px]"
       >
@@ -498,6 +316,7 @@ const awardsHistoryList = [
 
       <!-- 歷年獲獎 -->
       <div
+        id="awards"
         ref="awardsRef"
         class="container w-full py-[60px] md:py-[100px]"
       >
