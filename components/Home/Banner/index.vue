@@ -12,7 +12,6 @@ import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
           class="size-full md:hidden"
           alt="banner-map"
           format="webp"
-          :placeholder="[32, 32, 80, 5]"
           draggable="false"
         />
 
@@ -21,7 +20,6 @@ import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
           class="hidden size-full md:block"
           alt="banner-map"
           format="webp"
-          :placeholder="[32, 32, 80, 5]"
           draggable="false"
         />
       </div>

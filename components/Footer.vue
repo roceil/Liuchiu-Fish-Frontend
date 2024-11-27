@@ -3,26 +3,24 @@ const footerLinks = [
   {
     title: '琉漁小舖',
     links: [
-      { text: '所有商品', url: '#' },
-      { text: '禮盒專區', url: '#' },
-      { text: '人氣特產', url: '#' },
+      { text: '所有商品', url: '/shop' },
     ],
   },
   {
     title: '關於琉漁',
     links: [
-      { text: '沿革發展', url: '#' },
-      { text: '組織架構', url: '#' },
-      { text: '歷年進度', url: '#' },
+      { text: '沿革發展', url: '/about-us/#history' },
+      { text: '組織架構', url: '/about-us/#structure' },
+      { text: '歷年進度', url: '/about-us/#awards' },
     ],
   },
   {
     title: '業務部門',
     links: [
-      { text: '輔導股', url: '#' },
-      { text: '會務股', url: '#' },
-      { text: '推廣股', url: '#' },
-      { text: '信用部', url: '#' },
+      { text: '輔導股', url: '/department' },
+      { text: '會務股', url: '/department' },
+      { text: '推廣股', url: '/department' },
+      { text: '信用部', url: '/department' },
     ],
   },
   {

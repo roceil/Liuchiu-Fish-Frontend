@@ -7,7 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import { productsList } from '~/constants'
+import { lineUrl, productsList } from '~/constants'
 
 const router = useRoute()
 const { id } = router.params
@@ -15,6 +15,22 @@ const { id } = router.params
 const product = computed(() => productsList[Number(id) - 1])
 
 const randomProducts = computed(() => productsList.sort(() => Math.random() - 0.5).slice(0, 10))
+
+function handleDownload() {
+  // 下載第一個檔案
+  const link1 = document.createElement('a')
+  link1.href = '/shop/form.pdf'
+  link1.download = '琉漁小鋪購物表單.pdf' // 下載檔名
+  link1.click()
+
+  // 下載第二個檔案
+  setTimeout(() => {
+    const link2 = document.createElement('a')
+    link2.href = '/shop/form-2.xlsx'
+    link2.download = '琉漁小鋪購物表單.xlsx'
+    link2.click()
+  }, 100)
+}
 </script>
 
 <template>
@@ -71,14 +87,28 @@ const randomProducts = computed(() => productsList.sort(() => Math.random() - 0.
         </div>
 
         <div class="mt-4 flex h-auto w-full justify-center gap-x-3 md:h-[152px] md:w-[510px]">
-          <button class="cs-border-1_5 group flex w-1/2 cursor-pointer flex-col items-center justify-center space-y-3 rounded-lg py-5 text-sm font-bold text-primary-800 ring-1 md:text-base">
-            <div class="size-10 ring-1" />
+          <NuxtLink
+            :to="lineUrl"
+            target="_blank"
+            class="cs-border-1_5 group flex w-1/2 cursor-pointer flex-col items-center justify-center space-y-3 rounded-lg py-5 text-sm font-bold text-primary-800 ring-1 md:text-base"
+          >
+            <div class="size-14">
+              <NuxtImg
+                src="/shop/line-qrcode.png"
+                alt="lineQRCode"
+                class="size-full object-cover"
+              />
+            </div>
             <p class="md:group-hover:text-primary-600">
               Line QRCode
             </p>
-          </button>
-          <button class="cs-border-1_5 group flex w-1/2 cursor-pointer flex-col items-center justify-center space-y-3 rounded-lg text-sm font-bold text-primary-800 ring-1 md:text-base">
-            <div class="size-10">
+          </NuxtLink>
+          <button
+            type="button"
+            class="cs-border-1_5 group flex w-1/2 cursor-pointer flex-col items-center justify-center space-y-3 rounded-lg text-sm font-bold text-primary-800 ring-1 md:text-base"
+            @click="handleDownload"
+          >
+            <div class="size-14">
               <Icon
                 name="line-md:document-twotone"
                 class="size-full md:group-hover:text-primary-600"

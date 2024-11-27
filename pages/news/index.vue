@@ -12,13 +12,13 @@ import { type NewsData, useNews } from '~/services/supabase/useNews'
 const renderNewsList = ref<NewsData[] | []>([])
 const allNewsList = ref<NewsData[] | []>([])
 const { getNews } = useNews()
-const { data, error } = await getNews()
+const { data, error } = await useAsyncData('news', () => getNews())
 
 if (error.value)
   console.error('error', error.value)
 
 if (data.value) {
-  allNewsList.value = data.value?.data || []
+  allNewsList.value = data.value || []
   renderNewsList.value = allNewsList.value
 }
 
@@ -73,7 +73,7 @@ function handleOrganizationChange(organizationId: number) {
           <h1 class="serif text-3xl font-bold tracking-widest text-neutral-950 md:text-5xl">
             訊息公告
           </h1>
-          <p class="text-sm text-neutral-400 md:text-base">
+          <p class="text-md text-neutral-400 md:text-2xl">
             News
           </p>
         </div>
@@ -109,7 +109,7 @@ function handleOrganizationChange(organizationId: number) {
               class="shrink-0"
             >
               <button
-                class="cs-border-1_5 hover:cs-border-1_5:hover text-primary-800 md:hover:bg-primary-600 rounded-lg px-5 py-3 font-bold tracking-widest duration-300 ease-in-out focus:text-white md:hover:text-white"
+                class="cs-border-1_5 hover:cs-border-1_5:hover rounded-lg px-5 py-3 font-bold tracking-widest text-primary-800 duration-300 ease-in-out focus:text-white md:hover:bg-primary-600 md:hover:text-white"
                 :class="type.id === currentOrganization ? 'bg-primary-800 text-white' : ''
                 "
                 @click="handleOrganizationChange(type.id)"
@@ -134,7 +134,7 @@ function handleOrganizationChange(organizationId: number) {
               >
                 <div class="shrink-0">
                   <div
-                    class=" border-x-2 px-3 py-1 text-xs font-bold"
+                    class=" min-w-20 border-x-2 px-3 py-1 text-center text-xs font-bold"
                     :style="news.unit?.style"
                   >
                     {{ news.unit?.name }}
@@ -142,7 +142,7 @@ function handleOrganizationChange(organizationId: number) {
                 </div>
 
                 <div class="h-[43px] w-[70%] space-y-1 sm:w-[80%] md:flex md:w-full md:items-center md:justify-between">
-                  <p class="truncate text-sm md:text-balance ">
+                  <p class="truncate text-sm md:text-balance md:text-base">
                     {{ news.title }}
                   </p>
                   <p class="text-sm text-neutral-400">
@@ -161,7 +161,7 @@ function handleOrganizationChange(organizationId: number) {
         :sibling-count="1"
         show-edges
         :default-page="1"
-        class="mt-8 pb-10 md:container hidden"
+        class="mt-8 hidden pb-10 md:container"
       >
         <PaginationList
           v-slot="{ items }"
@@ -177,7 +177,7 @@ function handleOrganizationChange(organizationId: number) {
               as-child
             >
               <button
-                class="text-primary-950 size-10 rounded-full border-none p-0"
+                class="size-10 rounded-full border-none p-0 text-primary-950"
                 :class="item.value === page ? 'bg-primary-100' : 'bg-white'"
               >
                 {{ item.value }}
