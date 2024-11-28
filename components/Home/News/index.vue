@@ -17,11 +17,18 @@ if (data.value)
   <section>
     <div class="w-full rounded-t-[48px] bg-[#F0F8FF] md:rounded-t-[100px] ">
       <div class="flex flex-col items-center px-4 pb-[120px] pt-[60px] md:pb-[160px] md:pt-[100px]">
-        <h2 class="serif text-center text-3xl font-bold">
+        <h2
+          class="serif text-center text-3xl font-bold"
+          data-aos="fade-up"
+        >
           最新消息
         </h2>
 
-        <div class="cs-shadow-sm relative mt-10 w-full rounded-[20px] bg-white md:mt-20 md:flex md:max-w-[1060px] md:justify-between md:px-10 md:pb-[90px] md:pt-[60px] lg:px-12">
+        <div
+          class="cs-shadow-sm relative mt-10 w-full rounded-[20px] bg-white md:mt-20 md:flex md:max-w-[1060px] md:justify-between md:px-10 md:pb-[90px] md:pt-[60px] lg:px-12"
+          data-aos="fade-up"
+          :data-aos-delay="100"
+        >
           <!-- 裝飾用照片 -->
           <div class="flex justify-center pb-6 pt-10 md:pt-0">
             <div class=" space-y-2 ">

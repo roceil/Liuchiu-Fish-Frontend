@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/icon',
     'nuxt-marquee',
+    'nuxt-aos',
   ],
 
   shadcn: {
@@ -63,6 +64,12 @@ export default defineNuxtConfig({
     },
     display: 'swap', // 自定義字體加載完成之前先使用一個後備字體
     download: false, // 不要下載字體文件到本地使用 CDN
+  },
+
+  aos: {
+    duration: 500,
+    easing: 'ease-in-out',
+    once: true,
   },
 
   runtimeConfig: {

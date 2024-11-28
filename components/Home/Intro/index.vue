@@ -50,15 +50,20 @@ function showImg(linkType: string) {
     <div class="mt-[-1px] bg-gradient-to-r from-[#D6E6FF] to-[#EDFAFE] pt-5">
       <div class="container py-10 md:pb-0 md:pt-[100px]">
         <div class="flex flex-col items-center md:py-[60px]">
-          <h4 class="serif text-center text-2xl font-bold md:text-[30px]">
+          <h4
+            class="serif text-center text-2xl font-bold md:text-[30px]"
+            data-aos="fade-up"
+          >
             認識琉球區漁會
           </h4>
 
           <ul class="mt-9 grid w-full grid-cols-3 md:flex md:max-w-[864px] md:justify-center">
             <li
-              v-for="links in linksList"
+              v-for="(links, index) in linksList"
               :key="links.title"
               class="group flex cursor-pointer flex-col items-center justify-center p-3 md:px-5"
+              data-aos="zoom-in-up"
+              :data-aos-delay="index * 100"
             >
               <NuxtLink :to="links.link">
                 <div class="cs-shadow-sm md:group-hover:cs-shadow-lg size-[90px] overflow-hidden rounded-full bg-white p-[21px] transition-all duration-300 md:size-[120px] md:p-7 md:group-hover:scale-110">
