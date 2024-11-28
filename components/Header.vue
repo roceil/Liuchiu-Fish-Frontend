@@ -35,7 +35,7 @@ const headerClasses = computed(() => [
   <header
     id="header"
     :class="headerClasses"
-    class="z-[9999]"
+    class="z-30"
   >
     <div class="container flex w-full items-center justify-between">
       <!-- Logo -->
