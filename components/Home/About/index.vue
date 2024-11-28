@@ -20,6 +20,8 @@ import { contentList } from '~/constants'
           :class="[
             index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto',
           ]"
+          :data-aos="index % 2 === 0 ? 'zoom-in-right' : 'zoom-in-left'"
+          :data-aos-delay="index * 100"
         >
           <div
             class="relative w-full space-y-2 rounded-xl bg-white p-5 "

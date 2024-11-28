@@ -47,7 +47,10 @@ const portList = [
         </h2>
       </div>
 
-      <ul class="mt-[64px] space-y-16 md:mt-[120px] md:grid md:grid-cols-12 md:gap-x-10 md:gap-y-[100px] md:space-y-0">
+      <ul
+        class="mt-[64px] space-y-16 md:mt-[120px] md:grid md:grid-cols-12 md:gap-x-10 md:gap-y-[100px] md:space-y-0"
+        data-aos="fade-up"
+      >
         <li
           v-for="(port) in portList"
           :key="port.title"

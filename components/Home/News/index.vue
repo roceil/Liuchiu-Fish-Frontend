@@ -10,18 +10,25 @@ if (error.value)
   console.error('error', error.value)
 
 if (data.value)
-  renderNewsList.value = data.value || []
+  renderNewsList.value = data.value.sort((a, b) => b.date.localeCompare(a.date))
 </script>
 
 <template>
   <section>
     <div class="w-full rounded-t-[48px] bg-[#F0F8FF] md:rounded-t-[100px] ">
       <div class="flex flex-col items-center px-4 pb-[120px] pt-[60px] md:pb-[160px] md:pt-[100px]">
-        <h2 class="serif text-center text-3xl font-bold">
+        <h2
+          class="serif text-center text-3xl font-bold"
+          data-aos="fade-up"
+        >
           最新消息
         </h2>
 
-        <div class="cs-shadow-sm relative mt-10 w-full rounded-[20px] bg-white md:mt-20 md:flex md:max-w-[1060px] md:justify-between md:px-10 md:pb-[90px] md:pt-[60px] lg:px-12">
+        <div
+          class="cs-shadow-sm relative mt-10 w-full rounded-[20px] bg-white md:mt-20 md:flex md:max-w-[1060px] md:justify-between md:px-10 md:pb-[90px] md:pt-[60px] lg:px-12"
+          data-aos="fade-up"
+          :data-aos-delay="100"
+        >
           <!-- 裝飾用照片 -->
           <div class="flex justify-center pb-6 pt-10 md:pt-0">
             <div class=" space-y-2 ">
@@ -34,7 +41,7 @@ if (data.value)
               </div>
 
               <p class="w-full text-xs text-neutral-500 md:text-sm">
-                琉球區漁會資訊 提供
+                琉球區漁會 提供
               </p>
             </div>
           </div>
@@ -43,7 +50,7 @@ if (data.value)
           <div class="w-full md:w-[70%]">
             <ul class="w-full border-y border-neutral-100 px-4 pb-[14px] pt-2 md:min-h-[248px] md:w-full md:rounded-lg md:border md:px-3">
               <HomeNewsListItem
-                :news-list="renderNewsList"
+                :news-list="renderNewsList.slice(0, 6)"
               />
             </ul>
 

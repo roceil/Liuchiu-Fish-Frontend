@@ -55,7 +55,7 @@ useSiteMetadata({
           <ul class="mx-auto grid max-w-[1312px] grid-cols-1 justify-items-center gap-x-10 gap-y-[60px] sm:grid-cols-2 sm:justify-items-center lg:grid-cols-3 xl:grid-cols-4">
             <li
               v-for="(product) in productsList"
-              :key="product.id"
+              :key="product.name"
               class="w-full max-w-[290px]"
             >
               <ProductsCard :product="product" />
