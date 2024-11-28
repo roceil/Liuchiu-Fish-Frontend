@@ -5,13 +5,11 @@ import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
 <template>
   <section class="flex h-[733px] flex-col justify-between md:h-auto md:min-h-[728px] md:pb-0 md:pt-10">
     <div class="container flex flex-col items-center justify-center md:flex-row md:items-start md:space-x-10">
-      <!-- TODO:之後要換成 clip-path -->
       <div class="h-[343px] w-[352px] md:mt-5 md:h-[536px] md:w-[950px]">
         <NuxtImg
           src="/banner/map-sm.svg"
           class="size-full md:hidden"
           alt="banner-map"
-          format="webp"
           draggable="false"
         />
 
@@ -19,7 +17,6 @@ import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
           src="/banner/map.svg"
           class="hidden size-full md:block"
           alt="banner-map"
-          format="webp"
           draggable="false"
         />
       </div>

@@ -20,7 +20,7 @@ function handleImageLoad() {
   <div class="relative w-[290px]">
     <div
       v-if="props.product.hotSale"
-      class="absolute -top-3 left-4 z-30 border-x-2 border-danger-200 bg-white/90 px-3 py-1"
+      class="absolute -top-3 left-4 z-20 border-x-2 border-danger-200 bg-white/90 px-3 py-1"
     >
       <p class="text-sm font-bold text-danger-200">
         熱銷 No. {{ props.product.hotSaleNumber }}

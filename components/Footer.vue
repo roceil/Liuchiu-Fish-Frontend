@@ -11,7 +11,7 @@ const footerLinks = [
     links: [
       { text: '沿革發展', url: '/about-us/#history' },
       { text: '組織架構', url: '/about-us/#structure' },
-      { text: '歷年進度', url: '/about-us/#awards' },
+      { text: '歷年獲獎', url: '/about-us/#awards' },
     ],
   },
   {
