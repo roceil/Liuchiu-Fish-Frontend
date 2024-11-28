@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import { contactData, facebookUrl, friendLink, lineUrl } from '@/constants'
+import { useSiteMetadata } from '@/composables/useMetaData'
+
+useSiteMetadata({
+  title: '便民服務',
+})
 </script>
 
 <template>
@@ -219,7 +224,7 @@ import { contactData, facebookUrl, friendLink, lineUrl } from '@/constants'
               :gradient="true"
               gradient-width="20px"
               :auto-fill="true"
-              class="mt-6"
+              class="mt-6 overflow-hidden"
             >
               <NuxtLink
                 v-for="link in friendLink.slice(0, 8)"
@@ -247,7 +252,7 @@ import { contactData, facebookUrl, friendLink, lineUrl } from '@/constants'
               :gradient="true"
               gradient-width="20px"
               :auto-fill="true"
-              class="mt-6"
+              class="mt-6 overflow-hidden"
             >
               <NuxtLink
                 v-for="link in friendLink.slice(8)"

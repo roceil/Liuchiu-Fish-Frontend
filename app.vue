@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { useSiteMetadata } from '@/composables/useMetaData'
 
-useSiteMetadata()
+useSiteMetadata({
+  title: '官方網站',
+})
 </script>
 
 <template>

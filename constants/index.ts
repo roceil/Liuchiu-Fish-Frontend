@@ -1,7 +1,7 @@
 import type { News, Product } from '~/types'
 import type { DepartmentJobs } from '~/pages/Departments.vue'
 
-export const appName = '琉球區漁會｜官方網站'
+export const appName = '琉球區漁會｜'
 export const appDescription = '小琉球是一座位於屏東縣西南方大海上的珊瑚礁島嶼。漁會以保障漁民權益，提高漁民知識、技能，增加漁民生產收益，改善漁民生活，促進漁業現代化，並謀其發展為宗旨。'
 export const facebookUrl = 'https://www.facebook.com/liuyu929000/'
 export const lineUrl = 'https://line.me/R/ti/p/@961vipno?ts=05281850&oat_content=u'
@@ -9,12 +9,12 @@ export const lineUrl = 'https://line.me/R/ti/p/@961vipno?ts=05281850&oat_content
 // 商品列表，用於渲染 ProductCard
 export const productsList: Product[] = [
   {
-    id: 1,
+    id: 'MAHI001',
     hotSale: true,
     hotSaleNumber: 1,
     name: '鬼頭刀魚鬆',
     price: 200,
-    cover: '/shop/products/mahi-fiber-cover.jpg',
+    cover: '/shop/products/mahi-fiber-cover.png',
     unit: '罐',
     intro: [
       {
@@ -25,240 +25,240 @@ export const productsList: Product[] = [
     ],
   },
   {
-    id: 2,
+    id: 'MAHI002',
     hotSale: true,
     hotSaleNumber: 2,
     name: '鬼頭刀魚酥條(原味/辣味)',
     price: 110,
-    cover: '/shop/products/fish-crackers-cover.jpg',
+    cover: '/shop/products/mahi-crackers-cover.png',
     unit: '包',
     intro: [
       {
-        subImage: ['/shop/products/fish-crackers-sub-1.jpg'],
+        subImage: ['/shop/products/mahi-crackers-sub-1.png'],
         subTitle: '追劇好夥伴',
         description: '經過精心挑選的魚肉製成，並採用獨特的製作工藝，保證了口感的酥脆和品質的可靠性，是三五好友聚會及沙發追劇好夥伴。',
       },
     ],
   },
   {
-    id: 3,
+    id: 'MAHI003',
     hotSale: true,
     hotSaleNumber: 3,
     name: '鬼頭刀魚乾(辣味/辣味)',
     price: 110,
-    cover: '/shop/products/fish-dry-cover.jpg',
+    cover: '/shop/products/mahi-dry-cover.png',
     unit: '包',
     intro: [
       {
-        subImage: ['/shop/products/fish-dry-sub-1.jpg'],
+        subImage: ['/shop/products/mahi-dry-sub-1.png'],
         subTitle: '大海的獨特風味',
         description: '經過多層繁雜的工序洗淨、抹鹽、反覆日曬，徐徐海風吹撫，為鬼頭刀熟魚乾增添大海的獨特風味。',
       },
     ],
   },
   {
-    id: 4,
+    id: 'MAHI004',
     hotSale: false,
     hotSaleNumber: 0,
     name: '鬼頭刀糙米捲',
     price: 130,
-    cover: '/shop/products/rice-roll-cover.jpg',
+    cover: '/shop/products/mahi-rice-roll-cover.png',
     unit: '包',
     intro: [
       {
-        subImage: ['/shop/products/rice-roll-sub-1.jpg'],
+        subImage: ['/shop/products/mahi-rice-roll-sub-1.png'],
         subTitle: '大海的全新風味',
         description: '糙米的纖維和營養與鬼頭刀的蛋白質和維生素相得益彰，外層包裹著新鮮鬼頭刀魚鬆，加上起司風味可可磚夾心，鬼頭刀糙米捲將傳統的糙米捲與獨特的鬼頭刀食材結合在一起，創造出一種別開生面的味覺體驗。鬼頭刀肉質香美，口感豐富，為糙米捲注入了新的風味。',
       },
     ],
   },
   {
-    id: 5,
+    id: 'MAHI005',
     hotSale: false,
     hotSaleNumber: 0,
     name: '鬼頭刀魚丸',
     price: 200,
-    cover: '/shop/products/fish-ball-cover.jpg',
+    cover: '/shop/products/mahi-fish-ball-cover.png',
     unit: '包',
     intro: [
       {
-        subImage: ['/shop/products/fish-ball-sub-1.jpg'],
+        subImage: ['/shop/products/mahi-fish-ball-sub-1.png'],
         subTitle: '海洋的鮮味',
         description: '探索海洋的鮮味，感受小琉球的恩賜！我們自豪地呈獻小琉球鬼頭刀魚丸，採用頂級鬼頭刀魚為原料，精心製作而成，每一口鬼頭刀魚丸都蘊含著大海的澎湃力量與鮮美風味！',
       },
     ],
   },
   {
-    id: 6,
+    id: 'SWFS001',
     hotSale: false,
     hotSaleNumber: 0,
     name: '旗魚丸',
     price: 200,
-    cover: '/shop/products/swordfish-ball-cover.jpg',
+    cover: '/shop/products/swordfish-ball-cover.png',
     unit: '包',
     intro: [
       {
-        subImage: ['/shop/products/swordfish-ball-sub-1.jpg'],
+        subImage: ['/shop/products/swordfish-ball-sub-1.png'],
         subTitle: '追尋大海的美味',
         description: '追尋大海的美味，感受旗魚的優雅，我們自家地呈獻旗魚丸，採用新鮮頂級的旗魚為原料，經過精心製作而成,每一口旗魚丸都散發著大海的深邃和旗魚的獨特風味！',
       },
     ],
   },
   {
-    id: 7,
-    hotSale: false,
-    hotSaleNumber: 0,
-    name: '花枝丸',
-    price: 280,
-    cover: '/shop/products/squid-ball-cover.jpg',
-    unit: '包',
-    intro: [
-      {
-        subImage: ['/shop/products/squid-ball-sub-1.jpg'],
-        subTitle: '海洋的恩惠',
-        description: '漫步在海的邊緣，品味大海的鮮美！我們誠摰地呈獻花枝丸，以新鮮優質的花枝為原料，細心打造而成。每一口花枝丸都蘊含著海洋的恩惠和花枝的豐富風味，是味蕾的極致享受！無論是燒烤、煎、炸或是涼拌，花枝丸都能為您的餐桌增添豐富的口感和美味。',
-      },
-    ],
-  },
-  {
-    id: 8,
+    id: 'SWFS002',
     hotSale: false,
     hotSaleNumber: 0,
     name: '旗魚鬆',
     price: 200,
-    cover: '/shop/products/swordfish-fiber-cover.jpg',
+    cover: '/shop/products/swordfish-fiber-cover.png',
     unit: '罐',
     intro: [
       {
-        subImage: ['/shop/products/swordfish-fiber-sub-1.jpg'],
+        subImage: ['/shop/products/swordfish-fiber-sub-1.png'],
         subTitle: '健康飲食的理想選擇',
         description: '旗魚鬆不僅可以作為主菜，更可以作為開胃菜、配菜或下酒菜，無論是搭配米飯，麵包還是沙拉，都能為您帶來一場美味的饗宴。此外，由於旗魚鬆富含豐富的營養成分，同時又低脂肪，高蛋白質，因此也是健康飲食的理想選擇。',
       },
     ],
   },
   {
-    id: 9,
+    id: 'TF001',
     hotSale: false,
     hotSaleNumber: 0,
     name: '鮪魚鬆',
     price: 200,
-    cover: '/shop/products/tuna-fiber-cover.jpg',
+    cover: '/shop/products/tuna-fiber-cover.png',
     unit: '罐',
     intro: [
       {
-        subImage: ['/shop/products/tuna-fiber-sub-1.jpg'],
+        subImage: ['/shop/products/tuna-fiber-sub-1.png'],
         subTitle: '海洋的鮮甜',
         description: '我們嚴選食材，將新鮮的鮪魚切割成細絲，再加入精心調配的香料和調味料，通過炒製的過程，將鮪魚的鮮美呈現得淋漓盝致讓您品味到海洋的鮮甜，我們以新鮮的鮪魚為原料，精心製作了這道獨特的美食-鮪魚鬆。',
       },
     ],
   },
   {
-    id: 10,
+    id: 'SQUID001',
+    hotSale: false,
+    hotSaleNumber: 0,
+    name: '花枝丸',
+    price: 280,
+    cover: '/shop/products/squid-ball-cover.png',
+    unit: '包',
+    intro: [
+      {
+        subImage: ['/shop/products/squid-ball-sub-1.png'],
+        subTitle: '海洋的恩惠',
+        description: '漫步在海的邊緣，品味大海的鮮美！我們誠摰地呈獻花枝丸，以新鮮優質的花枝為原料，細心打造而成。每一口花枝丸都蘊含著海洋的恩惠和花枝的豐富風味，是味蕾的極致享受！無論是燒烤、煎、炸或是涼拌，花枝丸都能為您的餐桌增添豐富的口感和美味。',
+      },
+    ],
+  },
+  {
+    id: 'SWFS003',
     hotSale: false,
     hotSaleNumber: 0,
     name: '100% 純旗魚鬆',
     price: 300,
-    cover: '/shop/products/full-swordfish-fiber-cover.jpg',
+    cover: '/shop/products/swordfish-full-fiber-cover.png',
     unit: '罐',
     intro: [
       {
-        subImage: ['/shop/products/full-swordfish-fiber-sub-1.jpg'],
+        subImage: ['/shop/products/swordfish-full-fiber-sub-1.png'],
         subTitle: '嚴格把關無添加防腐劑',
         description: '我們引以為傲的旗魚鬆，採用頂級的旗魚為原料，經過精心製作而成。旗魚肉質鮮嫩，口感絲滑，讓您一試難忘。100%,純魚鬆不添加碗豆粉，每一口魚鬆都散發著海洋的芬芳。無論是濃郁的魚香味還是鬆軟的口感，都能讓您沉浸在美食的享受之中，香酥美味，營養加倍，堅持品質，嚴格把關無添加防腐劑。',
       },
     ],
   },
   {
-    id: 11,
+    id: 'TF002',
     hotSale: false,
     hotSaleNumber: 0,
     name: '100% 純鮪魚鬆',
     price: 300,
-    cover: '/shop/products/full-tuna-fiber-cover.jpg',
+    cover: '/shop/products/tuna-full-fiber-cover.png',
     unit: '罐',
     intro: [
       {
-        subImage: ['/shop/products/full-tuna-fiber-sub-1.jpg'],
+        subImage: ['/shop/products/tuna-full-fiber-sub-1.png'],
         subTitle: '健康飲食的絕佳選擇',
         description: '鮪魚肉質鮮美，富含豐富的蛋白質和OMEGA-3脂肪酸是健康飲食的絕佳選擇，讓您品味到純正的海洋滋味，以繁複作工去除腥味，魚鬆口感細膩，100%純魚鬆不添加碗豆粉，每一口魚鬆都散發著海洋的芬芳。無論是濃郁的魚香味還是鬆軟的口感，都能讓您沉浸在美食的享受之中。香酥美味，營養加倍，堅持品質，嚴格把關無添加防腐劑。',
       },
     ],
   },
   {
-    id: 12,
+    id: 'MAHI006',
     hotSale: false,
     hotSaleNumber: 0,
     name: '100% 純鬼頭刀魚鬆',
     price: 380,
-    cover: '/shop/products/full-mahi-fiber-cover.jpg',
+    cover: '/shop/products/mahi-full-fiber-cover.png',
     unit: '罐',
     intro: [
       {
-        subImage: ['/shop/products/full-mahi-fiber-sub-1.jpg'],
+        subImage: ['/shop/products/mahi-full-fiber-sub-1.png'],
         subTitle: '海洋的芬芳',
         description: '精選新鮮鬼頭刀魚，經過嚴格去鱗、去骨，再細心切割成細絲，確保每一口都能品噌到海鮮的鮮味，100%純魚鬆不添加碗豆粉，每一口魚鬆都散發著海洋的芬芳。無論是濃郁的魚香味還是鬆軟的回感，都能讓您沉浸在美食的享受之中。香酥美味，營養加倍，堅持品質，嚴格把關無添加防腐劑。',
       },
     ],
   },
   {
-    id: 13,
+    id: 'SSG001',
     hotSale: false,
     hotSaleNumber: 0,
     name: '飛魚卵香腸',
     price: 200,
-    cover: '/shop/products/flyfish-sausage-cover.jpg',
+    cover: '/shop/products/sausage-flyfish-cover.png',
     unit: '包',
     intro: [
       {
-        subImage: ['/shop/products/flyfish-sausage-sub-1.jpg'],
+        subImage: ['/shop/products/sausage-flyfish-sub-1.png'],
         subTitle: '海的鮮美與土地的風味',
         description: '從海洋的深處 ，采撷出來的實藏，每一粒飛魚卵都蘊含著大海的味道，融合了海的鮮美與土地的風味。我們的飛魚卵香腸．不僅是一道料理，更是一場味覺的探險之旅，讓每一口都是對大自然的致敬，讓每一餐，都是一次美味的饗宴。飛魚卵香腸，細嚼之間，品味大海的恩腸。',
       },
     ],
   },
   {
-    id: 14,
+    id: 'SSG002',
     hotSale: false,
     hotSaleNumber: 0,
     name: '黑鮪魚香腸',
     price: 200,
-    cover: '/shop/products/tuna-sausage-cover.jpg',
+    cover: '/shop/products/sausage-tuna-cover.png',
     unit: '包',
     intro: [
       {
-        subImage: ['/shop/products/tuna-sausage-sub-1.jpg'],
+        subImage: ['/shop/products/sausage-tuna-sub-1.png'],
         subTitle: '大海的奥秘與鮮美',
         description: '來自深邃海底的黑鮪魚，凝聚著大海的奥秘與鮮美。我們精心挑選，巧妙調配，將黑鮪魚與香腸完結合，創造出獨特的風味,每一絲香氟都是對料理的尊嚴。讓我們的黑鮪魚香腸，帶您漫遊在大海的浪漫之中，享受味番的盛宴，品味生活的美好。',
       },
     ],
   },
   {
-    id: 15,
+    id: 'SSG003',
     hotSale: false,
     hotSaleNumber: 0,
     name: '墨魚香腸',
     price: 200,
-    cover: '/shop/products/cuttlefish-sausage-cover.jpg',
+    cover: '/shop/products/sausage-cuttlefish-cover.png',
     unit: '包',
     intro: [
       {
-        subImage: ['/shop/products/cuttlefish-sausage-sub-1.jpg'],
+        subImage: ['/shop/products/sausage-cuttlefish-sub-1.png'],
         subTitle: '享受無盡的美味之旅',
         description: '在深邃的海洋中，墨魚靜靜地閃爍著獨特的光芒，散發著神秘的魅力。我們將這份海洋之珍運用於料理，精心製作出墨魚香腸，每一口都蘊含著大海的深邃和神秘。墨魚的鮮美與香腸的豐潤完美結合，讓您的味雷沉醉其中，享受無盡的美味之旅。墨魚香腸是對大海的一份致敬，也是味覺的一場冒險。',
       },
     ],
   },
   {
-    id: 16,
+    id: 'SSG004',
     hotSale: false,
     hotSaleNumber: 0,
     name: '花枝香腸',
     price: 200,
-    cover: '/shop/products/squid-sausage-cover.jpg',
+    cover: '/shop/products/sausage-squid-cover.png',
     unit: '包',
     intro: [
       {
-        subImage: ['/shop/products/squid-sausage-sub-1.jpg'],
+        subImage: ['/shop/products/sausage-squid-sub-1.png'],
         subTitle: '大海中的一朵美麗花朵',
         description: '在海的寬闊中，花枝舞動著綻放的色彩，如同大海中的一朵美麗花朵。我們將這份海洋之美凝聚於料理之中，精心打造花枝香腸，每一口都散發著花枝獨有的鮮甜與香氣。讓花枝的優雅與香腸的豐富融合，為您的味蕾帶來一場絢爛的美食盛宴。',
       },
@@ -478,7 +478,7 @@ export const departmentJobs: DepartmentJobs[] = [
           '協助辦理漁民教育組織訓練事宜',
           '協助辦理蒐集中小型鮪延繩釣漁船遠洋漁獲數據資料計畫事宜',
           '協助辦理招募觀察員事宜',
-          '協助辦理漁港管理事宜',
+          '協助辦���漁港管理事宜',
           '協助辦理漁業年報調查事宜',
         ],
       },
@@ -711,7 +711,7 @@ export const awardsHistoryList = [
     title: '103年榮獲海洋奧斯卡',
     description: [
       '漁業資源永續面向',
-      '兼顧漁業資源永續及經濟利用合理進行漁業管理',
+      '兼顧漁業資源永續及經濟利用合理進行漁業��理',
     ],
   }],
   [{
@@ -889,7 +889,6 @@ export const friendLink = [
   },
 
   // 跑馬燈－民間單位
-
   {
     title: '中華民國全國漁會',
     link: 'https://www.fa.gov.tw/',
@@ -911,8 +910,8 @@ export const friendLink = [
     image: '/contact-us/acgf.png',
   },
   {
-    title: '南濃中心',
-    link: 'https://www.fa.gov.tw/',
+    title: '南農中心',
+    link: 'https://www.fast.org.tw/',
     image: '/contact-us/friendLink4.png',
   },
   {

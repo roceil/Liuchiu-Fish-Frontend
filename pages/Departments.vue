@@ -3,6 +3,11 @@ import {
   Tabs,
 } from '@/components/ui/tabs'
 import { departmentJobs } from '@/constants'
+import { useSiteMetadata } from '@/composables/useMetaData'
+
+useSiteMetadata({
+  title: '業務部門',
+})
 
 interface Optional {
   subTitle: string

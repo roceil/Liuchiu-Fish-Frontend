@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     baseURL: '/',
     head: {
       htmlAttrs: {
-        lang: 'zh-TW'
+        lang: 'zh-TW',
       },
       meta: [
         // 設置 icon
@@ -17,9 +17,8 @@ export default defineNuxtConfig({
 
         // 語系
         { property: 'og:locale', content: 'zh-TW' },
-        { 'http-equiv': 'Content-Language', content: 'zh-TW' },
+        { 'http-equiv': 'Content-Language', 'content': 'zh-TW' },
         { name: 'language', content: 'zh-TW' },
-        
 
         // 設置 Open Graph 元資料
         { property: 'og:url', content: NITRO_PUBLIC_SITE_URL },
@@ -42,6 +41,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/icon',
     'nuxt-marquee',
+    'nuxt-aos',
   ],
 
   shadcn: {
@@ -64,6 +64,12 @@ export default defineNuxtConfig({
     },
     display: 'swap', // 自定義字體加載完成之前先使用一個後備字體
     download: false, // 不要下載字體文件到本地使用 CDN
+  },
+
+  aos: {
+    duration: 500,
+    easing: 'ease-in-out',
+    once: true,
   },
 
   runtimeConfig: {

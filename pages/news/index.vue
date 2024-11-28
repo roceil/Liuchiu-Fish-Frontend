@@ -8,6 +8,11 @@ import {
   PaginationPrev,
 } from '@/components/ui/pagination'
 import { type NewsData, useNews } from '~/services/supabase/useNews'
+import { useSiteMetadata } from '@/composables/useMetaData'
+
+useSiteMetadata({
+  title: '訊息公告',
+})
 
 const renderNewsList = ref<NewsData[] | []>([])
 const allNewsList = ref<NewsData[] | []>([])
