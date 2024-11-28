@@ -1,11 +1,19 @@
 <script lang="ts" setup>
 import { cn } from '@/lib/utils'
 import type { Product } from '~/types'
+import { Skeleton } from '~~/components/ui/skeleton'
 
 const props = defineProps<{
   class?: string
   product: Product
+  showSkeleton?: boolean
 }>()
+
+const isImageLoaded = ref(false)
+
+function handleImageLoad() {
+  isImageLoaded.value = true
+}
 </script>
 
 <template>
@@ -22,11 +30,17 @@ const props = defineProps<{
     <div :class="cn('group', props.class)">
       <NuxtLink :to="`/shopping-mall/${props.product.id}`">
         <div class="relative w-full">
-          <div class="shadow-custom flex h-[162px] w-full items-center justify-center overflow-hidden rounded-xl bg-primary-500 transition-all duration-300 group-hover:opacity-80">
+          <div class="shadow-custom flex h-[162px] w-full items-center justify-center overflow-hidden rounded-xl transition-all duration-300 group-hover:opacity-80">
+            <Skeleton
+              v-if="!isImageLoaded && props.showSkeleton"
+              class="absolute inset-0 size-full bg-primary-300"
+            />
+
             <NuxtImg
               :src="props.product.cover"
               alt="productCover"
               class="size-full object-cover ring-1"
+              @load="handleImageLoad"
             />
           </div>
         </div>
@@ -62,6 +76,8 @@ const props = defineProps<{
 }
 
 .group:hover .shadow-custom {
-  box-shadow: 2px 2px 0px 2px #A9B6C0;
+  @media (min-width: 1024px) {
+    box-shadow: 2px 2px 0px 2px #A9B6C0;
+  }
 }
 </style>

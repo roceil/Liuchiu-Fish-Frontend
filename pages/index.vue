@@ -1,8 +1,10 @@
 <template>
-  <HomeBanner />
-  <HomeIntro />
-  <HomeProducts />
-  <HomeNews />
-  <HomeAbout />
-  <HomeIntroPort />
+  <div class="overflow-hidden">
+    <HomeBanner />
+    <HomeIntro />
+    <HomeProducts />
+    <HomeNews />
+    <HomeAbout />
+    <HomeIntroPort />
+  </div>
 </template>
