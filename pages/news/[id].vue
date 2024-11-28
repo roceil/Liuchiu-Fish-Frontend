@@ -8,6 +8,8 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { type NewsData, useNews } from '~/services/supabase/useNews'
+import { useSiteMetadata } from '@/composables/useMetaData'
+import { stripHtml } from '@/lib/stripHtml'
 
 const route = useRoute()
 const { getNewsById } = useNews()
@@ -19,6 +21,11 @@ if (error.value)
 
 if (data.value)
   renderNews.value = data.value || []
+
+useSiteMetadata({
+  title: data.value?.[0]?.title,
+  description: data.value?.[0]?.content ? stripHtml(data.value[0].content) : '',
+})
 </script>
 
 <template>

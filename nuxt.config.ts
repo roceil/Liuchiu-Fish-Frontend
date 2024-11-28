@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     baseURL: '/',
     head: {
       htmlAttrs: {
-        lang: 'zh-TW'
+        lang: 'zh-TW',
       },
       meta: [
         // 設置 icon
@@ -17,9 +17,8 @@ export default defineNuxtConfig({
 
         // 語系
         { property: 'og:locale', content: 'zh-TW' },
-        { 'http-equiv': 'Content-Language', content: 'zh-TW' },
+        { 'http-equiv': 'Content-Language', 'content': 'zh-TW' },
         { name: 'language', content: 'zh-TW' },
-        
 
         // 設置 Open Graph 元資料
         { property: 'og:url', content: NITRO_PUBLIC_SITE_URL },

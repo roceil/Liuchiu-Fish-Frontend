@@ -8,6 +8,8 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { lineUrl, productsList } from '~/constants'
+import { handleDownload } from '@/lib/downloadForm'
+import { useSiteMetadata } from '@/composables/useMetaData'
 
 const router = useRoute()
 const { id } = router.params
@@ -16,21 +18,11 @@ const product = computed(() => productsList[Number(id) - 1])
 
 const randomProducts = computed(() => productsList.sort(() => Math.random() - 0.5).slice(0, 10))
 
-function handleDownload() {
-  // 下載第一個檔案
-  const link1 = document.createElement('a')
-  link1.href = '/shop/form.pdf'
-  link1.download = '琉漁小鋪購物表單.pdf' // 下載檔名
-  link1.click()
-
-  // 下載第二個檔案
-  setTimeout(() => {
-    const link2 = document.createElement('a')
-    link2.href = '/shop/form-2.xlsx'
-    link2.download = '琉漁小鋪購物表單.xlsx'
-    link2.click()
-  }, 100)
-}
+useSiteMetadata({
+  title: product.value.name,
+  description: product.value.intro[0].description,
+  image: product.value.cover,
+})
 </script>
 
 <template>
