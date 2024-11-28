@@ -1,6 +1,6 @@
 // 商品列表
 export interface Product {
-  id: number
+  id: string
   hotSale: boolean
   hotSaleNumber: number
   cover: string

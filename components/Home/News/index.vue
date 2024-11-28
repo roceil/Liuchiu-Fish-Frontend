@@ -10,7 +10,7 @@ if (error.value)
   console.error('error', error.value)
 
 if (data.value)
-  renderNewsList.value = data.value || []
+  renderNewsList.value = data.value.sort((a, b) => b.date.localeCompare(a.date))
 </script>
 
 <template>
@@ -34,7 +34,7 @@ if (data.value)
               </div>
 
               <p class="w-full text-xs text-neutral-500 md:text-sm">
-                琉球區漁會資訊 提供
+                琉球區漁會 提供
               </p>
             </div>
           </div>
@@ -43,7 +43,7 @@ if (data.value)
           <div class="w-full md:w-[70%]">
             <ul class="w-full border-y border-neutral-100 px-4 pb-[14px] pt-2 md:min-h-[248px] md:w-full md:rounded-lg md:border md:px-3">
               <HomeNewsListItem
-                :news-list="renderNewsList"
+                :news-list="renderNewsList.slice(0, 6)"
               />
             </ul>
 

@@ -224,7 +224,7 @@ useSiteMetadata({
               :gradient="true"
               gradient-width="20px"
               :auto-fill="true"
-              class="mt-6"
+              class="mt-6 overflow-hidden"
             >
               <NuxtLink
                 v-for="link in friendLink.slice(0, 8)"
@@ -252,7 +252,7 @@ useSiteMetadata({
               :gradient="true"
               gradient-width="20px"
               :auto-fill="true"
-              class="mt-6"
+              class="mt-6 overflow-hidden"
             >
               <NuxtLink
                 v-for="link in friendLink.slice(8)"
