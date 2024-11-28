@@ -28,13 +28,14 @@ const navLinks = [
 
       <ul class="mt-4">
         <li
-          v-for="(link, index) in navLinks"
+          v-for="(link) in navLinks"
           :key="link.name"
           class="relative flex items-center"
         >
           <NuxtLink
             :to="link.href"
             class="w-full border-b border-neutral-100 py-5 text-center text-sm"
+            @click="hamburgerStore.closeHamburgerMenu"
           >
             {{ link.name }}
           </NuxtLink>
