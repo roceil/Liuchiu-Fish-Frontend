@@ -12,7 +12,7 @@ const navLinks = [
 
 <template>
   <nav
-    class="fixed inset-0 z-40 translate-y-[-200%] bg-white pt-4 transition-transform duration-500 ease-in-out md:hidden"
+    class="fixed inset-0 z-[9999] translate-y-[-200%] bg-white pt-4 transition-transform duration-500 ease-in-out md:hidden"
     :class="{ '!translate-y-0': hamburgerStore.isHamburgerMenuOpen }"
   >
     <div class="container">
