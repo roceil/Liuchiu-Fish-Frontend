@@ -1,22 +1,12 @@
 <script lang="ts" setup>
 import ProductsCard from '~/components/Home/Products/Card.vue'
 import { productsList } from '~/constants'
+import { useSiteMetadata } from '@/composables/useMetaData'
+import { handleDownload } from '@/lib/downloadForm'
 
-function handleDownload() {
-  // 下載第一個檔案
-  const link1 = document.createElement('a')
-  link1.href = '/shop/form.pdf'
-  link1.download = '琉漁小鋪購物表單.pdf' // 下載檔名
-  link1.click()
-
-  // 下載第二個檔案
-  setTimeout(() => {
-    const link2 = document.createElement('a')
-    link2.href = '/shop/form-2.xlsx'
-    link2.download = '琉漁小鋪購物表單.xlsx'
-    link2.click()
-  }, 100)
-}
+useSiteMetadata({
+  title: '琉漁小鋪',
+})
 </script>
 
 <template>

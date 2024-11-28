@@ -3,6 +3,12 @@ import { watchOnce } from '@vueuse/core'
 import type { CarouselApi } from '@/components/ui/carousel'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { awardsHistoryList } from '@/constants'
+import { useSiteMetadata } from '@/composables/useMetaData'
+
+useSiteMetadata({
+  title: '關於琉漁',
+  description: '民國十四年三月，高雄州東港郡琉球庄漁業者獲准成立『琉球漁業組合』，會址設於琉球庄役場內。民國三十年改制為『保證責任琉球漁業協同組合』。民國卅三年與林邊、佳冬、新園等地一同併入東港，成立東港漁業會，在琉球設辦事處。光復以後，地方人士為琉球漁業之發展及謀求漁民之福利，熱心籌劃聯繫，民國四十二年七月依照『台灣省各級漁會改進辦法』，成立『琉球區漁會』迄今。',
+})
 
 const api = ref<CarouselApi>()
 const totalCount = ref(0)

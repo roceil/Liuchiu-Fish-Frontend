@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import { contactData, facebookUrl, friendLink, lineUrl } from '@/constants'
+import { useSiteMetadata } from '@/composables/useMetaData'
+
+useSiteMetadata({
+  title: '便民服務',
+})
 </script>
 
 <template>
