@@ -35,6 +35,7 @@ const headerClasses = computed(() => [
   <header
     id="header"
     :class="headerClasses"
+    class="z-[9999]"
   >
     <div class="container flex w-full items-center justify-between">
       <!-- Logo -->
@@ -78,12 +79,15 @@ const headerClasses = computed(() => [
 
       <!-- Hamburger Icon -->
       <div class="flex space-x-[6px] md:hidden">
-        <div class="flex size-10 items-center justify-center rounded-full border border-neutral-200">
+        <NuxtLink
+          to="/shopping-mall"
+          class="flex size-10 items-center justify-center rounded-full border border-neutral-200"
+        >
           <NuxtImg
             src="/header/shoppingBag.svg"
             class="size-4"
           />
-        </div>
+        </NuxtLink>
         <button
           class="flex size-10 items-center justify-center rounded-full border border-neutral-200"
           @click="hamburgerStore.openHamburgerMenu"
