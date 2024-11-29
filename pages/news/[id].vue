@@ -34,6 +34,19 @@ useSiteMetadata({
   title: renderNews.value?.title,
   description: renderNews.value?.content ? stripHtml(renderNews.value.content) : '',
 })
+
+const visibleRef = ref(false)
+const indexRef = ref(0)
+
+const imgs = computed(() => {
+  return renderNews.value?.image_url ? [renderNews.value.image_url] : []
+})
+
+function showImg() {
+  indexRef.value = 0
+  visibleRef.value = true
+}
+const onHide = () => (visibleRef.value = false)
 </script>
 
 <template>
@@ -90,7 +103,10 @@ useSiteMetadata({
       </div>
 
       <div class="mt-6 space-y-6 md:mt-10 md:space-y-10">
-        <div class=" w-full overflow-hidden rounded-lg">
+        <div
+          class="w-full cursor-pointer overflow-hidden rounded-lg"
+          @click="showImg"
+        >
           <NuxtImg
             :src="renderNews?.image_url"
             alt="newsImage"
@@ -141,6 +157,13 @@ useSiteMetadata({
       </NuxtLink>
     </div>
   </div>
+
+  <VueEasyLightbox
+    :visible="visibleRef"
+    :imgs="imgs"
+    :index="indexRef"
+    @hide="onHide"
+  />
 </template>
 
 <style>
