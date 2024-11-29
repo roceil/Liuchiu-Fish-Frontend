@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { officialFacebookUrl } from '@/constants'
+
 const footerLinks = [
   {
     title: '琉漁小舖',
@@ -29,7 +31,7 @@ const footerLinks = [
       { text: '(08)861-3491', url: 'tel:+88688613491', icon: 'phone' },
       { text: '(08)861-3492', url: 'tel:+88688613492', icon: 'fax' },
       { text: '929 屏東縣琉球鄉本福村中山路 231 號', url: 'https://maps.google.com/?q=929 屏東縣琉球鄉本福村中山路 231 號', icon: 'location' },
-      { text: 'FB 粉絲專頁', url: '#', icon: 'facebook' },
+      { text: 'FB 粉絲專頁', url: officialFacebookUrl, icon: 'facebook' },
     ],
   },
 ]
@@ -69,8 +71,9 @@ const footerLinks = [
               :key="link.text"
               class="text-sm"
             >
-              <a
-                :href="link.url"
+              <NuxtLink
+                :to="link.url"
+                target="_blank"
                 class="flex items-center hover:text-primary-800"
               >
                 <!-- <span
@@ -80,7 +83,7 @@ const footerLinks = [
                   {{ link.icon === 'phone' ? '📞' : link.icon === 'fax' ? '📠' : link.icon === 'location' ? '📍' : '📘' }}
                 </span> -->
                 {{ link.text }}
-              </a>
+              </NuxtLink>
             </li>
           </ul>
         </li>
@@ -102,8 +105,9 @@ const footerLinks = [
               :key="link.text"
               class="text-sm"
             >
-              <a
-                :href="link.url"
+              <NuxtLink
+                :to="link.url"
+                target="_blank"
                 class="flex items-center hover:text-primary-800"
               >
                 <!-- <span
@@ -113,7 +117,7 @@ const footerLinks = [
                   {{ link.icon === 'phone' ? '📞' : link.icon === 'fax' ? '📠' : link.icon === 'location' ? '📍' : '📘' }}
                 </span> -->
                 {{ link.text }}
-              </a>
+              </NuxtLink>
             </li>
           </ul>
         </li>
