@@ -7,15 +7,18 @@ import {
   PaginationNext,
   PaginationPrev,
 } from '@/components/ui/pagination'
-import { type NewsData, useNews } from '~/services/supabase/useNews'
+import type { NewsData } from '~/services/supabase/useNews'
 import { useSiteMetadata } from '@/composables/useMetaData'
+import { useNewsStore } from '~/store/news'
+import { useNews } from '~/services/supabase/useNews'
 
 useSiteMetadata({
   title: '訊息公告',
 })
 
+const newsStore = useNewsStore()
+
 const renderNewsList = ref<NewsData[] | []>([])
-const allNewsList = ref<NewsData[] | []>([])
 const { getNews } = useNews()
 const { data, error } = await useAsyncData('news', () => getNews())
 
@@ -23,8 +26,8 @@ if (error.value)
   console.error('error', error.value)
 
 if (data.value) {
-  allNewsList.value = data.value || []
-  renderNewsList.value = allNewsList.value
+  newsStore.setNewsList(data.value)
+  renderNewsList.value = data.value.sort((a, b) => b.date.localeCompare(a.date))
 }
 
 const newsTypes = [
@@ -60,11 +63,11 @@ function handleOrganizationChange(organizationId: number) {
   currentOrganization.value = organizationId
 
   if (organizationId === 1) {
-    renderNewsList.value = allNewsList.value
+    renderNewsList.value = newsStore.newsList
     return
   }
 
-  renderNewsList.value = allNewsList.value.filter(news =>
+  renderNewsList.value = newsStore.newsList.filter(news =>
     news.unit?.key === organizationId,
   )
 }
@@ -131,9 +134,8 @@ function handleOrganizationChange(organizationId: number) {
             <li
               v-for="(news) in renderNewsList"
               :key="news.id"
-              class=""
             >
-              <routerLink
+              <NuxtLink
                 :to="`/news/${news.id}`"
                 class="flex cursor-pointer space-x-3 px-4 py-3 md:items-center md:space-x-6 md:px-6 md:py-4 md:hover:bg-neutral-50"
               >
@@ -150,11 +152,14 @@ function handleOrganizationChange(organizationId: number) {
                   <p class="truncate text-sm md:text-balance md:text-base">
                     {{ news.title }}
                   </p>
-                  <p class="text-sm text-neutral-400">
+                  <p
+                    class="text-sm text-neutral-400"
+                    :style="{ fontVariantNumeric: 'tabular-nums' }"
+                  >
                     {{ news.date }}
                   </p>
                 </div>
-              </routerLink>
+              </NuxtLink>
             </li>
           </ul>
         </div>

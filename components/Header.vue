@@ -39,7 +39,7 @@ const headerClasses = computed(() => [
   >
     <div class="container flex w-full items-center justify-between">
       <!-- Logo -->
-      <router-link
+      <NuxtLink
         to="/"
         class="flex h-[34px] w-[154px] items-center justify-center md:h-[38px] md:w-[171px]"
       >
@@ -48,7 +48,7 @@ const headerClasses = computed(() => [
           class="size-full"
           alt="Logo"
         />
-      </router-link>
+      </NuxtLink>
 
       <!-- Nav Links -->
       <nav class="hidden items-center justify-center md:flex">
@@ -58,10 +58,12 @@ const headerClasses = computed(() => [
             :key="link.name"
             class="relative flex items-center"
           >
-            <a
+            <NuxtLink
               class="px-4 py-2 transition-colors duration-200 hover:text-primary-600"
-              :href="link.href"
-            >{{ link.name }}</a>
+              :to="link.href"
+            >
+              {{ link.name }}
+            </NuxtLink>
             <span
               v-if="index < navLinks.length - 1"
               class="absolute right-0 h-5 w-[1px] bg-neutral-200"
