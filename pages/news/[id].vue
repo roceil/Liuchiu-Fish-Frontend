@@ -7,25 +7,46 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import { type NewsData, useNews } from '~/services/supabase/useNews'
+import type { NewsData } from '~/services/supabase/useNews'
 import { useSiteMetadata } from '@/composables/useMetaData'
 import { stripHtml } from '@/lib/stripHtml'
+import { useNewsStore } from '@/store/news'
+
+// 路由守衛：如果公告訊息不存在，跳轉回 /news
+definePageMeta({
+  middleware: async (route) => {
+    const newsStore = useNewsStore()
+    const news = newsStore.newsList.find(news => news.id === Number(route.params.id))
+
+    if (!news) {
+      return navigateTo('/news')
+    }
+  },
+})
 
 const route = useRoute()
-const { getNewsById } = useNews()
-const renderNews = ref<NewsData[] | []>([])
-const { data, error } = await useAsyncData(`news-${Number(route.params.id)}`, () => getNewsById(Number(route.params.id)))
+const newsStore = useNewsStore()
 
-if (error.value)
-  console.error('error', error.value)
-
-if (data.value)
-  renderNews.value = data.value || []
+const renderNews = ref<NewsData | null>(null)
+renderNews.value = newsStore.newsList.find(news => news.id === Number(route.params.id)) || null
 
 useSiteMetadata({
-  title: data.value?.[0]?.title,
-  description: data.value?.[0]?.content ? stripHtml(data.value[0].content) : '',
+  title: renderNews.value?.title,
+  description: renderNews.value?.content ? stripHtml(renderNews.value.content) : '',
 })
+
+const visibleRef = ref(false)
+const indexRef = ref(0)
+
+const imgs = computed(() => {
+  return renderNews.value?.image_url ? [renderNews.value.image_url] : []
+})
+
+function showImg() {
+  indexRef.value = 0
+  visibleRef.value = true
+}
+const onHide = () => (visibleRef.value = false)
 </script>
 
 <template>
@@ -53,7 +74,7 @@ useSiteMetadata({
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage class="text-primary-700">
-              {{ renderNews[0].title }}
+              {{ renderNews?.title }}
             </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
@@ -64,27 +85,30 @@ useSiteMetadata({
     <div class="mt-4 w-full rounded-lg bg-neutral-50 p-6 md:mt-6 md:p-20">
       <div class="border-b border-neutral-100 pb-6">
         <h1 class="serif text-2xl font-bold md:text-[30px]">
-          {{ renderNews[0].title }}
+          {{ renderNews?.title }}
         </h1>
 
         <div class="mt-5 flex shrink-0 items-center space-x-5">
           <div
             class="border-x-2 border-primary-700 bg-primary-50 px-3 py-1 text-xs font-bold text-primary-700"
-            :style="renderNews[0].unit?.style"
+            :style="renderNews?.unit?.style"
           >
-            {{ renderNews[0].unit?.name }}
+            {{ renderNews?.unit?.name }}
           </div>
 
           <div class="text-sm text-neutral-400">
-            {{ renderNews[0].date }}
+            {{ renderNews?.date }}
           </div>
         </div>
       </div>
 
       <div class="mt-6 space-y-6 md:mt-10 md:space-y-10">
-        <div class=" w-full overflow-hidden rounded-lg">
+        <div
+          class="w-full cursor-pointer overflow-hidden rounded-lg"
+          @click="showImg"
+        >
           <NuxtImg
-            :src="renderNews[0].image_url"
+            :src="renderNews?.image_url"
             alt="newsImage"
             class="size-full object-cover"
             :placeholder="[32, 32, 80, 5]"
@@ -96,7 +120,7 @@ useSiteMetadata({
           <div class="ProseMirror">
             <p
               class="text-sm md:text-base"
-              v-html="renderNews[0].content"
+              v-html="renderNews?.content"
             />
           </div>
         </ClientOnly>
@@ -104,23 +128,27 @@ useSiteMetadata({
     </div>
 
     <!-- 切換按鈕 -->
-    <div class="mt-4 flex justify-between text-sm text-neutral-950 md:text-base">
-      <routerLink
-        :to="`/news/${2}`"
-        class="py-2"
+    <!-- <div class="mt-4 flex justify-between text-sm text-neutral-950 md:text-base">
+      <NuxtLink
+        v-if="previousNews"
+        :to="`/news/${previousNews.id}`"
+        class="mr-auto py-2 duration-300 ease-in-out lg:hover:text-primary-700"
+        :aria-disabled="!previousNews"
       >
         上一篇
-      </routerLink>
+      </NuxtLink>
 
-      <routerLink
-        :to="`/news/${2}`"
-        class="py-2"
+      <NuxtLink
+        v-if="nextNews"
+        :to="`/news/${nextNews.id}`"
+        class="ml-auto py-2 duration-300 ease-in-out lg:hover:text-primary-700"
+        :aria-disabled="!nextNews"
       >
         下一篇
-      </routerLink>
-    </div>
+      </NuxtLink>
+    </div> -->
 
-    <div class="mt-4 flex justify-center">
+    <div class="mt-8 flex justify-center">
       <NuxtLink
         href="/news"
         class="cs-border-1_5 rounded-lg px-6 py-3 font-bold text-primary-800 md:hover:text-primary-700"
@@ -129,6 +157,13 @@ useSiteMetadata({
       </NuxtLink>
     </div>
   </div>
+
+  <VueEasyLightbox
+    :visible="visibleRef"
+    :imgs="imgs"
+    :index="indexRef"
+    @hide="onHide"
+  />
 </template>
 
 <style>

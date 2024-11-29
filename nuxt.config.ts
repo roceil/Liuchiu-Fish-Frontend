@@ -42,6 +42,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     'nuxt-marquee',
     'nuxt-aos',
+    'nuxt-easy-lightbox',
   ],
 
   shadcn: {
