@@ -3,7 +3,8 @@ import type { DepartmentJobs } from '~/pages/Departments.vue'
 
 export const appName = '琉球區漁會｜'
 export const appDescription = '小琉球是一座位於屏東縣西南方大海上的珊瑚礁島嶼。漁會以保障漁民權益，提高漁民知識、技能，增加漁民生產收益，改善漁民生活，促進漁業現代化，並謀其發展為宗旨。'
-export const facebookUrl = 'https://www.facebook.com/liuyu929000/'
+export const officialFacebookUrl = 'https://www.facebook.com/liuyu929000/'
+export const ShopFacebookUrl = 'https://www.facebook.com/profile.php?id=61559380793880'
 export const lineUrl = 'https://line.me/R/ti/p/@961vipno?ts=05281850&oat_content=u'
 
 // 商品列表，用於渲染 ProductCard
@@ -891,17 +892,17 @@ export const friendLink = [
   // 跑馬燈－民間單位
   {
     title: '中華民國全國漁會',
-    link: 'https://www.fa.gov.tw/',
+    link: 'http://www.rocnfa.org.tw/',
     image: '/contact-us/friendLink2.png',
   },
   {
     title: '農訓協會',
-    link: 'https://www.fa.gov.tw/',
+    link: 'https://www.ntifo.org.tw/ntifo_web/',
     image: '/contact-us/fa.png',
   },
   {
     title: '全國農業金庫',
-    link: 'https://www.fa.gov.tw/',
+    link: 'https://www.agribank.com.tw/',
     image: '/contact-us/friendLink3.png',
   },
   {
@@ -910,7 +911,7 @@ export const friendLink = [
     image: '/contact-us/acgf.png',
   },
   {
-    title: '南農中心',
+    title: '財團法人農漁會南區資訊中心',
     link: 'https://www.fast.org.tw/',
     image: '/contact-us/friendLink4.png',
   },
@@ -921,7 +922,7 @@ export const friendLink = [
   },
   {
     title: '中華民國四健協會',
-    link: 'https://www.4h.org.tw/',
+    link: 'https://www.fourh.org.tw/',
     image: '/contact-us/4h_org.png',
   },
   {
