@@ -1,11 +1,10 @@
 export function useLoadingState() {
-  // 使用 useState 來確保 SSR 兼容性
-  const hasShownAnimation = useState('hasShownAnimation', () => false)
-
-  onMounted(() => {
+  // 直接在創建 state 時檢查 sessionStorage
+  const hasShownAnimation = useState('hasShownAnimation', () => {
     if (typeof window !== 'undefined') {
-      hasShownAnimation.value = sessionStorage.getItem('hasShownAnimation') === 'true'
+      return sessionStorage.getItem('hasShownAnimation') === 'true'
     }
+    return false
   })
 
   const setAnimationShown = () => {
