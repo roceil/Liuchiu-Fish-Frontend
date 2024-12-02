@@ -1,16 +1,19 @@
 <script lang="ts" setup>
-import { type NewsData, useNews } from '~/services/supabase/useNews'
+import { useNewsStore } from '@/store/news'
+import { useNews } from '~/services/supabase/useNews'
 
-const renderNewsList = ref<NewsData[] | []>([])
+const newsStore = useNewsStore()
 
 const { getNews } = useNews()
 const { data, error } = await useAsyncData('news', () => getNews())
 
-if (error.value)
+if (error.value) {
   console.error('error', error.value)
+}
 
-if (data.value)
-  renderNewsList.value = data.value.sort((a, b) => b.date.localeCompare(a.date))
+if (data.value) {
+  newsStore.setNewsList(data.value)
+}
 </script>
 
 <template>
@@ -50,7 +53,7 @@ if (data.value)
           <div class="w-full md:w-[70%]">
             <ul class="w-full border-y border-neutral-100 px-4 pb-[14px] pt-2 md:min-h-[248px] md:w-full md:rounded-lg md:border md:px-3">
               <HomeNewsListItem
-                :news-list="renderNewsList.slice(0, 6)"
+                :news-list="newsStore.newsList.slice(0, 6)"
               />
             </ul>
 

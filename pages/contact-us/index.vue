@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { contactData, facebookUrl, friendLink, lineUrl } from '@/constants'
+import { ShopFacebookUrl, contactData, friendLink, lineUrl } from '@/constants'
 import { useSiteMetadata } from '@/composables/useMetaData'
 
 useSiteMetadata({
@@ -172,7 +172,7 @@ useSiteMetadata({
 
               <div class="space-y-3 p-4 md:flex md:flex-col md:items-center md:py-6">
                 <NuxtLink
-                  :to="facebookUrl"
+                  :to="ShopFacebookUrl"
                   target="_blank"
                   class="cs-border-1_5 flex items-center space-x-2 rounded-xl px-4 py-[13.5px] text-center text-sm font-bold tracking-wide text-primary-800 md:w-[279px]"
                 >
