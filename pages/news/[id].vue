@@ -118,8 +118,8 @@ const onHide = () => (visibleRef.value = false)
         </div>
         <ClientOnly>
           <div class="ProseMirror">
-            <p
-              class="text-sm md:text-base"
+            <div
+              class="news-content text-sm md:text-base"
               v-html="renderNews?.content"
             />
           </div>
@@ -229,5 +229,23 @@ const onHide = () => (visibleRef.value = false)
   float: left;
   height: 0;
   pointer-events: none;
+}
+
+.news-content {
+  white-space: pre-wrap; /* 保留空白和換行 */
+}
+
+.news-content br {
+  display: block; /* 讓 br 變成區塊元素 */
+  content: ""; /* 需要有 content 才能顯示 margin */
+  margin-top: 1.5rem; /* 上方間距 */
+}
+
+.news-content a {
+  color: #007bff;
+}
+
+.news-content a:hover {
+  color: #0056b3;
 }
 </style>
