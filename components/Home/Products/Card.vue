@@ -20,7 +20,7 @@ function handleImageLoad() {
   <div class="relative w-[290px]">
     <div
       v-if="props.product.hotSale"
-      class="absolute -top-3 left-4 z-20 border-x-2 border-danger-200 bg-white/90 px-3 py-1"
+      class="rank-badge absolute -top-3 left-4 z-20 px-3 py-1"
     >
       <p class="text-sm font-bold text-danger-200">
         熱銷 No. {{ props.product.hotSaleNumber }}
@@ -30,7 +30,9 @@ function handleImageLoad() {
     <div :class="cn('group', props.class)">
       <NuxtLink :to="`/shopping-mall/${props.product.id}`">
         <div class="relative w-full">
-          <div class="shadow-custom flex h-[162px] w-full items-center justify-center overflow-hidden rounded-xl transition-all duration-300 group-hover:opacity-80">
+          <div
+            class="cs-border-1_5_n200 flex h-[162px] w-full items-center justify-center overflow-hidden rounded-xl transition-all duration-300 group-hover:opacity-80"
+          >
             <Skeleton
               v-if="!isImageLoaded && props.showSkeleton"
               class="absolute inset-0 size-full bg-primary-300"
@@ -52,7 +54,7 @@ function handleImageLoad() {
 
           <div class="mt-1 flex justify-between">
             <p>NT {{ props.product.price }} / {{ props.product.unit }}</p>
-            <div class="flex items-center justify-center space-x-1">
+            <!-- <div class="flex items-center justify-center space-x-1">
               <button class="text-sm font-bold text-primary-700">
                 查看更多
               </button>
@@ -62,7 +64,7 @@ function handleImageLoad() {
                   class="text-white"
                 />
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </NuxtLink>
@@ -79,5 +81,12 @@ function handleImageLoad() {
   @media (min-width: 1024px) {
     box-shadow: 2px 2px 0px 2px #A9B6C0;
   }
+}
+
+.rank-badge {
+  border-right: 2px solid #D74F4F;
+  border-left: 2px solid #D74F4F;
+  background: rgba(215, 79, 79, 0.10);
+  backdrop-filter: blur(5px);
 }
 </style>
