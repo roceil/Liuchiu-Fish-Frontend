@@ -9,26 +9,11 @@ export const lineUrl = 'https://line.me/R/ti/p/@961vipno?ts=05281850&oat_content
 
 // 商品列表，用於渲染 ProductCard
 export const productsList: Product[] = [
-  {
-    id: 'MAHI001',
-    hotSale: true,
-    hotSaleNumber: 1,
-    name: '鬼頭刀魚鬆',
-    price: 200,
-    cover: '/shop/products/mahi-fiber-cover.png',
-    unit: '罐',
-    intro: [
-      {
-        subImage: ['/shop/products/mahi-fiber-sub-1.jpg'],
-        subTitle: '來自大海的美味',
-        description: '來自台灣海域的鬼頭刀魚，以其肉質鮮美，口感細腻而聞名。如今我們將這頂級海鮮原料巧妙地轉化成了一道極具特色的美食：鬼頭刀魚鬆。精選新鮮鬼頭刀魚，經過殿格去鳞、去骨，再細心切割成細絲，確保每一口都能品嚐到海鮮的鮮味，然後我們加入秘製調味料，經過精心炒製，使得鬼頭刀魚鬆敞發出迷人的香氣和獨特的口感。',
-      },
-    ],
-  },
+
   {
     id: 'MAHI002',
     hotSale: true,
-    hotSaleNumber: 2,
+    hotSaleNumber: 1,
     name: '鬼頭刀魚酥條(原味/辣味)',
     price: 110,
     cover: '/shop/products/mahi-crackers-cover.png',
@@ -42,25 +27,9 @@ export const productsList: Product[] = [
     ],
   },
   {
-    id: 'MAHI003',
-    hotSale: true,
-    hotSaleNumber: 3,
-    name: '鬼頭刀魚乾(辣味/辣味)',
-    price: 110,
-    cover: '/shop/products/mahi-dry-cover.png',
-    unit: '包',
-    intro: [
-      {
-        subImage: ['/shop/products/mahi-dry-sub-1.png'],
-        subTitle: '大海的獨特風味',
-        description: '經過多層繁雜的工序洗淨、抹鹽、反覆日曬，徐徐海風吹撫，為鬼頭刀熟魚乾增添大海的獨特風味。',
-      },
-    ],
-  },
-  {
     id: 'MAHI004',
-    hotSale: false,
-    hotSaleNumber: 0,
+    hotSale: true,
+    hotSaleNumber: 2,
     name: '鬼頭刀糙米捲',
     price: 130,
     cover: '/shop/products/mahi-rice-roll-cover.png',
@@ -70,6 +39,54 @@ export const productsList: Product[] = [
         subImage: ['/shop/products/mahi-rice-roll-sub-1.png'],
         subTitle: '大海的全新風味',
         description: '糙米的纖維和營養與鬼頭刀的蛋白質和維生素相得益彰，外層包裹著新鮮鬼頭刀魚鬆，加上起司風味可可磚夾心，鬼頭刀糙米捲將傳統的糙米捲與獨特的鬼頭刀食材結合在一起，創造出一種別開生面的味覺體驗。鬼頭刀肉質香美，口感豐富，為糙米捲注入了新的風味。',
+      },
+    ],
+  },
+  {
+    id: 'MAHI006',
+    hotSale: true,
+    hotSaleNumber: 3,
+    name: '100% 純鬼頭刀魚鬆',
+    price: 380,
+    cover: '/shop/products/mahi-full-fiber-cover.png',
+    unit: '罐',
+    intro: [
+      {
+        subImage: ['/shop/products/mahi-full-fiber-sub-1.png'],
+        subTitle: '海洋的芬芳',
+        description: '精選新鮮鬼頭刀魚，經過嚴格去鱗、去骨，再細心切割成細絲，確保每一口都能品噌到海鮮的鮮味，100%純魚鬆不添加碗豆粉，每一口魚鬆都散發著海洋的芬芳。無論是濃郁的魚香味還是鬆軟的回感，都能讓您沉浸在美食的享受之中。香酥美味，營養加倍，堅持品質，嚴格把關無添加防腐劑。',
+      },
+    ],
+  },
+  {
+    id: 'MAHI001',
+    hotSale: false,
+    hotSaleNumber: 0,
+    name: '鬼頭刀魚鬆',
+    price: 200,
+    cover: '/shop/products/mahi-fiber-cover.png',
+    unit: '罐',
+    intro: [
+      {
+        subImage: ['/shop/products/mahi-fiber-sub-1.jpg'],
+        subTitle: '來自大海的美味',
+        description: '來自台灣海域的鬼頭刀魚，以其肉質鮮美，口感細腻而聞名。如今我們將這頂級海鮮原料巧妙地轉化成了一道極具特色的美食：鬼頭刀魚鬆。精選新鮮鬼頭刀魚，經過殿格去鳞、去骨，再細心切割成細絲，確保每一口都能品嚐到海鮮的鮮味，然後我們加入秘製調味料，經過精心炒製，使得鬼頭刀魚鬆敞發出迷人的香氣和獨特的口感。',
+      },
+    ],
+  },
+  {
+    id: 'MAHI003',
+    hotSale: false,
+    hotSaleNumber: 0,
+    name: '鬼頭刀魚乾(辣味/辣味)',
+    price: 110,
+    cover: '/shop/products/mahi-dry-cover.png',
+    unit: '包',
+    intro: [
+      {
+        subImage: ['/shop/products/mahi-dry-sub-1.png'],
+        subTitle: '大海的獨特風味',
+        description: '經過多層繁雜的工序洗淨、抹鹽、反覆日曬，徐徐海風吹撫，為鬼頭刀熟魚乾增添大海的獨特風味。',
       },
     ],
   },
@@ -182,22 +199,6 @@ export const productsList: Product[] = [
         subImage: ['/shop/products/tuna-full-fiber-sub-1.png'],
         subTitle: '健康飲食的絕佳選擇',
         description: '鮪魚肉質鮮美，富含豐富的蛋白質和OMEGA-3脂肪酸是健康飲食的絕佳選擇，讓您品味到純正的海洋滋味，以繁複作工去除腥味，魚鬆口感細膩，100%純魚鬆不添加碗豆粉，每一口魚鬆都散發著海洋的芬芳。無論是濃郁的魚香味還是鬆軟的口感，都能讓您沉浸在美食的享受之中。香酥美味，營養加倍，堅持品質，嚴格把關無添加防腐劑。',
-      },
-    ],
-  },
-  {
-    id: 'MAHI006',
-    hotSale: false,
-    hotSaleNumber: 0,
-    name: '100% 純鬼頭刀魚鬆',
-    price: 380,
-    cover: '/shop/products/mahi-full-fiber-cover.png',
-    unit: '罐',
-    intro: [
-      {
-        subImage: ['/shop/products/mahi-full-fiber-sub-1.png'],
-        subTitle: '海洋的芬芳',
-        description: '精選新鮮鬼頭刀魚，經過嚴格去鱗、去骨，再細心切割成細絲，確保每一口都能品噌到海鮮的鮮味，100%純魚鬆不添加碗豆粉，每一口魚鬆都散發著海洋的芬芳。無論是濃郁的魚香味還是鬆軟的回感，都能讓您沉浸在美食的享受之中。香酥美味，營養加倍，堅持品質，嚴格把關無添加防腐劑。',
       },
     ],
   },

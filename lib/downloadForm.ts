@@ -4,7 +4,7 @@
 export function handleDownload() {
   const files = [
     { url: '/shop/form.pdf', filename: '琉漁小鋪購物表單.pdf' },
-    { url: '/shop/form-2.xlsx', filename: '琉漁小鋪購物表單.xlsx' },
+    { url: '/shop/form-2.doc', filename: '琉漁小鋪購物表單.doc' },
   ]
 
   files.forEach((file, index) => {
