@@ -57,6 +57,7 @@ export default defineNuxtConfig({
     'nuxt-marquee',
     'nuxt-aos',
     'nuxt-easy-lightbox',
+    '@nuxtjs/seo',
   ],
 
   shadcn: {
@@ -85,14 +86,6 @@ export default defineNuxtConfig({
     duration: 500,
     easing: 'ease-in-out',
     once: true,
-  },
-
-  runtimeConfig: {
-    public: {
-      siteUrl: 'https://liuyu.org.tw',
-      siteName: '琉球區漁會｜官方網站',
-      siteLocale: 'zh-TW',
-    },
   },
 
   postcss: {
@@ -125,6 +118,23 @@ export default defineNuxtConfig({
         // types: [],
       },
     },
+  },
+
+  site: {
+    url: process.env.NITRO_PUBLIC_SITE_UR || 'https://liuyu.org.tw',
+    name: '琉球區漁會｜官方網站',
+    description: appDescription,
+    defaultLocale: 'zh-TW',
+  },
+
+  sitemap: {
+    enabled: process.env.NODE_ENV === 'production',
+    urls: [],
+    exclude: [
+      '/admin/**',
+      '/404',
+    ],
+    autoLastmod: true,
   },
 
   compatibilityDate: '2024-11-27',
