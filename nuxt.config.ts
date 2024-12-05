@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/',
     head: {
+      titleTemplate: '%s',
       htmlAttrs: {
         lang: 'zh-TW',
       },
@@ -122,13 +123,11 @@ export default defineNuxtConfig({
 
   site: {
     url: process.env.NITRO_PUBLIC_SITE_UR || 'https://liuyu.org.tw',
-    name: '琉球區漁會｜官方網站',
-    description: appDescription,
     defaultLocale: 'zh-TW',
   },
 
   sitemap: {
-    enabled: process.env.NODE_ENV === 'production',
+    enabled: process.env.NITRO_PUBLIC_NODE_ENV === 'production',
     urls: [],
     exclude: [
       '/admin/**',
