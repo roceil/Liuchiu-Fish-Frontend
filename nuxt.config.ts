@@ -30,14 +30,14 @@ export default defineNuxtConfig({
       // Google Analytics
       script: [
         {
-          src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NITRO_GOOGLE_ANALYTICS_ID}`,
+          src: `https://www.googletagmanager.com/gtag/js?id=G-${process.env.NITRO_GOOGLE_ANALYTICS_ID}`,
           async: true,
         },
         {
           children: `window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${process.env.NITRO_GOOGLE_ANALYTICS_ID}');`,
+          gtag('config', 'G-${process.env.NITRO_GOOGLE_ANALYTICS_ID}');`,
         },
       ],
     },
