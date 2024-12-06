@@ -11,6 +11,10 @@ import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
           class="size-full md:hidden"
           alt="banner-map"
           draggable="false"
+          loading="eager"
+          formats="webp"
+          priority
+          fetchpriority="high"
         />
 
         <NuxtImg
@@ -18,6 +22,10 @@ import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
           class="hidden size-full md:block"
           alt="banner-map"
           draggable="false"
+          loading="eager"
+          formats="webp"
+          priority
+          fetchpriority="high"
         />
       </div>
 
@@ -36,10 +44,14 @@ import BannerAnimatedMoreIndicator from './AnimatedMoreIndicator.vue'
           />
         </div>
 
-        <BannerAnimatedMoreIndicator class="absolute right-1/2 translate-x-1/2 translate-y-12 md:inset-x-0 md:top-[478px] md:translate-x-0 md:translate-y-0" />
+        <BannerAnimatedMoreIndicator
+          class="absolute right-1/2 translate-x-1/2 translate-y-12 md:inset-x-0 md:top-[478px] md:translate-x-0 md:translate-y-0"
+        />
       </div>
     </div>
 
-    <div class="mt-[60px] h-[120px] w-full bg-wave-top-sm bg-cover bg-top bg-no-repeat md:h-[72px] md:bg-wave-top lg:bg-cover" />
+    <div
+      class="mt-[60px] h-[120px] w-full bg-wave-top-sm bg-cover bg-top bg-no-repeat md:h-[72px] md:bg-wave-top lg:bg-cover"
+    />
   </section>
 </template>

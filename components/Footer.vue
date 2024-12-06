@@ -43,10 +43,12 @@ const footerLinks = [
       <div class="flex flex-col">
         <NuxtImg
           src="/logo.svg"
+          alt="logo"
           class="mr-6 hidden h-12 w-[210px] md:block"
         />
         <NuxtImg
           src="/logo-sm.svg"
+          alt="logo"
           class="h-[38px] w-[171px] md:hidden"
         />
         <div class="mt-[53px] hidden flex-col space-y-1 text-xs text-neutral-500 md:flex">
