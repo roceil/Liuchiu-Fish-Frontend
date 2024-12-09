@@ -5,7 +5,7 @@ import { useSiteMetadata } from '@/composables/useMetaData'
 import { handleDownload } from '@/lib/downloadForm'
 
 useSiteMetadata({
-  title: '琉漁小鋪',
+  title: '｜琉漁小鋪',
 })
 </script>
 

@@ -13,7 +13,7 @@ import { useNewsStore } from '~/store/news'
 import { useNews } from '~/services/supabase/useNews'
 
 useSiteMetadata({
-  title: '訊息公告',
+  title: '｜訊息公告',
 })
 
 const newsStore = useNewsStore()

@@ -4,7 +4,7 @@ import EnterLoading from '@/components/EnterLoading.vue'
 import { useLoadingState } from '@/composables/useLoadingState'
 
 useSiteMetadata({
-  title: '官方網站',
+  title: '',
 })
 
 const route = useRoute()
