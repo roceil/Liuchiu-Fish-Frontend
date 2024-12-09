@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { watchOnce } from '@vueuse/core'
+import Autoplay from 'embla-carousel-autoplay'
 import type { CarouselApi } from '@/components/ui/carousel'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { awardsHistoryList } from '@/constants'
@@ -89,16 +90,11 @@ const historyCardList = [
   },
   {
     number: '03',
-    title: '漁會發展',
-    picture: '/about-us/scenery.jpg',
-    pictureSm: '/about-us/scenery.jpg',
-    description: '琉球景觀',
-    content: [
-      {
-        title: '小琉球觀光休閒漁業發展',
-        description: '小琉球地理環境特殊，加強原有漁業，結合政府週休二日，本鄉己納入大鵬灣國家風景區，海上的發展更不可缺少。本鄉冬暖夏涼，年平均溫度二十四度，沿海約有一百七十餘種魚類，一百七十餘種珊瑚，海水清澈，無工業污染，嗣後以發展觀光休閒漁業，來增加漁會收益，以富麗漁村帶動小琉球觀光事業為目標。',
-      },
-    ],
+    title: '琉球一隅',
+    picture: '',
+    pictureSm: '',
+    description: '',
+    content: [],
   },
 ]
 
@@ -209,6 +205,7 @@ const awardsRef = ref<HTMLElement | null>(null)
                 :intro-picture="card.picture"
                 :intro-picture-sm="card.pictureSm"
                 :picture-description="card.description"
+                :show-gallery="false"
               >
                 <div class="mt-6 w-full md:ml-10 md:mt-0 md:w-[478px]">
                   <ul class="space-y-5">
@@ -231,6 +228,47 @@ const awardsRef = ref<HTMLElement | null>(null)
               </AboutUsHistoryCard>
             </template>
 
+            <template v-else-if="card.title === '琉球一隅'">
+              <AboutUsHistoryCard
+                :card-title="card.title"
+                :card-number="card.number"
+                :intro-picture="card.picture"
+                :intro-picture-sm="card.pictureSm"
+                :picture-description="card.description"
+                :show-gallery="true"
+              >
+                <div class="mt-6 flex w-full items-center justify-center md:ml-10 md:mt-0 md:w-full">
+                  <Carousel
+                    class="w-full"
+                    :opts="{
+                      align: 'center',
+                      loop: true,
+                    }"
+                    :plugins="[Autoplay({
+                      delay: 4000,
+                      stopOnInteraction: false,
+                    })]"
+                  >
+                    <CarouselContent>
+                      <CarouselItem
+                        v-for="(item, index) in 8"
+                        :key="index"
+                        class="w-full md:basis-1/2 lg:basis-1/3"
+                      >
+                        <div class="size-full overflow-hidden rounded-lg">
+                          <NuxtImg
+                            :src="`/about-us/slide/${index + 1}.png`"
+                            alt="history"
+                            class="h-auto w-full"
+                          />
+                        </div>
+                      </CarouselItem>
+                    </CarouselContent>
+                  </Carousel>
+                </div>
+              </AboutUsHistoryCard>
+            </template>
+
             <template v-else>
               <AboutUsHistoryCard
                 :card-title="card.title"
@@ -238,6 +276,7 @@ const awardsRef = ref<HTMLElement | null>(null)
                 :intro-picture="card.picture"
                 :intro-picture-sm="card.pictureSm"
                 :picture-description="card.description"
+                :show-gallery="false"
               >
                 <ul class="mt-6 w-full space-y-5 md:ml-10 md:mt-0 md:w-[478px] md:space-y-6">
                   <li
@@ -274,7 +313,9 @@ const awardsRef = ref<HTMLElement | null>(null)
           <!-- 首長介紹 -->
           <div class="mt-10 w-full md:mx-auto md:mt-[60px] md:max-w-[1120px]">
             <h4 class="relative pl-3 text-lg font-bold md:text-xl">
-              <div class="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded bg-primary-300 md:h-[30px] md:w-[6px]" />
+              <div
+                class="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded bg-primary-300 md:h-[30px] md:w-[6px]"
+              />
               首長介紹
             </h4>
 
@@ -300,7 +341,9 @@ const awardsRef = ref<HTMLElement | null>(null)
           <!-- 組織架構 -->
           <div class="mt-10 w-full md:mx-auto md:max-w-[1120px]">
             <h4 class="relative pl-3 text-lg font-bold md:text-xl">
-              <div class="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded bg-primary-300 md:h-[30px] md:w-[6px]" />
+              <div
+                class="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded bg-primary-300 md:h-[30px] md:w-[6px]"
+              />
               組織架構
             </h4>
 
@@ -364,7 +407,9 @@ const awardsRef = ref<HTMLElement | null>(null)
                 :key="index"
                 class="basis-1/1 lg:basis-1/2"
               >
-                <ul class="h-full w-[343px] rounded-xl border border-neutral-100 bg-neutral-50 p-4 md:w-[556px] md:p-10">
+                <ul
+                  class="h-full w-[343px] rounded-xl border border-neutral-100 bg-neutral-50 p-4 md:w-[556px] md:p-10"
+                >
                   <li
                     v-for="(award) in historyAward"
                     :key="award.title"
@@ -373,7 +418,9 @@ const awardsRef = ref<HTMLElement | null>(null)
                     <div class="flex items-center space-x-2">
                       <!-- 裝飾點點 -->
                       <div class="relative size-3 rounded-full bg-primary-700">
-                        <div class="absolute left-1/2 top-1/2 size-1 -translate-x-1/2  -translate-y-1/2 rounded-full bg-neutral-50" />
+                        <div
+                          class="absolute left-1/2 top-1/2 size-1 -translate-x-1/2  -translate-y-1/2 rounded-full bg-neutral-50"
+                        />
                       </div>
 
                       <!-- 獎項標題  -->
@@ -399,8 +446,12 @@ const awardsRef = ref<HTMLElement | null>(null)
               </CarouselItem>
             </CarouselContent>
 
-            <CarouselPrevious class="absolute left-0 top-1/2 hidden -translate-y-1/2 translate-x-[-140%] rounded-full focus:bg-primary-50 lg:flex" />
-            <CarouselNext class="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[140%] rounded-full focus:bg-primary-50 lg:flex" />
+            <CarouselPrevious
+              class="absolute left-0 top-1/2 hidden -translate-y-1/2 translate-x-[-140%] rounded-full focus:bg-primary-50 lg:flex"
+            />
+            <CarouselNext
+              class="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[140%] rounded-full focus:bg-primary-50 lg:flex"
+            />
           </Carousel>
 
           <!-- 分頁條 -->

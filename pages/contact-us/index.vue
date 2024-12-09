@@ -220,7 +220,7 @@ useSiteMetadata({
           <div class="">
             <NuxtMarquee
               :pause-on-hover="true"
-              :speed="70"
+              :speed="40"
               :gradient="true"
               gradient-width="20px"
               :auto-fill="true"
@@ -247,7 +247,7 @@ useSiteMetadata({
 
             <NuxtMarquee
               :pause-on-hover="true"
-              :speed="70"
+              :speed="40"
               direction="right"
               :gradient="true"
               gradient-width="20px"
