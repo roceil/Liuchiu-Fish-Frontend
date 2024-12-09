@@ -5,6 +5,7 @@ const props = defineProps<{
   introPicture: string
   introPictureSm: string
   pictureDescription: string
+  showGallery?: boolean
 }>()
 </script>
 
@@ -12,7 +13,9 @@ const props = defineProps<{
   <div class="rounded-xl bg-net-bg-sm-gray px-4 py-8 md:flex md:justify-center md:px-20 md:py-[60px]">
     <!-- 標題 -->
     <div class="flex justify-center">
-      <div class="flex w-full max-w-[139px] items-center justify-center bg-neutral-200/50 py-[14.5px] md:h-[194px] md:w-[64px] md:max-w-none md:flex-col md:py-0">
+      <div
+        class="flex w-full max-w-[139px] items-center justify-center bg-neutral-200/50 py-[14.5px] md:h-[194px] md:w-[64px] md:max-w-none md:flex-col md:py-0"
+      >
         <span class="mr-2 font-black md:mr-0">{{ props.cardNumber }}</span>
         <NuxtImg
           src="/about-us/wave.svg"
@@ -25,7 +28,10 @@ const props = defineProps<{
     </div>
 
     <!-- 圖片 -->
-    <div class="mt-8 md:ml-[60px] md:mt-0 md:w-[478px]">
+    <div
+      v-if="!props.showGallery"
+      class="mt-8 md:ml-[60px] md:mt-0 md:w-[478px]"
+    >
       <div class="h-[193px] w-full overflow-hidden rounded-lg md:h-[290px]">
         <NuxtImg
           :src="props.introPicture"
