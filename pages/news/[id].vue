@@ -31,7 +31,7 @@ const renderNews = ref<NewsData | null>(null)
 renderNews.value = newsStore.newsList.find(news => news.id === Number(route.params.id)) || null
 
 useSiteMetadata({
-  title: renderNews.value?.title,
+  title: `｜${renderNews.value?.title}`,
   description: renderNews.value?.content ? stripHtml(renderNews.value.content) : '',
 })
 

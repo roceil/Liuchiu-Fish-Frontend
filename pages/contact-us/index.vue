@@ -3,7 +3,7 @@ import { ShopFacebookUrl, contactData, friendLink, lineUrl } from '@/constants'
 import { useSiteMetadata } from '@/composables/useMetaData'
 
 useSiteMetadata({
-  title: '便民服務',
+  title: '｜便民服務',
 })
 </script>
 
