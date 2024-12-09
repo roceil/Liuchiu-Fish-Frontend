@@ -6,7 +6,7 @@ import { departmentJobs } from '@/constants'
 import { useSiteMetadata } from '@/composables/useMetaData'
 
 useSiteMetadata({
-  title: '業務部門',
+  title: '｜業務部門',
 })
 
 interface Optional {

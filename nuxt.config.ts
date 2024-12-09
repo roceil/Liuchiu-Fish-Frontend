@@ -23,9 +23,14 @@ export default defineNuxtConfig({
 
         // 設置 Open Graph 元資料
         { property: 'og:url', content: NITRO_PUBLIC_SITE_URL },
-        { property: 'og:title', content: '琉球區漁會｜官方網站' },
+        { property: 'og:title', content: '琉球區漁會' },
         { property: 'og:description', content: appDescription },
         { property: 'og:image', content: `${NITRO_PUBLIC_SITE_URL}/og-image.png` },
+        { property: 'og:site_name', content: '琉球區漁會' },
+
+        // Google Analytics
+        { name: 'title', content: '琉球區漁會' },
+        { name: 'application-name', content: '琉球區漁會' },
       ],
 
       // Google Analytics
@@ -122,6 +127,7 @@ export default defineNuxtConfig({
   },
 
   site: {
+    name: '琉球區漁會',
     url: process.env.NITRO_PUBLIC_SITE_UR || 'https://liuyu.org.tw',
     defaultLocale: 'zh-TW',
   },

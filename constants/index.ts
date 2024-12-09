@@ -1,7 +1,7 @@
 import type { News, Product } from '~/types'
 import type { DepartmentJobs } from '~/pages/Departments.vue'
 
-export const appName = '琉球區漁會｜'
+export const appName = '琉球區漁會'
 export const appDescription = '小琉球是一座位於屏東縣西南方大海上的珊瑚礁島嶼。漁會以保障漁民權益，提高漁民知識、技能，增加漁民生產收益，改善漁民生活，促進漁業現代化，並謀其發展為宗旨。'
 export const officialFacebookUrl = 'https://www.facebook.com/liuyu929000/'
 export const ShopFacebookUrl = 'https://www.facebook.com/profile.php?id=61559380793880'

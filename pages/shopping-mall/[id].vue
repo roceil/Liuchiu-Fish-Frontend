@@ -23,7 +23,7 @@ const randomProducts = computed(() =>
 )
 
 useSiteMetadata({
-  title: product.value?.name,
+  title: `｜${product.value?.name}`,
   description: product.value?.intro[0].description,
   image: product.value?.cover,
 })
@@ -38,9 +38,7 @@ useSiteMetadata({
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink>
-                <a
-                  href="/"
-                >
+                <a href="/">
                   首頁
                 </a>
               </BreadcrumbLink>
@@ -66,7 +64,9 @@ useSiteMetadata({
 
     <!-- 主商品 -->
     <div class="container mt-4 pb-6 md:flex md:justify-between md:space-x-10 md:pb-20">
-      <div class="flex h-[192px] w-full items-center justify-center overflow-hidden rounded-xl bg-neutral-100 md:h-[371px] md:max-w-[510px]">
+      <div
+        class="flex h-[192px] w-full items-center justify-center overflow-hidden rounded-xl bg-neutral-100 md:h-[371px] md:max-w-[510px]"
+      >
         <NuxtImg
           :src="product?.cover"
           alt="productCover"
