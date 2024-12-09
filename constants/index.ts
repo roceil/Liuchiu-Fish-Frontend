@@ -266,6 +266,48 @@ export const productsList: Product[] = [
       },
     ],
   },
+  {
+    id: 'PKG001',
+    hotSale: false,
+    hotSaleNumber: 0,
+    name: '鬼頭刀四合一禮盒組',
+    price: 600,
+    cover: '/shop/products/package-mahi-4-cover.png',
+    unit: '組',
+    intro: [
+      {
+        subImage: ['/shop/products/package-mahi-4-sub-1.png'],
+        subTitle: '四種願望一次滿足',
+        description: '想嘗鮮的您絕對不能錯過 ! 四合一禮盒組綜合了本會鬼頭刀系列的人氣商品，輕輕鬆鬆四個願望一次滿足，再搭配上精心設計充滿小琉球特色插畫的禮盒包裝，讓您送禮自用兩相宜。',
+      },
+      {
+        subImage: ['/shop/products/package-mahi-4-sub-2.png'],
+        subTitle: '內容物包含',
+        description: '鬼頭刀魚鬆一罐、鬼頭刀魚酥條一包、鬼頭刀魚鬆糙米捲一包、鬼頭刀魚乾條一包',
+      },
+    ],
+  },
+  {
+    id: 'PKG002',
+    hotSale: false,
+    hotSaleNumber: 0,
+    name: '魚鬆三合一禮盒組',
+    price: 650,
+    cover: '/shop/products/package-fiber-3-cover.png',
+    unit: '組',
+    intro: [
+      {
+        subImage: ['/shop/products/package-fiber-3-sub-1.png'],
+        subTitle: '三種願望一次滿足',
+        description: '三合一禮盒組綜合了本會魚鬆全品項，每一款都有獨特屬於自己的魚種風味，值得您細細品嘗箇中滋味，再搭配上精心設計富有小琉球風情的禮盒包裝，讓您送禮自用兩相宜。內容物包含旗魚魚鬆一罐、鮪魚魚鬆一罐、鬼頭刀魚鬆一罐',
+      },
+      {
+        subImage: ['/shop/products/package-mahi-4-sub-2.png'],
+        subTitle: '內容物包含',
+        description: '旗魚魚鬆一罐、鮪魚魚鬆一罐、鬼頭刀魚鬆一罐',
+      },
+    ],
+  },
 ]
 
 // 最新消息列表，用於渲染 HomeNewsListItem

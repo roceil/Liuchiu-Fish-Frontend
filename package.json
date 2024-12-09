@@ -22,6 +22,7 @@
     "@vueuse/core": "^10.11.0",
     "@vueuse/motion": "^2.2.6",
     "animejs": "^3.2.2",
+    "embla-carousel-autoplay": "^8.5.1",
     "embla-carousel-vue": "^8.1.7",
     "lottie-web": "^5.12.2",
     "lucide-vue-next": "^0.403.0",
