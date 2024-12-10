@@ -239,7 +239,7 @@ useSiteMetadata({
                     class="h-auto w-full "
                   />
                 </div>
-                <p class="mt-1 text-sm font-bold md:text-base">
+                <p class="mt-1 hidden text-sm font-bold md:text-base">
                   {{ link.title }}
                 </p>
               </NuxtLink>
@@ -267,7 +267,7 @@ useSiteMetadata({
                     class="h-auto w-full "
                   />
                 </div>
-                <p class="mt-1 text-sm font-bold md:text-base">
+                <p class="mt-1 hidden text-sm font-bold md:text-base">
                   {{ link.title }}
                 </p>
               </NuxtLink>
