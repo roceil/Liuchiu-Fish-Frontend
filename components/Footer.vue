@@ -5,7 +5,7 @@ const footerLinks = [
   {
     title: '琉漁小舖',
     links: [
-      { text: '所有商品', url: '/shop' },
+      { text: '所有商品', url: '/shopping-mall' },
     ],
   },
   {
@@ -19,10 +19,10 @@ const footerLinks = [
   {
     title: '業務部門',
     links: [
-      { text: '輔導股', url: '/department' },
-      { text: '會務股', url: '/department' },
-      { text: '推廣股', url: '/department' },
-      { text: '信用部', url: '/department' },
+      { text: '輔導股', url: '/departments' },
+      { text: '會務股', url: '/departments' },
+      { text: '推廣股', url: '/departments' },
+      { text: '信用部', url: '/departments' },
     ],
   },
   {
