@@ -299,7 +299,7 @@ export const productsList: Product[] = [
       {
         subImage: ['/shop/products/package-fiber-3-sub-1.png'],
         subTitle: '三種願望一次滿足',
-        description: '三合一禮盒組綜合了本會魚鬆全品項，每一款都有獨特屬於自己的魚種風味，值得您細細品嘗箇中滋味，再搭配上精心設計富有小琉球風情的禮盒包裝，讓您送禮自用兩相宜。內容物包含旗魚魚鬆一罐、鮪魚魚鬆一罐、鬼頭刀魚鬆一罐',
+        description: '三合一禮盒組綜合了本會魚鬆全品項，每一款都有獨特屬於自己的魚種風味，值得您細細品嘗箇中滋味，再搭配上精心設計富有小琉球風情的禮盒包裝，讓您送禮自用兩相宜。',
       },
       {
         subImage: ['/shop/products/package-fiber-3-sub-2.png'],
