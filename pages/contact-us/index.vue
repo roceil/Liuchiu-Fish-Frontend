@@ -87,7 +87,7 @@ useSiteMetadata({
           <!-- 營業時間 -->
           <div class="mt-3 rounded-xl bg-neutral-50 py-3">
             <p class="text-center text-sm tracking-wider text-neutral-500">
-              週一到週五 8:00~12:00、13:00~17:00
+              週一到週五 8:00~12:00、13:30~17:00
             </p>
           </div>
           <!-- 地圖 -->
