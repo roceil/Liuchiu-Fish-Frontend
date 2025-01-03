@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { cn } from '@/lib/utils'
-import type { Product } from '~/types'
+import type { Product } from '~/services/supabase/useProducts'
 import { Skeleton } from '~~/components/ui/skeleton'
 
 const props = defineProps<{
@@ -19,11 +19,11 @@ function handleImageLoad() {
 <template>
   <div class="relative w-[290px]">
     <div
-      v-if="props.product.hotSale"
+      v-if="props.product.isHotSale"
       class="rank-badge absolute -top-3 left-4 z-20 px-3 py-1"
     >
       <p class="text-sm font-bold text-danger-200">
-        熱銷 No. {{ props.product.hotSaleNumber }}
+        熱銷 No. {{ props.product.hotSaleRank }}
       </p>
     </div>
 
@@ -54,17 +54,6 @@ function handleImageLoad() {
 
           <div class="mt-1 flex justify-between">
             <p>NT {{ props.product.price }} / {{ props.product.unit }}</p>
-            <!-- <div class="flex items-center justify-center space-x-1">
-              <button class="text-sm font-bold text-primary-700">
-                查看更多
-              </button>
-              <div class="flex size-6 items-center justify-center rounded-full bg-primary-700">
-                <Icon
-                  name="mingcute:right-line"
-                  class="text-white"
-                />
-              </div>
-            </div> -->
           </div>
         </div>
       </NuxtLink>
