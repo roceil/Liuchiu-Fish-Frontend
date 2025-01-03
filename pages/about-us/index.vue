@@ -26,7 +26,7 @@ interface FormattedAward {
 
 interface Leader {
   leaderName: string
-  leaderJob: string
+  jobTitle: string
 }
 
 const { getLeaders } = useLeaders()
@@ -337,7 +337,7 @@ useSiteMetadata({
                 <div class="absolute left-4 top-4 flex items-center space-x-2 rounded-lg bg-neutral-100 px-3 py-1">
                   <div class="size-[6px] rounded-full bg-neutral-300 " />
                   <p class="text-sm text-neutral-500">
-                    {{ leader.leaderName }}
+                    {{ leader.jobTitle }}
                   </p>
                 </div>
                 <p class="shrink-0 text-xl font-bold tracking-wider text-primary-700 md:text-2xl">
