@@ -3,13 +3,99 @@ import { watchOnce } from '@vueuse/core'
 import Autoplay from 'embla-carousel-autoplay'
 import type { CarouselApi } from '@/components/ui/carousel'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
-import { awardsHistoryList } from '@/constants'
 import { useSiteMetadata } from '@/composables/useMetaData'
+import { useLeaders } from '~/services/supabase/useLeaders'
+import { useAwards } from '~/services/supabase/useAwards'
+import { historyCardList } from '@/constants'
 
-useSiteMetadata({
-  title: '｜關於琉漁',
-  description: '民國十四年三月，高雄州東港郡琉球庄漁業者獲准成立『琉球漁業組合』，會址設於琉球庄役場內。民國三十年改制為『保證責任琉球漁業協同組合』。民國卅三年與林邊、佳冬、新園等地一同併入東港，成立東港漁業會，在琉球設辦事處。光復以後，地方人士為琉球漁業之發展及謀求漁民之福利，熱心籌劃聯繫，民國四十二年七月依照『台灣省各級漁會改進辦法』，成立『琉球區漁會』迄今。',
+interface AwardDetail {
+  name: string
+}
+
+interface Award {
+  id: number
+  competitionName: string
+  awardDetails: AwardDetail[]
+  created_at: string
+}
+
+interface FormattedAward {
+  title: string
+  description: string[]
+}
+
+interface Leader {
+  leaderName: string
+  jobTitle: string
+}
+
+const { getLeaders } = useLeaders()
+const { data: leadersData, error: leadersDataError } = await useAsyncData('leaders', () => getLeaders())
+
+const { getAwards } = useAwards()
+const { data: awardsData, error: awardsDataError } = await useAsyncData('awards', () => getAwards())
+
+if (leadersDataError.value)
+  console.error('leadersDataError', leadersDataError.value)
+
+if (awardsDataError.value)
+  console.error('awardsDataError', awardsDataError.value)
+
+const renderLeaders = computed(() => {
+  if (!leadersData.value)
+    return []
+
+  return leadersData.value as Leader[]
 })
+
+const renderAwards = computed(() => {
+  if (!awardsData.value)
+    return []
+
+  // Note: 每 4 個獎項為一組
+  const ITEMS_PER_GROUP = 4
+  const formattedAwards: FormattedAward[][] = []
+  let currentGroup: FormattedAward[] = []
+
+  awardsData.value.forEach((award: Award) => {
+    const formattedAward: FormattedAward = {
+      title: award.competitionName,
+      description: award.awardDetails.map(detail => detail.name),
+    }
+
+    currentGroup.push(formattedAward)
+
+    if (currentGroup.length === ITEMS_PER_GROUP) {
+      formattedAwards.push([...currentGroup])
+      currentGroup = []
+    }
+  })
+
+  // Note: 處理最後一組不足 4 個的情況
+  if (currentGroup.length > 0) {
+    formattedAwards.push([...currentGroup])
+  }
+
+  return formattedAwards
+})
+
+const mountLinks = [
+  {
+    title: '沿革發展',
+    link: 'history',
+    icon: '/about-us/development.svg',
+  },
+  {
+    title: '組織架構',
+    link: 'structure',
+    icon: '/about-us/organization.svg',
+  },
+  {
+    title: '歷年獲獎',
+    link: 'awards',
+    icon: '/about-us/awards.svg',
+  },
+]
 
 const api = ref<CarouselApi>()
 const totalCount = ref(0)
@@ -31,91 +117,14 @@ watchOnce(api, (api) => {
   })
 })
 
-const mountLinks = [
-  {
-    title: '沿革發展',
-    link: 'history',
-    icon: '/about-us/development.svg',
-  },
-  {
-    title: '組織架構',
-    link: 'structure',
-    icon: '/about-us/organization.svg',
-  },
-  {
-    title: '歷年獲獎',
-    link: 'awards',
-    icon: '/about-us/awards.svg',
-  },
-]
-
-const historyCardList = [
-  {
-    number: '01',
-    title: '漁會歷史',
-    picture: '/about-us/history.png',
-    pictureSm: '/about-us/history-sm.png',
-    description: '琉球漁會成立初期',
-    content: [
-      {
-        title: '民國十四年三月',
-        description: '高雄州東港郡琉球庄漁業者獲准成立『琉球漁業組合』，會址設於琉球庄役場內。',
-      },
-      {
-        title: '民國卅三年',
-        description: '改制為『保證責任琉球漁業協同組合』。',
-      },
-      {
-        title: '民國卅三年',
-        description: '與林邊、佳冬、新園等地一同併入東港，成立東港漁業會，在琉球設辦事處。',
-      },
-      {
-        title: '民國四十二年',
-        description: '光復以後，地方人士為琉球漁業之發展及謀求漁民之福利，熱心籌劃聯繫，民國四十二年七月依照『台灣省各級漁會改進辦法』，成立『琉球區漁會』迄今。',
-      },
-    ],
-  },
-  {
-    number: '02',
-    title: '漁會現況',
-    picture: '/about-us/now.jpg',
-    pictureSm: '/about-us/now.jpg',
-    description: '琉球漁會現址',
-    content: [
-      {
-        title: '會員概況',
-        description: '現有3500餘人。漁筏、舢舨及延繩釣漁船共計640餘艘。延繩釣漁船分別在國內沿近海及國外基地關島、帛琉、密棟、雅加達、檳城、新加坡、普吉島、斯里蘭卡等基地作業。國內沿近海作業漁船所捕撈魚貨有鮪、旗、沙魚等種類。本會因受環境地理影響無法設立魚市場，大多均駛往高雄及東港魚市場銷售。雖然本會無魚市場管理費收入，仍辦理各項漁業業務及福利措施，設立多方部門替漁友及鄉親服務，實現漁會設立宗旨。',
-      },
-    ],
-  },
-  {
-    number: '03',
-    title: '琉球一隅',
-    picture: '',
-    pictureSm: '',
-    description: '',
-    content: [],
-  },
-]
-
-const leaderCardList = [
-  {
-    name: '洪文良',
-    title: '理事長',
-  },
-  {
-    name: '陳智雄',
-    title: '常務監事',
-  },
-  {
-    name: '李叔娟',
-    title: '總幹事',
-  },
-]
-
 const historyRef = ref<HTMLElement | null>(null)
 const structureRef = ref<HTMLElement | null>(null)
 const awardsRef = ref<HTMLElement | null>(null)
+
+useSiteMetadata({
+  title: '｜關於琉漁',
+  description: '民國十四年三月，高雄州東港郡琉球庄漁業者獲准成立『琉球漁業組合』，會址設於琉球庄役場內。民國三十年改制為『保證責任琉球漁業協同組合』。民國卅三年與林邊、佳冬、新園等地一同併入東港，成立東港漁業會，在琉球設辦事處。光復以後，地方人士為琉球漁業之發展及謀求漁民之福利，熱心籌劃聯繫，民國四十二年七月依照『台灣省各級漁會改進辦法』，成立『琉球區漁會』迄今。',
+})
 </script>
 
 <template>
@@ -321,18 +330,18 @@ const awardsRef = ref<HTMLElement | null>(null)
 
             <ul class="mt-4 w-full space-y-3 md:flex md:space-x-5 md:space-y-0">
               <li
-                v-for="(card) in leaderCardList"
-                :key="card.name"
+                v-for="(leader) in renderLeaders"
+                :key="leader.leaderName"
                 class="relative flex w-full items-center justify-center rounded-[20px] border-[3px] border-white bg-primary-50 px-[140px] py-12 md:px-[120px] md:py-16 lg:px-[142px]"
               >
                 <div class="absolute left-4 top-4 flex items-center space-x-2 rounded-lg bg-neutral-100 px-3 py-1">
                   <div class="size-[6px] rounded-full bg-neutral-300 " />
                   <p class="text-sm text-neutral-500">
-                    {{ card.title }}
+                    {{ leader.jobTitle }}
                   </p>
                 </div>
                 <p class="shrink-0 text-xl font-bold tracking-wider text-primary-700 md:text-2xl">
-                  {{ card.name }}
+                  {{ leader.leaderName }}
                 </p>
               </li>
             </ul>
@@ -403,7 +412,7 @@ const awardsRef = ref<HTMLElement | null>(null)
           >
             <CarouselContent>
               <CarouselItem
-                v-for="(historyAward, index) in awardsHistoryList"
+                v-for="(historyAward, index) in renderAwards"
                 :key="index"
                 class="basis-1/1 lg:basis-1/2"
               >

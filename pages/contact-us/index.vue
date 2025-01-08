@@ -1,6 +1,23 @@
 <script lang="ts" setup>
-import { ShopFacebookUrl, contactData, friendLink, lineUrl } from '@/constants'
+import { ShopFacebookUrl, contactData, lineUrl } from '@/constants'
 import { useSiteMetadata } from '@/composables/useMetaData'
+import { useService } from '~/services/supabase/useService'
+
+export interface FriendLink {
+  id: number
+  siteName: string
+  siteLink: string
+  imageUrl: string
+  created_at: string
+}
+
+const { getFriendLinks } = useService()
+const { data: friendLinks, error: friendLinksError } = await useAsyncData<FriendLink[]>('friendLinks', () => getFriendLinks())
+
+if (friendLinksError.value)
+  console.error('friendLinksError', friendLinksError.value)
+
+const renderFriendLinks = computed(() => friendLinks.value)
 
 useSiteMetadata({
   title: '｜便民服務',
@@ -51,6 +68,7 @@ useSiteMetadata({
               琉球區漁會
             </h2>
           </div>
+
           <!-- 聯絡方式 -->
           <ul class="mt-6 space-y-4 md:flex md:gap-x-4 md:space-y-0">
             <li
@@ -84,12 +102,14 @@ useSiteMetadata({
               </div>
             </li>
           </ul>
+
           <!-- 營業時間 -->
           <div class="mt-3 rounded-xl bg-neutral-50 py-3">
             <p class="text-center text-sm tracking-wider text-neutral-500">
               週一到週五 8:00~12:00、13:30~17:00
             </p>
           </div>
+
           <!-- 地圖 -->
           <div class="mt-3 flex h-[216px] w-full items-center justify-center overflow-hidden rounded-lg md:h-[293px]">
             <iframe
@@ -115,17 +135,13 @@ useSiteMetadata({
           </div>
           <!-- 聯絡方式 -->
           <ul class="mt-6 space-y-4 md:flex md:gap-x-4 md:space-y-0">
-            <li
-              class="rounded-xl bg-neutral-50 text-sm md:w-1/2 md:text-base"
-            >
+            <li class="rounded-xl bg-neutral-50 text-sm md:w-1/2 md:text-base">
               <p class="border-b border-neutral-100 py-2 text-center text-neutral-500">
                 聯絡我們
               </p>
 
               <div class="flex flex-col items-center space-y-2 py-4 text-center text-neutral-950">
-                <div
-                  class="flex items-center space-x-2"
-                >
+                <div class="flex items-center space-x-2">
                   <div class="size-4">
                     <Icon
                       name="mdi-light:phone"
@@ -140,9 +156,7 @@ useSiteMetadata({
                   </a>
                 </div>
 
-                <div
-                  class="flex items-center space-x-2"
-                >
+                <div class="flex items-center space-x-2">
                   <div class="size-4">
                     <Icon
                       name="teenyicons:print-outline"
@@ -159,13 +173,11 @@ useSiteMetadata({
               </div>
 
               <p class="text-center text-sm tracking-wider text-neutral-950 md:text-base">
-                週一到週日8:00~~17:00
+                週一到週日 08:00～17:00
               </p>
             </li>
 
-            <li
-              class="rounded-xl bg-neutral-50 text-sm md:w-1/2 md:text-base"
-            >
+            <li class="rounded-xl bg-neutral-50 text-sm md:w-1/2 md:text-base">
               <p class="border-b border-neutral-100 py-2 text-center text-neutral-500">
                 社群媒體
               </p>
@@ -207,73 +219,7 @@ useSiteMetadata({
         </div>
 
         <!-- 友站連結 -->
-        <div class="py-10">
-          <!-- 區塊標題 -->
-          <div class="flex items-center space-x-3">
-            <div class="h-[30px] w-[6px] rounded-full bg-primary-300" />
-            <h2 class="text-2xl font-bold">
-              友站連結
-            </h2>
-          </div>
-
-          <!-- 各種連結 -->
-          <div class="">
-            <NuxtMarquee
-              :pause-on-hover="true"
-              :speed="40"
-              :gradient="true"
-              gradient-width="20px"
-              :auto-fill="true"
-              class="mt-6 overflow-hidden"
-            >
-              <NuxtLink
-                v-for="link in friendLink.slice(0, 8)"
-                :key="link.title"
-                :to="link.link"
-                class="mr-4"
-              >
-                <div class="flex h-[100px] w-[253px] items-center justify-center rounded-xl bg-neutral-50 px-4">
-                  <NuxtImg
-                    :src="link.image"
-                    :alt="link.title"
-                    class="h-auto w-full "
-                  />
-                </div>
-                <p class="mt-1 hidden text-sm font-bold md:text-base">
-                  {{ link.title }}
-                </p>
-              </NuxtLink>
-            </NuxtMarquee>
-
-            <NuxtMarquee
-              :pause-on-hover="true"
-              :speed="40"
-              direction="right"
-              :gradient="true"
-              gradient-width="20px"
-              :auto-fill="true"
-              class="mt-6 overflow-hidden"
-            >
-              <NuxtLink
-                v-for="link in friendLink.slice(8)"
-                :key="link.title"
-                :to="link.link"
-                class="mr-4"
-              >
-                <div class="flex h-[100px] w-[253px] items-center justify-center rounded-xl bg-neutral-50 px-4">
-                  <NuxtImg
-                    :src="link.image"
-                    :alt="link.title"
-                    class="h-auto w-full "
-                  />
-                </div>
-                <p class="mt-1 hidden text-sm font-bold md:text-base">
-                  {{ link.title }}
-                </p>
-              </NuxtLink>
-            </NuxtMarquee>
-          </div>
-        </div>
+        <ContactUsFriendsLinks :render-friend-links="renderFriendLinks" />
       </div>
     </section>
   </div>

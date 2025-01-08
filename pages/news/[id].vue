@@ -114,12 +114,13 @@ const onHide = () => (visibleRef.value = false)
             :placeholder="[32, 32, 80, 5]"
             loading="lazy"
             :draggable="false"
+            format="webp"
           />
         </div>
         <ClientOnly>
           <div class="ProseMirror">
             <div
-              class="news-content text-sm md:text-base"
+              class="news-content break-words text-sm md:text-base"
               v-html="renderNews?.content"
             />
           </div>

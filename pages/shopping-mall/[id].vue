@@ -10,11 +10,22 @@ import {
 import { lineUrl, productsList } from '~/constants'
 import { handleDownload } from '@/lib/downloadForm'
 import { useSiteMetadata } from '@/composables/useMetaData'
+import { type Product, useProducts } from '~/services/supabase/useProducts'
 
 const router = useRoute()
 const { id } = router.params
+const product = ref<Product | null>(null)
 
-const product = computed(() => productsList.find(product => product.id === id))
+const { getProductById } = useProducts()
+const { data, error } = await useAsyncData('product', () => getProductById(id))
+
+if (error.value)
+  console.error('error', error.value)
+
+if (data.value)
+  product.value = data.value
+
+// const product = computed(() => productsList.find(product => product.id === id))
 
 const randomProducts = computed(() =>
   [...productsList]
@@ -24,7 +35,7 @@ const randomProducts = computed(() =>
 
 useSiteMetadata({
   title: `｜${product.value?.name}`,
-  description: product.value?.intro[0].description,
+  // description: product.value?.intro[0].description,
   image: product.value?.cover,
 })
 </script>
@@ -128,7 +139,7 @@ useSiteMetadata({
       </div>
 
       <ul class="mt-3 space-y-1 md:mt-6 md:space-y-6">
-        <ShopDescription :product="product" />
+        <ShopDescription :product-intro="product?.intro" />
       </ul>
     </div>
   </div>
