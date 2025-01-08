@@ -43,6 +43,21 @@ export function useNews() {
     return mappedData
   }
 
+  const getAllNewsIds = async () => {
+    const { data: newsIds, error: newsIdsError } = await supabase
+      .from('news')
+      .select('id')
+
+    if (newsIdsError) {
+      throw createError({
+        statusCode: 500,
+        message: newsIdsError.message,
+      })
+    }
+
+    return newsIds.map(item => item.id)
+  }
+
   const getNewsById = async (id: number) => {
     const { data: newsIdData, error } = await supabase
       .from('news')
@@ -65,5 +80,6 @@ export function useNews() {
   return {
     getNews,
     getNewsById,
+    getAllNewsIds,
   }
 }

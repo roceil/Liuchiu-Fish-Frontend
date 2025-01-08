@@ -134,12 +134,21 @@ export default defineNuxtConfig({
 
   sitemap: {
     enabled: process.env.NITRO_PUBLIC_NODE_ENV === 'production',
+    sources: ['/api/_sitemap-urls'],
     urls: [],
     exclude: [
       '/admin/**',
       '/404',
     ],
     autoLastmod: true,
+    defaults: {
+      changefreq: 'daily',
+      priority: 0.8,
+    },
+  },
+
+  robots: {
+    sitemap: ['https://liuyu.org.tw/sitemap.xml'],
   },
 
   compatibilityDate: '2024-11-27',
