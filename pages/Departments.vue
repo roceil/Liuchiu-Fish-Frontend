@@ -77,7 +77,7 @@ export interface DepartmentJobs {
               :department-jobs="departmentJobs"
             />
 
-            <!-- 推廣部 -->
+            <!-- 推廣股 -->
             <DepartmentPromotionContent
               :department-jobs="departmentJobs"
             />

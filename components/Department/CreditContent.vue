@@ -54,6 +54,10 @@ defineProps<{
     </div>
 
     <!-- 聯絡方式 -->
-    <DepartmentContactCard />
+    <DepartmentContactCard
+      phone-number="(08)861-2512"
+      fax-number="(08)861-1473"
+      open-time="8:00~12:00、13:30~16:30"
+    />
   </TabsContent>
 </template>
