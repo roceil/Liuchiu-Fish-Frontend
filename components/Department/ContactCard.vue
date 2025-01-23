@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+defineProps<{
+  phoneNumber: string
+  faxNumber: string
+  openTime: string
+}>()
+</script>
+
 <template>
   <div class="rounded-lg border border-neutral-100 p-6 md:flex md:items-center md:justify-center">
     <p class="border-b border-neutral-100 pb-4 font-bold md:border-b-0 md:border-r md:pb-0 md:pr-5 md:text-lg">
@@ -14,7 +22,7 @@
             name="ph:phone"
             class="text-base"
           />
-          <p>(08)861-1245</p>
+          <p>{{ phoneNumber }}</p>
         </NuxtLink>
       </li>
 
@@ -27,14 +35,14 @@
             name="fluent:print-16-regular"
             class="text-base"
           />
-          <p>(08)861-2394</p>
+          <p>{{ faxNumber }}</p>
         </NuxtLink>
       </li>
     </ul>
 
     <div class="mt-4 rounded-xl bg-neutral-50 p-3 text-center text-sm text-neutral-500 md:ml-5 md:mt-0 md:flex md:items-center md:justify-center md:space-x-2">
       <p>週一到週五</p>
-      <p>8:00~12:00、13:00~17:00</p>
+      <p>{{ openTime }}</p>
     </div>
   </div>
 </template>

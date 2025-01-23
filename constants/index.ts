@@ -595,7 +595,7 @@ export const departmentJobs: DepartmentJobs[] = [
     ],
   },
   {
-    name: '推廣部',
+    name: '推廣股',
     value: 'promotion',
     content: [
       {
@@ -695,7 +695,7 @@ export const contactData = [
     ],
   },
   {
-    title: '推廣部',
+    title: '推廣股',
     contactPhone: [
       {
         phone: '(08)861-4470',
