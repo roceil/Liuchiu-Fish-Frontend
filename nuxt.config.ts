@@ -56,7 +56,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
-    '@pinia-plugin-persistedstate/nuxt',
     '@nuxt/image',
     '@nuxtjs/google-fonts',
     '@nuxt/icon',
