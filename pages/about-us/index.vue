@@ -7,6 +7,11 @@ import { useSiteMetadata } from '@/composables/useMetaData'
 import { useLeaders } from '~/services/supabase/useLeaders'
 import { useAwards } from '~/services/supabase/useAwards'
 import { historyCardList } from '@/constants'
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/components/ui/hover-card'
 
 interface AwardDetail {
   name: string
@@ -354,16 +359,28 @@ useSiteMetadata({
                 class="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded bg-primary-300 md:h-[30px] md:w-[6px]"
               />
               組織架構
+
+              <HoverCard>
+                <HoverCardTrigger class="cursor-pointer py-2 pr-3">
+                  <Icon
+                    name="heroicons:information-circle-20-solid"
+                    class="size-4"
+                  />
+                </HoverCardTrigger>
+                <HoverCardContent class="bg-white">
+                  「議事機構」為漁會權力部門，包括會員代表大會、理事會及監事會。琉球區漁會以會員代表大會為最高權力機構，每年召開一次會員代表大會，會員代表大會休會期間由理事會（2 個月召開一次）一會員代表大會決議策劃業務。
+                </HoverCardContent>
+              </HoverCard>
             </h4>
 
-            <div class="mt-4 w-full">
+            <div class="mt-4 w-full overflow-hidden rounded-xl">
               <NuxtImg
-                src="/about-us/constructor-sm.svg"
+                src="/about-us/constructor-sm.png"
                 alt="organization"
                 class="h-auto w-full md:hidden"
               />
               <NuxtImg
-                src="/about-us/constructor-lg.svg"
+                src="/about-us/constructor-lg.png"
                 alt="organization"
                 class="hidden h-auto w-full md:block"
               />
