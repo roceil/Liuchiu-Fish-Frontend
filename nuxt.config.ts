@@ -40,7 +40,8 @@ export default defineNuxtConfig({
           async: true,
         },
         {
-          children: `window.dataLayer = window.dataLayer || [];
+          // unhead v2 將 inline script 內容的 key 由 `children` 改為 `innerHTML`
+          innerHTML: `window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-${process.env.NITRO_GOOGLE_ANALYTICS_ID}');`,
@@ -107,12 +108,20 @@ export default defineNuxtConfig({
   },
 
   build: {
-    transpile: ['@headlessui/vue'],
+    // aos 為純 CJS（無 ESM exports），Vite 7 下需同時 transpile + optimizeDeps.include
+    // 才能解決 "does not provide an export named 'default'"
+    transpile: ['@headlessui/vue', 'aos'],
   },
 
   vite: {
     define: {
       'process.env': process.env,
+    },
+    // aos 為 CommonJS，Vite 7 在 dev 預打包時找不到 default export。
+    // aos 是由 nuxt-aos（未被 optimize 的套件）import，故需用巢狀語法
+    // 'nuxt-aos > aos' 明確要求 Vite 預打包它，修正 "does not provide an export named 'default'"。
+    optimizeDeps: {
+      include: ['aos', 'nuxt-aos > aos'],
     },
   },
 
@@ -122,6 +131,9 @@ export default defineNuxtConfig({
         strict: true,
         // types: [],
       },
+      // 已停用的 nuxt-og-image 仍會被 nuxt 納入型別檢查，但其虛擬模組 #og-image/shared
+      // 未註冊，會產生型別錯誤；停用後將其元件排除於 type check 之外。
+      exclude: ['../node_modules/.pnpm/nuxt-og-image@*/**'],
     },
   },
 
@@ -129,6 +141,13 @@ export default defineNuxtConfig({
     name: '琉球區漁會',
     url: process.env.NITRO_PUBLIC_SITE_UR || 'https://liuyu.org.tw',
     defaultLocale: 'zh-TW',
+  },
+
+  // nuxt-og-image 未被使用（og:image 由 useSeoMeta 直接設定靜態圖），
+  // 且舊版 nuxt-og-image@4.2.0（來自 @nuxtjs/seo@2.0.2）與 Nuxt 3.21.6 的 unenv 不相容會導致 build 失敗，
+  // 故停用此子模組：同時移除其安全漏洞且不影響功能。
+  ogImage: {
+    enabled: false,
   },
 
   sitemap: {

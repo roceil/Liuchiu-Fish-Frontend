@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import lottie from 'lottie-web'
 import firstLoading from '~/assets/lottie/firstLoading.json'
 
 import { useLoadingState } from '@/composables/useLoadingState'
@@ -9,8 +8,11 @@ const { setAnimationShown } = useLoadingState()
 const wholeContainer = ref<HTMLDivElement>()
 const lottieContainer = ref<HTMLDivElement>()
 
-onMounted(() => {
+onMounted(async () => {
   document.body.style.overflowY = 'hidden'
+
+  // lottie-web 於 import 時即存取 document，須延遲到 client 端載入，避免 SSR 期間崩潰
+  const lottie = (await import('lottie-web')).default
 
   // 初始化 Lottie 動畫
   lottie.loadAnimation({
