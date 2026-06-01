@@ -39,6 +39,7 @@ export default antfu(
       'dist/',
       '.output/',
       '.nuxt/',
+      '.audit-shots/',
       '.storybook/',
       'storybook-static',
       '.github/',

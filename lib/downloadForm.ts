@@ -3,8 +3,8 @@
  */
 export function handleDownload() {
   const files = [
-    { url: '/shop/form_260531.pdf', filename: '琉漁小鋪購物表單.pdf' },
-    { url: '/shop/form_260531.doc', filename: '琉漁小鋪購物表單.doc' },
+    { url: '/shop/form_260601.pdf', filename: '琉漁小鋪購物表單.pdf' },
+    { url: '/shop/form_260601.doc', filename: '琉漁小鋪購物表單.doc' },
   ]
 
   files.forEach((file, index) => {
