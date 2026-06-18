@@ -64,6 +64,32 @@ export default defineNuxtConfig({
     'nuxt-aos',
     'nuxt-easy-lightbox',
     '@nuxtjs/seo',
+
+    // 內聯模組（置於 shadcn-nuxt 之後）：移除 shadcn-nuxt 加入的 components/ui 掃描目錄。
+    // 該目錄帶 extensions:[]，在 Nuxt 3.21 會被解析成 pattern '**/*.*' 而掃描所有檔案（含 .vue），
+    // 使 ui 元件以 bare 名稱（Button、Card…）被重複註冊，與 shadcn 透過各 ui/*/index.ts 註冊的
+    // 同名元件衝突，產生「Two component files resolving to the same name」警告。
+    // 移除此掃描目錄即可消除警告；ui 元件仍由 shadcn 的 index.ts 提供。
+    (_inlineOptions, nuxt) => {
+      nuxt.hook('components:dirs', (dirs) => {
+        for (let i = dirs.length - 1; i >= 0; i--) {
+          const dir = dirs[i]
+          const dirPath = typeof dir === 'string' ? dir : dir.path
+          if (typeof dirPath === 'string' && dirPath.replace(/\\/g, '/').endsWith('/components/ui'))
+            dirs.splice(i, 1)
+        }
+      })
+    },
+  ],
+
+  // ~/components 預設掃描忽略 ui 目錄（ui 元件由 shadcn 的 index.ts 提供），
+  // 避免重複註冊與多餘的 UiXxx 別名。
+  components: [
+    {
+      path: '~/components',
+      // ignore 樣式相對於上方 path（~/components）匹配，故用 'ui/**'。
+      ignore: ['ui/**'],
+    },
   ],
 
   shadcn: {
@@ -114,8 +140,20 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    // 僅注入前端真正需要的「公開」環境變數，而非整個 process.env。
+    // 原本 `'process.env': process.env` 會把 PASSWORD、NITRO_SUPABASE_PASSWORD 等
+    // 機密一併打包進前端 bundle 造成外洩，也觸發 Vite 的 "process.env contains PATH" 安全警告。
+    // 改為白名單物件後：process.env 仍是已定義物件（存取未列出的 key 只會得到 undefined，不會 ReferenceError），
+    // 但不再外洩機密，警告也消除。
     define: {
-      'process.env': process.env,
+      'process.env': {
+        NODE_ENV: process.env.NODE_ENV,
+        NITRO_PUBLIC_NODE_ENV: process.env.NITRO_PUBLIC_NODE_ENV,
+        NITRO_PUBLIC_SITE_URL: process.env.NITRO_PUBLIC_SITE_URL,
+        NITRO_PUBLIC_SUPABASE_URL: process.env.NITRO_PUBLIC_SUPABASE_URL,
+        NITRO_PUBLIC_SUPABASE_ANON_KEY: process.env.NITRO_PUBLIC_SUPABASE_ANON_KEY,
+        NITRO_GOOGLE_ANALYTICS_ID: process.env.NITRO_GOOGLE_ANALYTICS_ID,
+      },
     },
     // aos 為 CommonJS，Vite 7 在 dev 預打包時找不到 default export。
     // aos 是由 nuxt-aos（未被 optimize 的套件）import，故需用巢狀語法

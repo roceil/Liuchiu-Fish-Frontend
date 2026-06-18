@@ -7,28 +7,31 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import { lineUrl, productsList } from '~/constants'
+import { lineUrl } from '~/constants'
 import { handleDownload } from '@/lib/downloadForm'
 import { useSiteMetadata } from '@/composables/useMetaData'
 import { type Product, useProducts } from '~/services/supabase/useProducts'
 
-const router = useRoute()
-const { id } = router.params
-const product = ref<Product | null>(null)
+const route = useRoute()
+const { id } = route.params
 
-const { getProductById } = useProducts()
-const { data, error } = await useAsyncData('product', () => getProductById(id))
+const { getProductById, getProducts } = useProducts()
 
-if (error.value)
-  console.error('error', error.value)
+const { data: product, error } = await useAsyncData('product', () => getProductById(id))
 
-if (data.value)
-  product.value = data.value
+// getProductById 對無效 / 不存在的 id 會回 404；此處呈現正規 404 錯誤頁，避免殘留壞頁或 500。
+if (error.value || !product.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: '找不到商品',
+  })
+}
 
-// const product = computed(() => productsList.find(product => product.id === id))
-
-const randomProducts = computed(() =>
-  [...productsList]
+// 相關商品改由 Supabase 商品清單取樣（數字 id），確保連結都指向有效商品，並排除當前商品。
+const { data: allProducts } = await useAsyncData('related-products', () => getProducts())
+const randomProducts = computed<Product[]>(() =>
+  [...(allProducts.value ?? [])]
+    .filter(p => String(p.id) !== String(id))
     .sort(() => Math.random() - 0.5)
     .slice(0, 10),
 )
