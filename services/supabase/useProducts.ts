@@ -47,15 +47,36 @@ export function useProducts() {
   }
 
   const getProductById = async (id: string | string[]) => {
+    // 僅接受純數字、正整數的 id。非數字字串（如 SSG004）、undefined、NaN 一律視為查無，
+    // 不送進以 bigint 主鍵查詢的 Supabase，避免 "invalid input syntax for type bigint" 造成 500。
+    const rawId = Array.isArray(id) ? id[0] : id
+    const numericId = Number(rawId)
+    const isValidId = typeof rawId === 'string' && /^\d+$/.test(rawId) && numericId > 0
+
+    if (!isValidId) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Product not found',
+      })
+    }
+
     const { data: product, error } = await supabase
       .from('products')
       .select('*')
-      .eq('id', id)
+      .eq('id', numericId)
 
     if (error) {
       throw createError({
         statusCode: 500,
         message: error.message,
+      })
+    }
+
+    // 有效數字 id 但查無對應商品時，回 404 而非殘留 undefined。
+    if (!product || product.length === 0) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Product not found',
       })
     }
 
