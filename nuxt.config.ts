@@ -120,6 +120,21 @@ export default defineNuxtConfig({
     once: true,
   },
 
+  // 圖示改以 client bundle 內嵌（掃描原始碼中實際用到的 <Icon name="...">），
+  // 並停用 server bundle。原因：@nuxt/icon 在某些建置環境會對已安裝集合 emit
+  // 執行期 require('@iconify-json/<set>/icons.json')，而 @iconify-json/* 置於
+  // devDependencies，正式容器 prune devDeps 後即 MODULE_NOT_FOUND，使
+  // /api/_nuxt_icon/* 回 500；且預設會把完整集合（約 32MB）打包進 server 產物。
+  // 全站 <Icon> 皆為靜態字串，scan 可完整內嵌，故 serverBundle 可安全停用。
+  icon: {
+    provider: 'iconify',
+    serverBundle: false,
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 256,
+    },
+  },
+
   postcss: {
     plugins: {
       tailwindcss: {},
