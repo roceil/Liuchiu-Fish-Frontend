@@ -44,6 +44,8 @@ export default antfu(
       'storybook-static',
       '.github/',
       '.gitlab/',
+      '.claude/',
+      'openspec/',
       'coverage',
       '*.log',
       'nuxt.d.ts',
